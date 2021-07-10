@@ -52,10 +52,13 @@ public class OneMinuteSummary {
 	private void bloodPressureFromBytes(byte[] bytes) {
 		this.setType("BloodPressure");
 		this.setNumberOfData(bytes[2]);
+		this.setBloodPressure(new BloodPressureObj(bytes));
 	}
 	private void weightsFromBytes(byte[] bytes) {
 		this.setType("Weight");
 		this.setNumberOfData(bytes[2]);
+		this.setWeight(new WeightObj(bytes));
+
 	}
 	public String getType() {
 		return type;
@@ -95,6 +98,10 @@ public class OneMinuteSummary {
 				rs += obj.toString() +"\n";
 			}
 		}
+		if(this.getBloodPressure() != null)
+			rs+= this.getBloodPressure().toString()+ "\n";;
+		if(this.getWeight()!= null)
+			rs+=this.getWeight() + "\n";
 		return rs;
 	}
 	
