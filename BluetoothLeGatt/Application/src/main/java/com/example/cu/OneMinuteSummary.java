@@ -8,9 +8,9 @@ public class OneMinuteSummary {
 	private String type;
 	private int numberOfData;
 	private List<ActivityObj> activities;
-	private List<WeightObj> weights;
-	private List<BloodPressureObj> bloodPressures;
-	
+	private WeightObj weight;
+	private BloodPressureObj bloodPressure;
+
 	public OneMinuteSummary() {
 		// TODO Auto-generated constructor stub
 	}
@@ -58,7 +58,6 @@ public class OneMinuteSummary {
 		this.setType("Weight");
 		this.setNumberOfData(bytes[2]);
 		this.setWeight(new WeightObj(bytes));
-
 	}
 	public String getType() {
 		return type;
@@ -78,18 +77,6 @@ public class OneMinuteSummary {
 	public void setActivities(List<ActivityObj> activities) {
 		this.activities = activities;
 	}
-	public List<WeightObj> getWeights() {
-		return weights;
-	}
-	public void setWeights(List<WeightObj> weights) {
-		this.weights = weights;
-	}
-	public List<BloodPressureObj> getBloodPressures() {
-		return bloodPressures;
-	}
-	public void setBloodPressures(List<BloodPressureObj> bloodPressures) {
-		this.bloodPressures = bloodPressures;
-	}
 	@Override
 	public String toString() {
 		String rs = "";
@@ -104,6 +91,21 @@ public class OneMinuteSummary {
 			rs+=this.getWeight() + "\n";
 		return rs;
 	}
-	
+	public WeightObj getWeight() {
+		return weight;
+	}
+	public void setWeight(WeightObj weight) {
+		this.weight = weight;
+	}
+	public BloodPressureObj getBloodPressure() {
+		return bloodPressure;
+	}
+	public void setBloodPressure(BloodPressureObj bloodPressure) {
+		this.bloodPressure = bloodPressure;
+	}
+
+
 }
+
+
 
