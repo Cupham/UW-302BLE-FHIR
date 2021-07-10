@@ -139,5 +139,13 @@ public class ActivityObj {
 		}
 		return rs;
 	}
+
+	@Override
+	public String toString() {
+		String rs = "Time: "  + measureTime + ", temperature=" + temperature + ", step=" + step
+				+ ", calories=" + calories + ", sleptHours=" + sleptHours + ", sleepStatus=" + sleepStatus
+				+ ", sleptMinutes=" + sleptMinutes + ", isWearing=" + isWearing;
+		return rs;
+	}
 	
 }

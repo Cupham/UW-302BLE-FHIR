@@ -87,6 +87,16 @@ public class OneMinuteSummary {
 	public void setBloodPressures(List<BloodPressureObj> bloodPressures) {
 		this.bloodPressures = bloodPressures;
 	}
+	@Override
+	public String toString() {
+		String rs = "";
+		if(this.getActivities() != null && this.getActivities().size() >0) {
+			for(ActivityObj obj : this.getActivities()) {
+				rs += obj.toString() +"\n";
+			}
+		}
+		return rs;
+	}
 	
 }
 
