@@ -22,8 +22,8 @@ public class ActivityObj {
 		this.setMeasureTime(timeFromBytes(timeBytes));
 		this.setWearing(wearStatusFromBytes(bytes[3]));
 		this.setTemperature(bytes[4]*0.2 +60);
-		this.setTemperature(bytes[5]);
-		this.setCalories(bytes[8]/10);
+		this.setStep(bytes[5]);
+		this.setCalories(bytes[8]*10);
 		this.setSleepStatus(sleepStatusFromBytes(bytes[9]));
 		this.setSleptHours(bytes[10]);
 		this.setSleptHours(bytes[11]);
