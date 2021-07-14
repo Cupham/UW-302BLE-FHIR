@@ -1,10 +1,5 @@
-
-
-
-
-
-
-
-
-
-
+ext {
+    hapiFhirAndroidVersion = '3.1.0-SNAPSHOT'
+    hapiFhirStructuresDstu2Version = '3.1.0-SNAPSHOT'
+    hapiFhirAndroidVersion1 = hapiFhirAndroidVersion
+}

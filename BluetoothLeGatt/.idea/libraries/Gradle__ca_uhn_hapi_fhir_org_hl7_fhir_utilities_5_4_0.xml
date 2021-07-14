@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: ca.uhn.hapi.fhir:org.hl7.fhir.utilities:5.4.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ca.uhn.hapi.fhir/org.hl7.fhir.utilities/5.4.0/b20ad495872267dfefd75bf99359a8c6cdc376f8/org.hl7.fhir.utilities-5.4.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ca.uhn.hapi.fhir/org.hl7.fhir.utilities/5.4.0/1ff74b963d4a6024d7da447114464bfd32ae8f54/org.hl7.fhir.utilities-5.4.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ca.uhn.hapi.fhir/org.hl7.fhir.utilities/5.4.0/9c31f151dcc09a6403807f586268b238afbe282e/org.hl7.fhir.utilities-5.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -20,10 +20,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.bluetoothlegatt"
     android:versionCode="1"
-    android:versionName="1.0">
+    android:versionName="1.0"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Min/target SDK versions (<uses-sdk>) managed by build.gradle -->
-    
     <!-- Declare this required feature if you want to make the app available to BLE-capable
     devices only.  If you want to make your app available to devices that don't support BLE,
     you should omit this in the manifest.  Instead, determine BLE capability by using
@@ -38,11 +38,13 @@
     <uses-permission android:name="android.permission.PERMISSION_REQUEST_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
         android:icon="@drawable/ic_launcher"
-        android:theme="@android:style/Theme.Holo.Light">
-        <activity android:name=".DeviceScanActivity"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -51,6 +53,34 @@
         </activity>
         <activity android:name=".DeviceControlActivity"/>
         <service android:name=".BluetoothLeService" android:enabled="true"/>
+
+
+        <activity android:name=".AboutActivity"/>
+        <activity android:name=".DeviceScanActivity"/>
+        <activity android:name=".DeviceScanActivityToan"/>
+        <activity android:name=".UserActivity"/>
+        <activity android:name="com.example.toan.PopupRegistration"/>
+        <activity android:name="com.example.toan.PopupLogin"/>
+
     </application>
 
 </manifest>
+
+
+<!--
+android:icon="@drawable/ic_launcher"
+        android:theme="@style/Theme.AppCompat.Light">
+-->
+
+    <!--
+android:theme="@android:style/Theme.Holo.Light">
+        <activity android:name=".DeviceScanActivity"
+-->
+
+
+<!--
+
+android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".MainActivity"
+
+-->

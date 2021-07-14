@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: ca.uhn.hapi.fhir:hapi-fhir-structures-r4:5.4.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ca.uhn.hapi.fhir/hapi-fhir-structures-r4/5.4.2/d575b26af7a8ca31d4c063a94dc137a9dac786f3/hapi-fhir-structures-r4-5.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ca.uhn.hapi.fhir/hapi-fhir-structures-r4/5.4.2/60e62ff1472c616a9d6007a499bda0bda41a710d/hapi-fhir-structures-r4-5.4.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ca.uhn.hapi.fhir/hapi-fhir-structures-r4/5.4.2/125c4466ba7a25bf55f6a01946e2c89799828b94/hapi-fhir-structures-r4-5.4.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

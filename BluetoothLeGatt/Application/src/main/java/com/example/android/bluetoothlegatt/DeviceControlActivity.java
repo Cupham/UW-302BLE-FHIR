@@ -35,9 +35,8 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.RequiresApi;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -206,8 +205,10 @@ public class DeviceControlActivity extends Activity {
         mConnectionState = (TextView) findViewById(R.id.connection_state);
         mDataField = (TextView) findViewById(R.id.data_value2);
 
-        getActionBar().setTitle(mDeviceName);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        if(getActionBar()!=null) {
+            getActionBar().setTitle(mDeviceName);
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
@@ -489,14 +490,19 @@ public class DeviceControlActivity extends Activity {
                     Log.d("TOAN324", s);
                     ID_MIN = (Byte.toUnsignedInt(b[4])) * 256 + (Byte.toUnsignedInt(b[5]));
                     ID_CURRENT = (Byte.toUnsignedInt(b[4])) * 256 + (Byte.toUnsignedInt(b[5]));
-                    status.setText("Downloading " + ID_CURRENT + "/" + ID_MAX);
+                    MysetText("Downloading " + ID_CURRENT + "/" + ID_MAX);
                     processed_first_package = true;
                 }
             }
             else
             {
-                ID_CURRENT = (Byte.toUnsignedInt(b[4]))*256 +(Byte.toUnsignedInt(b[5]));
-                status.setText("Downloading " + ID_CURRENT + "/" +  ID_MAX);
+                if(b.length >=6)
+                {
+                    Log.d("TOAN324", "len=" + b.length);
+                    ID_CURRENT = (Byte.toUnsignedInt(b[4])) * 256 + (Byte.toUnsignedInt(b[5]));
+                    MysetText("Downloading " + ID_CURRENT + "/" + ID_MAX);
+                }
+
             }
         }
         else if ( NOTIFY_OBJ== charac)
@@ -514,7 +520,7 @@ public class DeviceControlActivity extends Activity {
                 SaveData();
                 OneMinuteSummary a = new OneMinuteSummary(data_tmp_copy);
                 TextView aaa = findViewById(R.id.textView_show);
-                aaa.setText("DATA:" + a.getActivities().get(0).getMeasureTime().toString());
+                //aaa.setText("DATA:" + a.getActivities().toString());
             }
 
             count_message++;

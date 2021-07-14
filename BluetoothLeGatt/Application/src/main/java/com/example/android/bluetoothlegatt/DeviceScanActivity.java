@@ -29,8 +29,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
 import android.os.Handler;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -41,6 +40,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
@@ -58,8 +60,10 @@ public class DeviceScanActivity extends ListActivity {
     private static final long SCAN_PERIOD = 10000;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
+        if(getActionBar()!=null)
         getActionBar().setTitle(R.string.title_devices);
         mHandler = new Handler();
 
@@ -109,6 +113,7 @@ public class DeviceScanActivity extends ListActivity {
 
         int currentAPIVersion = Build.VERSION.SDK_INT;
         if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
+
             if (ContextCompat.checkSelfPermission(context,
                     Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(
