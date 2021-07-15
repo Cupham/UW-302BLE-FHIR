@@ -526,10 +526,13 @@ public class DeviceControlActivity extends Activity {
                 byte[] data_tmp_copy = java.util.Arrays.copyOf(data_tmp,256);
 
                 //DATA.add(data_tmp_copy);
-                SavedData.TrytoAddToList(DATA,data_tmp_copy);
+                Boolean is_need_to_write = SavedData.TrytoAddToList(DATA,data_tmp_copy);
+                if(!is_need_to_write) {
+                    MysetText("SAVED 256 bytes; current size: " + DATA.size() + "x256");
+                    SavedData.SaveData(getApplicationContext(), DATA);
+                }
+                else MysetText("Skipped to save : " + DATA.size() + "x256");
 
-                MysetText("SAVED 256 bytes; current size: " + DATA.size() + "x256"  );
-                SavedData.SaveData(getApplicationContext(), DATA);
                 OneMinuteSummary a = new OneMinuteSummary(data_tmp_copy);
                 TextView aaa = findViewById(R.id.textView_show);
                 aaa.setText("DATA:" + a.getActivities().toString());

@@ -31,15 +31,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SendDataActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_senddata.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/BluetoothLeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/BluetoothLeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceControlActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceControlActivityToan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/gatt_services_characteristics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/gatt_services_characteristics.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,22 +230,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="441" key="FileChooserDialogImpl/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626152677840" />
-    <state width="2291" height="446" key="GridCell.Tab.0.bottom" timestamp="1626318235655">
+    <state width="2290" height="437" key="GridCell.Tab.0.bottom" timestamp="1626318866516">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2291" height="446" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318235655" />
-    <state width="2291" height="446" key="GridCell.Tab.0.center" timestamp="1626318235655">
+    <state width="2290" height="437" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318866516" />
+    <state width="2290" height="437" key="GridCell.Tab.0.center" timestamp="1626318866516">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2291" height="446" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318235655" />
-    <state width="2291" height="446" key="GridCell.Tab.0.left" timestamp="1626318235655">
+    <state width="2290" height="437" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318866516" />
+    <state width="2290" height="437" key="GridCell.Tab.0.left" timestamp="1626318866516">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2291" height="446" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318235655" />
-    <state width="2291" height="446" key="GridCell.Tab.0.right" timestamp="1626318235655">
+    <state width="2290" height="437" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318866516" />
+    <state width="2290" height="437" key="GridCell.Tab.0.right" timestamp="1626318866516">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2291" height="446" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318235655" />
+    <state width="2290" height="437" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318866516" />
     <state width="1808" height="541" key="GridCell.Tab.1.bottom" timestamp="1626315836880">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
