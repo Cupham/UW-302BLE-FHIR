@@ -30,12 +30,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="" />
+    <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SendDataActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_senddata.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/BluetoothLeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/BluetoothLeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceControlActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceControlActivityToan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/gatt_services_characteristics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/gatt_services_characteristics.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SerialNumber@ZY225BHSKW]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -214,10 +225,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1027" y="565" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625905855566" />
-    <state x="860" y="455" key="AndroidCreateResourceFileDialog" timestamp="1626143994947">
+    <state x="860" y="455" key="AndroidCreateResourceFileDialog" timestamp="1626308904392">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="860" y="455" key="AndroidCreateResourceFileDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626143994947" />
+    <state x="860" y="455" key="AndroidCreateResourceFileDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626308904392" />
     <state x="1072" y="446" key="AndroidProcessChooserDialog" timestamp="1625748516338">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -226,38 +237,38 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="441" key="FileChooserDialogImpl/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626152677840" />
-    <state width="2302" height="500" key="GridCell.Tab.0.bottom" timestamp="1626243654810">
+    <state width="2291" height="446" key="GridCell.Tab.0.bottom" timestamp="1626318235655">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2302" height="500" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626243654810" />
-    <state width="2302" height="500" key="GridCell.Tab.0.center" timestamp="1626243654810">
+    <state width="2291" height="446" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318235655" />
+    <state width="2291" height="446" key="GridCell.Tab.0.center" timestamp="1626318235655">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2302" height="500" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626243654810" />
-    <state width="2302" height="500" key="GridCell.Tab.0.left" timestamp="1626243654810">
+    <state width="2291" height="446" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318235655" />
+    <state width="2291" height="446" key="GridCell.Tab.0.left" timestamp="1626318235655">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2302" height="500" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626243654810" />
-    <state width="2302" height="500" key="GridCell.Tab.0.right" timestamp="1626243654810">
+    <state width="2291" height="446" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318235655" />
+    <state width="2291" height="446" key="GridCell.Tab.0.right" timestamp="1626318235655">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2302" height="500" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626243654810" />
-    <state width="1813" height="880" key="GridCell.Tab.1.bottom" timestamp="1625797063792">
+    <state width="2291" height="446" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626318235655" />
+    <state width="1808" height="541" key="GridCell.Tab.1.bottom" timestamp="1626315836880">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1813" height="880" key="GridCell.Tab.1.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625797063792" />
-    <state width="1813" height="880" key="GridCell.Tab.1.center" timestamp="1625797063792">
+    <state width="1808" height="541" key="GridCell.Tab.1.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626315836880" />
+    <state width="1808" height="541" key="GridCell.Tab.1.center" timestamp="1626315836880">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1813" height="880" key="GridCell.Tab.1.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625797063792" />
-    <state width="1813" height="880" key="GridCell.Tab.1.left" timestamp="1625797063792">
+    <state width="1808" height="541" key="GridCell.Tab.1.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626315836880" />
+    <state width="1808" height="541" key="GridCell.Tab.1.left" timestamp="1626315836879">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1813" height="880" key="GridCell.Tab.1.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625797063792" />
-    <state width="1813" height="880" key="GridCell.Tab.1.right" timestamp="1625797063792">
+    <state width="1808" height="541" key="GridCell.Tab.1.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626315836879" />
+    <state width="1808" height="541" key="GridCell.Tab.1.right" timestamp="1626315836880">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1813" height="880" key="GridCell.Tab.1.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625797063792" />
+    <state width="1808" height="541" key="GridCell.Tab.1.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626315836880" />
     <state x="2903" y="128" key="RollbackChangesDialog" timestamp="1626133679206">
       <screen x="2560" y="-852" width="1440" height="2520" />
     </state>
@@ -282,10 +293,10 @@
       <screen x="2560" y="-852" width="1440" height="2520" />
     </state>
     <state x="3097" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625797472745" />
-    <state x="2560" y="-116" width="1456" height="694" maximized="true" key="dock-window-1" timestamp="1626243961681">
+    <state x="2560" y="-22" width="1456" height="811" maximized="true" key="dock-window-1" timestamp="1626317160356">
       <screen x="2560" y="-852" width="1440" height="2520" />
     </state>
-    <state x="2560" y="-116" width="1456" height="694" maximized="true" key="dock-window-1/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626243961681" />
+    <state x="2560" y="-22" width="1456" height="811" maximized="true" key="dock-window-1/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626317160356" />
     <state x="2943" y="-257" width="672" height="678" key="search.everywhere.popup" timestamp="1626229273927">
       <screen x="2560" y="-852" width="1440" height="2520" />
     </state>
@@ -308,9 +319,14 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="intent" language="JAVA" />
-        <watch expression="s" language="JAVA" />
-        <watch expression="s.length()" language="JAVA" />
+        <watch expression="findViewById(R.id.textView_userinfo_time)" language="JAVA" />
+        <watch expression="(TextView)findViewById(R.id.textView_activity)" language="JAVA" />
+        <watch expression="(TextView)findViewById(R.id.textView_activity)" language="JAVA" />
+        <watch expression="(TextView)findViewById(R.id.textView_step)" language="JAVA" />
+        <watch expression="(TextView)findViewById(R.id.textView_distance)" language="JAVA" />
+        <watch expression="(TextView)findViewById(R.id.textView_bpm)" language="JAVA" />
+        <watch expression="(TextView)findViewById(R.id.textView_sleep)" language="JAVA" />
+        <watch expression="(TextView)findViewById(R.id.textView_sleep_status)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

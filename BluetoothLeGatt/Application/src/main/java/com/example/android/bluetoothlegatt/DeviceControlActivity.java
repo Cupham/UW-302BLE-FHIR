@@ -41,6 +41,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
@@ -58,6 +59,9 @@ import android.os.Build;
 import android.widget.Toast;
 
 import com.example.cu.OneMinuteSummary;
+import com.example.toan.PopupRegistration;
+import com.example.toan.SavedData;
+import com.example.toan.SendDataActivity;
 
 /**
  * For a given BLE device, this Activity provides the user interface to connect, display data,
@@ -123,6 +127,7 @@ public class DeviceControlActivity extends Activity {
                 mConnected = true;
                 updateConnectionState(R.string.connected);
                 invalidateOptionsMenu();
+                ((Button)findViewById(R.id.button_connect)).setText("Dis");
             }
             else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action))
             {
@@ -130,6 +135,7 @@ public class DeviceControlActivity extends Activity {
                 updateConnectionState(R.string.disconnected);
                 invalidateOptionsMenu();
                 clearUI();
+                ((Button)findViewById(R.id.button_connect)).setText("Conn");
             }
             else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action))
             {
@@ -228,7 +234,7 @@ public class DeviceControlActivity extends Activity {
                 builder.show();
             }
         }
-
+        DATA = SavedData.LoadAndSync(getApplicationContext());
     }
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -395,7 +401,7 @@ public class DeviceControlActivity extends Activity {
     String NOTIFY_SERVICE = "1a0934f0-b364-11e4-ab27-0800200c9a66";
     String WRITABLE_CHARACTER = "11127001-b364-11e4-ab27-0800200c9a66";
     String WRITABLE_SERVICE = "11127000-b364-11e4-ab27-0800200c9a66";
-    List<byte[]> DATA = new ArrayList<byte[]>();
+    public static List<byte[]> DATA = new ArrayList<byte[]>();
     private void MysetText(final String value)
     {
         runOnUiThread(new Runnable() {
@@ -410,40 +416,23 @@ public class DeviceControlActivity extends Activity {
             }
         });
     }
-
-   /* @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void OnClickGetData(View button)
+    private void MysetText(final String value, final TextView textview)
     {
-        is_auto_get_10 = false;
-        TextView console = findViewById(R.id.textView_console);
-        console.setText("");
-        count_message=0;
-
-
-        WRITABLE_OBJ=null;
-        NOTIFY_OBJ=null;
-        Get10Packages();
-
-    }*/
-    Boolean is_auto_get_10 = true;
-   /* public void OnClickGetData3(View button)
-    {
-        is_auto_get_10 = false;
-        Get3Packages();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run()
+            {
+                textview.setText(value);;
+            }
+        });
     }
-    public void OnClickGetData13(View button)
-    {
-        TextView console = findViewById(R.id.textView_console);
-        console.setText("");
-        is_auto_get_10 = true;
-        Get10Packages();
 
-    }*/
     int ID_MAX =-1;
     int ID_MIN =-1;
     int ID_CURRENT =-1;
     Boolean processed_first_package = false;
     int GOT_MESSAGE =0;
+    Boolean is_auto_get_10 = true;
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void OnClickGetDataAll(View button)
     {
@@ -465,12 +454,29 @@ public class DeviceControlActivity extends Activity {
         is_auto_get_10 = true;
         Get10Packages(false);
     }
+    public void OnClickConnect(View button)
+    {
+        if(mConnected == true)
+        {
+            mBluetoothLeService.disconnect();
+        }
+        else
+        {
+            mBluetoothLeService.connect(mDeviceAddress);
+        }
+    }
+    public void OnClickGetSendData(View button)
+    {
+        Log.d("TOAN123","onClickRegistration");
+        Intent intent = new Intent(this, SendDataActivity.class);
+        startActivity(intent);
+    }
     int count_message=0;
     @RequiresApi(api = Build.VERSION_CODES.O)
     public  void MyOnRecieve(BluetoothGattCharacteristic charac)
     {
         //TextView console = findViewById(R.id.textView_console);
-        Log.d("TOAN123",""+ charac.getValue().length);
+        //Log.d("TOAN123",""+ charac.getValue().length);
         if ( WRITABLE_OBJ== charac)
         {
             TextView status = findViewById(R.id.textView_toan);
@@ -490,8 +496,10 @@ public class DeviceControlActivity extends Activity {
                     Log.d("TOAN324", s);
                     ID_MIN = (Byte.toUnsignedInt(b[4])) * 256 + (Byte.toUnsignedInt(b[5]));
                     ID_CURRENT = (Byte.toUnsignedInt(b[4])) * 256 + (Byte.toUnsignedInt(b[5]));
-                    MysetText("Downloading " + ID_CURRENT + "/" + ID_MAX);
+                    //MysetText("Downloading " + ID_CURRENT + "/" + ID_MAX);
                     processed_first_package = true;
+
+                    MysetText("Downloading: " + ID_CURRENT + "/" + ID_MAX,status );
                 }
             }
             else
@@ -500,7 +508,8 @@ public class DeviceControlActivity extends Activity {
                 {
                     Log.d("TOAN324", "len=" + b.length);
                     ID_CURRENT = (Byte.toUnsignedInt(b[4])) * 256 + (Byte.toUnsignedInt(b[5]));
-                    MysetText("Downloading " + ID_CURRENT + "/" + ID_MAX);
+                    MysetText("Downloading: " + ID_CURRENT + "/" + ID_MAX,status);
+                    //MysetText("Downloading " + ID_CURRENT + "/" + ID_MAX);
                 }
 
             }
@@ -515,12 +524,15 @@ public class DeviceControlActivity extends Activity {
             if(count_message==12)
             {
                 byte[] data_tmp_copy = java.util.Arrays.copyOf(data_tmp,256);
-                DATA.add(data_tmp_copy);
+
+                //DATA.add(data_tmp_copy);
+                SavedData.TrytoAddToList(DATA,data_tmp_copy);
+
                 MysetText("SAVED 256 bytes; current size: " + DATA.size() + "x256"  );
-                SaveData();
+                SavedData.SaveData(getApplicationContext(), DATA);
                 OneMinuteSummary a = new OneMinuteSummary(data_tmp_copy);
                 TextView aaa = findViewById(R.id.textView_show);
-                //aaa.setText("DATA:" + a.getActivities().toString());
+                aaa.setText("DATA:" + a.getActivities().toString());
             }
 
             count_message++;
@@ -638,23 +650,7 @@ public class DeviceControlActivity extends Activity {
         else MysetText("WRITE FAIL");
     }
 
-    String SaveData()
-    {
-        Context context = getApplicationContext();
-        File dir = new File(context.getFilesDir(), "mydir");
-        if (!dir.exists())  dir.mkdir();
-        try {
-            File gpxfile = new File(dir, "DATA.txt");
-            FileOutputStream fos = new FileOutputStream(gpxfile.getPath());
-            for (int i = 0; i < DATA.size(); i++)
-                fos.write(DATA.get(i));
-            fos.close();
-            Log.d("TOAN999","WRITE DATA TO FILE OK " + DATA.size());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
 
 }
 

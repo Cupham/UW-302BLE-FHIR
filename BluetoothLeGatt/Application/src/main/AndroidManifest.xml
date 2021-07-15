@@ -61,6 +61,8 @@
         <activity android:name=".UserActivity"/>
         <activity android:name="com.example.toan.PopupRegistration"/>
         <activity android:name="com.example.toan.PopupLogin"/>
+        <activity android:name="com.example.toan.SendDataActivity"/>
+
 
     </application>
 

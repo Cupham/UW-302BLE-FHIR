@@ -117,7 +117,7 @@ public class BluetoothLeService extends Service {
         @Override
         public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic)
         {
-            Log.d("KHUE2",characteristic.toString() );
+            //Log.d("KHUE2",characteristic.toString() );
             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
             if(DeviceControlActivity.I!=null)
                 DeviceControlActivity.I.MyOnRecieve(characteristic);
