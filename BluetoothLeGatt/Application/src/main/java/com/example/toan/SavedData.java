@@ -64,7 +64,17 @@ public class SavedData
         }
         return l;
     }
+    public  static void ClearData(Context context)
+    {
+        List<byte[]> l = new ArrayList<>();
+        SaveData(context, l);
+    }
     public static Boolean TrytoAddToList(List<byte[]> original, byte[] newbytes)
+    {
+        original.add(newbytes);
+        return true;
+    }
+    public static Boolean TrytoAddToList_old(List<byte[]> original, byte[] newbytes)
     {
         int n = original.size();
         Boolean is_have = false;

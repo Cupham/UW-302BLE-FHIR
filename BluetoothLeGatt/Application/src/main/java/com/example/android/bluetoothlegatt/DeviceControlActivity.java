@@ -436,6 +436,7 @@ public class DeviceControlActivity extends Activity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void OnClickGetDataAll(View button)
     {
+        SavedData.ClearData(getApplicationContext());
         GOT_MESSAGE=0;
         processed_first_package = false;
 
