@@ -31,10 +31,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-mdpi/bg_blue.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-mdpi/bg_green.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-mdpi/bg_yellow.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceControlActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SendDataActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SendDataActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_senddata.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_senddata.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,13 +70,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="VirtualDevicePath@C:\Users\nmtoa\.android\avd\Pixel_3a_API_30_x86.avd" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-07-17T03:10:15.320319400Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-viewC:/Users/nmtoa/AppData/Local/Android/Sdk/sources/android-28/android/view/View.java_SELECTED" value="View" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/Application/src/main/res/drawable-mdpi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Application/src/main/res/drawable-mdpi" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -87,19 +92,20 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\drawable-mdpi" />
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\layout" />
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\menu" />
-      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\navigation" />
+      <recent name="C:\Users\nmtoa\Desktop\BLET\BluetoothLeGatt\Application\src\main\res\menu" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.toan" />
       <recent name="com.example.android.bluetoothlegatt" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\layout" />
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\menu" />
-      <recent name="C:\Users\nmtoa\Desktop\BLET\BluetoothLeGatt\Application\src\main\res\menu" />
+      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\navigation" />
     </key>
   </component>
   <component name="RunManager">
@@ -208,6 +214,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625905648258" />
+    <state x="1044" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1626488075650">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1044" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626488075650" />
     <state x="1085" y="406" key="#com.intellij.ide.util.MemberChooser" timestamp="1626156193877">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -232,22 +242,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="441" key="FileChooserDialogImpl/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626152677840" />
-    <state width="1258" height="401" key="GridCell.Tab.0.bottom" timestamp="1626422749681">
+    <state width="1258" height="401" key="GridCell.Tab.0.bottom" timestamp="1626491504598">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626422749681" />
-    <state width="1258" height="401" key="GridCell.Tab.0.center" timestamp="1626422749680">
+    <state width="1258" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626491504598" />
+    <state width="1258" height="401" key="GridCell.Tab.0.center" timestamp="1626491504598">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626422749680" />
-    <state width="1258" height="401" key="GridCell.Tab.0.left" timestamp="1626422749680">
+    <state width="1258" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626491504598" />
+    <state width="1258" height="401" key="GridCell.Tab.0.left" timestamp="1626491504598">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626422749680" />
-    <state width="1258" height="401" key="GridCell.Tab.0.right" timestamp="1626422749680">
+    <state width="1258" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626491504598" />
+    <state width="1258" height="401" key="GridCell.Tab.0.right" timestamp="1626491504598">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626422749680" />
+    <state width="1258" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626491504598" />
     <state width="1808" height="541" key="GridCell.Tab.1.bottom" timestamp="1626315836880">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -280,6 +290,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1288" height="708" key="XDebugger.FullValuePopup/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625796734055" />
+    <state x="1096" y="478" key="chooseDestDirectoryDialog" timestamp="1626488063937">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1096" y="478" key="chooseDestDirectoryDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626488063937" />
     <state x="92" y="92" width="2376" height="1216" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1625891847394">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

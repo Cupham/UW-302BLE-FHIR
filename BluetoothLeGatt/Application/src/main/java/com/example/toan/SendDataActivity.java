@@ -14,7 +14,9 @@ import androidx.annotation.Nullable;
 import com.example.android.bluetoothlegatt.DeviceControlActivity;
 import com.example.android.bluetoothlegatt.R;
 import com.example.cu.ActivityObj;
+import com.example.cu.BloodPressureObj;
 import com.example.cu.OneMinuteSummary;
+import com.example.cu.WeightObj;
 
 import org.hl7.fhir.r4.model.Observation;
 import org.hl7.fhir.r4.model.Quantity;
@@ -49,7 +51,7 @@ public class SendDataActivity extends Activity
 
         }
         else*/
-        {
+
 
             byte[] aa = SavedData.LoadData(getApplicationContext());
             int n = (aa.length-256);
@@ -65,17 +67,31 @@ public class SendDataActivity extends Activity
             aa2 = Arrays.copyOfRange(aa, aa.length-256,aa.length);
             oms = new OneMinuteSummary(aa2);
             Log.d("TOAN34","Parse data from saved data: bytearraysize: " + aa.length + " expected: " + aa.length/256 + " got:" + oms.getActivities().size() );
-        }
+
         ActivityObj ao = oms.getActivities().get(oms.getActivities().size()-1);
 
 
         ((TextView)findViewById(R.id.textView_userinfo_time)).setText(ao.getMeasureTime().toString());
         ((TextView)findViewById(R.id.textView_activity)).setText(ao.getCalories() + " " );
         ((TextView)findViewById(R.id.textView_step)).setText(ao.getStep() + "");
-        ((TextView)findViewById(R.id.textView_distance)).setText("No info");
-        ((TextView)findViewById(R.id.textView_bpm)).setText("No info");
+        ((TextView)findViewById(R.id.textView_distance)).setText("NA");
+        ((TextView)findViewById(R.id.textView_bpm)).setText("NA");
         ((TextView)findViewById(R.id.textView_sleep)).setText(ao.getSleptHours()+":" + ao.getSleptMinutes());
         ((TextView)findViewById(R.id.textView_sleep_status)).setText(ao.getSleepStatus());
+
+
+        //WeightObj wo = new WeightObj(aa2);
+        //((TextView)findViewById(R.id.textView_weight)).setText(wo.getWeight()+"");
+        //((TextView)findViewById(R.id.textView_bmi)).setText("NA");
+        //((TextView)findViewById(R.id.textView_weight_time)).setText(wo.getMeasureTime()+"");
+
+
+        //BloodPressureObj bo = new BloodPressureObj(aa2);
+        //((TextView)findViewById(R.id.textView_DIA)).setText(bo.getDIA()+"");
+        //((TextView)findViewById(R.id.textView_MAP)).setText(bo.getMAP()+"");
+        //((TextView)findViewById(R.id.textView_PUL)).setText(bo.getPUL()+"");
+        //((TextView)findViewById(R.id.textView_SYS)).setText(bo.getSYS()+"");
+        //((TextView)findViewById(R.id.textView_weight_time)).setText(bo.getMeasureTime()+"");
 
 
 
