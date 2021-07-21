@@ -53,10 +53,10 @@ public class SendDataActivity extends Activity
         else*/
 
 
-            byte[] aa = SavedData.LoadData(getApplicationContext());
-            int n = (aa.length-256);
-            byte[] aa2;
-            n = aa.length/256;
+        byte[] aa = SavedData.LoadData(getApplicationContext());
+        int n = (aa.length-256);
+        byte[] aa2;
+        n = aa.length/256;
            /* for (int i =0; i < n; i++)
             {
                 aa2 = Arrays.copyOfRange(aa, i*256,i*256+256);
@@ -64,9 +64,9 @@ public class SendDataActivity extends Activity
                 Log.d("TOAN12",oms.getActivities().get(0).toString());
             }*/
 
-            aa2 = Arrays.copyOfRange(aa, aa.length-256,aa.length);
-            oms = new OneMinuteSummary(aa2);
-            Log.d("TOAN34","Parse data from saved data: bytearraysize: " + aa.length + " expected: " + aa.length/256 + " got:" + oms.getActivities().size() );
+        aa2 = Arrays.copyOfRange(aa, aa.length-256,aa.length);
+        oms = new OneMinuteSummary(aa2);
+        Log.d("TOAN34","Parse data from saved data: bytearraysize: " + aa.length + " expected: " + aa.length/256 + " got:" + oms.getActivities().size() );
 
         ActivityObj ao = oms.getActivities().get(oms.getActivities().size()-1);
 
@@ -80,18 +80,24 @@ public class SendDataActivity extends Activity
         ((TextView)findViewById(R.id.textView_sleep_status)).setText(ao.getSleepStatus());
 
 
-        //WeightObj wo = new WeightObj(aa2);
-        //((TextView)findViewById(R.id.textView_weight)).setText(wo.getWeight()+"");
-        //((TextView)findViewById(R.id.textView_bmi)).setText("NA");
-        //((TextView)findViewById(R.id.textView_weight_time)).setText(wo.getMeasureTime()+"");
+
+        WeightObj wo = oms.getWeight();
+        if(wo!=null) {
+            ((TextView) findViewById(R.id.textView_weight)).setText(wo.getWeight() + "");
+            ((TextView) findViewById(R.id.textView_bmi)).setText("NA");
+            ((TextView) findViewById(R.id.textView_weight_time)).setText(wo.getMeasureTime() + "");
+        }
 
 
-        //BloodPressureObj bo = new BloodPressureObj(aa2);
-        //((TextView)findViewById(R.id.textView_DIA)).setText(bo.getDIA()+"");
-        //((TextView)findViewById(R.id.textView_MAP)).setText(bo.getMAP()+"");
-        //((TextView)findViewById(R.id.textView_PUL)).setText(bo.getPUL()+"");
-        //((TextView)findViewById(R.id.textView_SYS)).setText(bo.getSYS()+"");
-        //((TextView)findViewById(R.id.textView_weight_time)).setText(bo.getMeasureTime()+"");
+
+        BloodPressureObj bo = oms.getBloodPressure();
+        if(bo!=null) {
+            ((TextView) findViewById(R.id.textView_DIA)).setText(bo.getDIA() + "");
+            ((TextView) findViewById(R.id.textView_MAP)).setText(bo.getMAP() + "");
+            ((TextView) findViewById(R.id.textView_PUL)).setText(bo.getPUL() + "");
+            ((TextView) findViewById(R.id.textView_SYS)).setText(bo.getSYS() + "");
+            ((TextView) findViewById(R.id.textView_weight_time)).setText(bo.getMeasureTime() + "");
+        }
 
 
 
