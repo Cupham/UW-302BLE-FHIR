@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //toanstt
         OneMinuteSummary oms = null;
         byte[] aa = SavedData.LoadData(getApplicationContext());
-        if (aa.length>=256) {
+        if (aa!=null && aa.length>=256) {
             int n = (aa.length - 256);
             byte[] aa2;
             n = aa.length / 256;

@@ -20,15 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="611dp" />
 
-        <TextView
-            android:id="@+id/textView_user_infor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center_horizontal"
-            android:text="About Activty"
-            android:textColor="@color/design_default_color_primary"
-            android:textSize="30sp" />
 
     </LinearLayout>
 

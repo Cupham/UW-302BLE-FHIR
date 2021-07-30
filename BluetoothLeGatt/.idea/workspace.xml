@@ -31,21 +31,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/ThermoMeterControlActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/WeightScaleControlActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_thermometer.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_weightscale.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/gatt_services_characteristics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/gatt_services_characteristics.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/AboutActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/ConnectFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/DrawerItemCustomAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_contact.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_devicescan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_devicescan.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/fragment_connect.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/list_view_item_row.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/menu/main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/main_drawer.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/toolbar.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SerialNumber@ZY225BHSKW]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\nmtoa\.android\avd\Pixel_3a_API_30_x86.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -244,22 +249,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="441" key="FileChooserDialogImpl/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626152677840" />
-    <state width="1258" height="401" key="GridCell.Tab.0.bottom" timestamp="1626491504598">
+    <state width="2285" height="473" key="GridCell.Tab.0.bottom" timestamp="1627632758229">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626491504598" />
-    <state width="1258" height="401" key="GridCell.Tab.0.center" timestamp="1626491504598">
+    <state width="2285" height="473" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627632758229" />
+    <state width="2285" height="473" key="GridCell.Tab.0.center" timestamp="1627632758229">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626491504598" />
-    <state width="1258" height="401" key="GridCell.Tab.0.left" timestamp="1626491504598">
+    <state width="2285" height="473" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627632758229" />
+    <state width="2285" height="473" key="GridCell.Tab.0.left" timestamp="1627632758229">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626491504598" />
-    <state width="1258" height="401" key="GridCell.Tab.0.right" timestamp="1626491504598">
+    <state width="2285" height="473" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627632758229" />
+    <state width="2285" height="473" key="GridCell.Tab.0.right" timestamp="1627632758229">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626491504598" />
+    <state width="2285" height="473" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627632758229" />
     <state width="1808" height="541" key="GridCell.Tab.1.bottom" timestamp="1626315836880">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
