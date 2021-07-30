@@ -31,13 +31,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/ThermoMeterControlActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/WeightScaleControlActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_thermometer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_weightscale.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UserActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SendDataActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SendDataActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_senddata.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_senddata.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/gatt_services_characteristics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/gatt_services_characteristics.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +81,7 @@
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/Application/src/main/res/drawable-mdpi" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Application/src/main/res/drawable-mdpi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Application/src/main/res/layout" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -93,20 +94,20 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\drawable-mdpi" />
-      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\layout" />
-      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\menu" />
-      <recent name="C:\Users\nmtoa\Desktop\BLET\BluetoothLeGatt\Application\src\main\res\menu" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.toan" />
-      <recent name="com.example.android.bluetoothlegatt" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\layout" />
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\menu" />
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\navigation" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.android.bluetoothlegatt" />
+      <recent name="com.example.toan" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\layout" />
+      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\drawable-mdpi" />
+      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\menu" />
+      <recent name="C:\Users\nmtoa\Desktop\BLET\BluetoothLeGatt\Application\src\main\res\menu" />
     </key>
   </component>
   <component name="RunManager">
@@ -303,10 +304,10 @@
       <screen x="2560" y="-852" width="1440" height="2520" />
     </state>
     <state x="3097" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625797472745" />
-    <state x="2560" y="-22" width="1456" height="811" maximized="true" key="dock-window-1" timestamp="1626842913670">
+    <state x="2560" y="-22" width="1456" height="811" maximized="true" key="dock-window-1" timestamp="1627607655103">
       <screen x="2560" y="-852" width="1440" height="2520" />
     </state>
-    <state x="2560" y="-22" width="1456" height="811" maximized="true" key="dock-window-1/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626842913670" />
+    <state x="2560" y="-22" width="1456" height="811" maximized="true" key="dock-window-1/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627607655103" />
     <state x="2943" y="-257" width="672" height="678" key="search.everywhere.popup" timestamp="1626229273927">
       <screen x="2560" y="-852" width="1440" height="2520" />
     </state>

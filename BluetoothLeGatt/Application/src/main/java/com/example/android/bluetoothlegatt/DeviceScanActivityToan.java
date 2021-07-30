@@ -268,19 +268,50 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
             mLeDeviceListAdapter = new LeDeviceListAdapter();
             //setListAdapter(mLeDeviceListAdapter);
             lv.setAdapter(mLeDeviceListAdapter);
-            Log.d("TOAN345","lv.setAdapter: " + mLeDeviceListAdapter.toString());
+
             lv.setOnItemClickListener((parent, view, position, id) ->
             {
+
+
                 final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
                 if (device == null) return;
-                final Intent intent = new Intent(this, DeviceControlActivity.class);
-                intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
-                intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
-                if (mScanning) {
-                    mBluetoothAdapter.stopLeScan(mLeScanCallback);
-                    mScanning = false;
+
+
+                Log.d("TOAN345","on clidk: " + device.getName());
+                if(device.getName().indexOf("UC") >=0)
+                {
+                    final Intent intent = new Intent(this, WeightScaleControlActivity.class);
+                    intent.putExtra(WeightScaleControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+                    intent.putExtra(WeightScaleControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+                    if (mScanning)
+                    {
+                        mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                        mScanning = false;
+                    }
+                    startActivity(intent);
                 }
-                startActivity(intent);
+                else if(device.getName().indexOf("UT") >=0)
+                {
+                    final Intent intent = new Intent(this, ThermoMeterControlActivity.class);
+                    intent.putExtra(ThermoMeterControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+                    intent.putExtra(ThermoMeterControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+                    if (mScanning) {
+                        mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                        mScanning = false;
+                    }
+                    startActivity(intent);
+                }
+                else //if(device.getName().indexOf("BL") >=0)
+                {
+                    final Intent intent = new Intent(this, DeviceControlActivity.class);
+                    intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+                    intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+                    if (mScanning) {
+                        mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                        mScanning = false;
+                    }
+                    startActivity(intent);
+                }
             });
             scanLeDevice(true);
         }
