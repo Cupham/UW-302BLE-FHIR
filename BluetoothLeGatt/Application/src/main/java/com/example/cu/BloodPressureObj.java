@@ -1,5 +1,10 @@
 package com.example.cu;
 
+import android.os.Build;
+import android.util.Log;
+
+import androidx.annotation.RequiresApi;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -17,7 +22,7 @@ public class BloodPressureObj {
 
     }
     public BloodPressureObj(byte[] bytes) {
-        measurementDataFromBytes(Arrays.copyOfRange(bytes, 112,128));
+        measurementDataFromBytes(Arrays.copyOfRange(bytes, 93,111));
     }
 
     public Date getMeasureTime() {
@@ -85,12 +90,13 @@ public class BloodPressureObj {
     private int intFromBytesLE(byte[] bytes) {
         return ((bytes[1] & 0xff) << 8) + (bytes[0] & 0xff);
     }
+
     private void measurementDataFromBytes(byte[] bytes) {
         this.setMeasureTime(timeFromBytes(bytes));
         this.setSYS(intFromBytesLE(new byte[] {bytes[1], bytes[2]}));
         this.setDIA(intFromBytesLE(new byte[] {bytes[3], bytes[4]}));
         this.setMAP(intFromBytesLE(new byte[] {bytes[5], bytes[6]}));
-        this.setPUL(intFromBytesLE(new byte[] {bytes[15], bytes[16]}));
+        this.setPUL(intFromBytesLE(new byte[] {bytes[14], bytes[15]}));
         this.setMeasurementStatus(statusFromBytes(new byte[] {bytes[16], bytes[17]}));
 
     }

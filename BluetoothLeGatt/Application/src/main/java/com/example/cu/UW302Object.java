@@ -1,36 +1,32 @@
 package com.example.cu;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class OneMinuteSummary {
+public class UW302Object {
 	private String type;
 	private int numberOfData;
 	private List<ActivityObj> activities;
 	private WeightObj weight;
 	private BloodPressureObj bloodPressure;
 
-	public OneMinuteSummary() {
+	public UW302Object() {
 		// TODO Auto-generated constructor stub
 	}
-	public OneMinuteSummary(byte[] bytes) {
+	public UW302Object(byte[] bytes) {
 		if(bytes[0] == 0x50) {
 			if(bytes[1] == 0x27) {
 				activitiesFromBytes(bytes);
 			} else if(bytes[1] == 0x28) {
 				bloodPressureFromBytes(bytes);
-			} else {
-				unknown();
-			}
-		} else if(bytes[0] == 0x30) {
-			if(bytes[1] == 0x29) {
+			} if(bytes[1] == 0x29) {
 				weightsFromBytes(bytes);
 			} else {
 				unknown();
 			}
-		} else {
-			unknown();
 		}
 	}
 	private void unknown() {
@@ -51,12 +47,10 @@ public class OneMinuteSummary {
 	}
 	private void bloodPressureFromBytes(byte[] bytes) {
 		this.setType("BloodPressure");
-		this.setNumberOfData(bytes[2]);
 		this.setBloodPressure(new BloodPressureObj(bytes));
 	}
 	private void weightsFromBytes(byte[] bytes) {
 		this.setType("Weight");
-		this.setNumberOfData(bytes[2]);
 		this.setWeight(new WeightObj(bytes));
 	}
 	public String getType() {

@@ -13,7 +13,7 @@ public class WeightObj {
 
     }
     public WeightObj(byte[] bytes) {
-        measurementDataFromBytes(Arrays.copyOfRange(bytes, 112,122));
+        measurementDataFromBytes(Arrays.copyOfRange(bytes, 95,113));
     }
 
     public Date getMeasureTime() {
@@ -46,7 +46,7 @@ public class WeightObj {
         return ((bytes[1] & 0xff) << 8) + (bytes[0] & 0xff);
     }
     private double weightFromBytes(byte[] bytes) {
-        double rs = intFromBytesLE(bytes)/200;
+        double rs = intFromBytesLE(bytes)/200.0;
         return rs;
     }
     private void measurementDataFromBytes(byte[] bytes) {

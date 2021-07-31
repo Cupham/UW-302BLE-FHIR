@@ -65,9 +65,12 @@ public class BluetoothLeService extends Service {
 
     public final static UUID UUID_HEART_RATE_MEASUREMENT =
             UUID.fromString(SampleGattAttributes.HEART_RATE_MEASUREMENT);
-
+    public enum AandDDeviceType {
+        UW_302, UC_352, UT_201, UA_651, UNKNOWN
+    }
     // Implements callback methods for GATT events that the app cares about.  For example,
     // connection change and services discovered.
+    public static AandDDeviceType deviceType = AandDDeviceType.UNKNOWN;
     String Byearrytointstring(byte[] s) { String ss = "";for ( int i =0; i < s.length; i++) { ss+= (int)s[i] + " "; }return ss; }
     private final BluetoothGattCallback mGattCallback = new BluetoothGattCallback()
     {
@@ -117,10 +120,25 @@ public class BluetoothLeService extends Service {
         @Override
         public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic)
         {
-            //Log.d("KHUE2",characteristic.toString() );
             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
-            if(DeviceControlActivity.I!=null)
-                DeviceControlActivity.I.MyOnRecieve(characteristic);
+            switch (deviceType){
+                case UA_651:
+                    break;
+                case UW_302:
+                    if(UW_302ActivityTrackerControlActivity.I!=null) {
+                        UW_302ActivityTrackerControlActivity.I.onReceivingData(characteristic);
+                    }
+                    break;
+                case UT_201:
+                    break;
+                case UC_352:
+                    break;
+                case UNKNOWN:
+                    break;
+                default:
+                    break;
+            }
+
         }
         @Override
         public void onCharacteristicWrite (BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status)

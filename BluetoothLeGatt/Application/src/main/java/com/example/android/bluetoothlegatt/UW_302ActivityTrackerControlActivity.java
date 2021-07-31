@@ -31,9 +31,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import androidx.annotation.RequiresApi;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,16 +44,17 @@ import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
-
-import com.example.cu.OneMinuteSummary;
-import com.example.toan.SavedData;
-import com.example.toan.SendDataActivity;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+
+import android.os.Build;
+
+import com.example.cu.ActivityObj;
+import com.example.cu.UW302Object;
+import com.example.toan.SavedData;
+import com.example.toan.SendDataActivity;
 
 /**
  * For a given BLE device, this Activity provides the user interface to connect, display data,
@@ -60,9 +62,9 @@ import java.util.UUID;
  * communicates with {@code BluetoothLeService}, which in turn interacts with the
  * Bluetooth LE API.
  */
-public class WeightScaleControlActivity extends Activity {
-    private final static String TAG = WeightScaleControlActivity.class.getSimpleName();
-    public  static WeightScaleControlActivity I;
+public class UW_302ActivityTrackerControlActivity extends Activity {
+    private final static String TAG = UW_302ActivityTrackerControlActivity.class.getSimpleName();
+    public  static UW_302ActivityTrackerControlActivity I;
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
@@ -189,7 +191,7 @@ public class WeightScaleControlActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         I = this;
-        setContentView(R.layout.activity_weightscale);
+        setContentView(R.layout.activity_uw_302);
 
         final Intent intent = getIntent();
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
@@ -199,6 +201,7 @@ public class WeightScaleControlActivity extends Activity {
         ((TextView) findViewById(R.id.device_address)).setText(mDeviceAddress);
         mGattServicesList = (ExpandableListView) findViewById(R.id.gatt_services_list);
         mGattServicesList.setOnChildClickListener(servicesListClickListner);
+        mGattServicesList.setVisibility(View.GONE);
         mConnectionState = (TextView) findViewById(R.id.connection_state);
         mDataField = (TextView) findViewById(R.id.data_value2);
 
@@ -384,7 +387,8 @@ public class WeightScaleControlActivity extends Activity {
         return intentFilter;
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
-    String Byearrytointstring(byte[] s) { String ss = "";for (int i = 0; i < s.length; i++) { ss+= Byte.toUnsignedInt(s[i]) + " "; }return ss; }
+    String Byearrytointstring(byte[] s) {
+        String ss = "";for (int i = 0; i < s.length; i++) { ss+= Byte.toUnsignedInt(s[i]) + " "; }return ss; }
 
     BluetoothGattCharacteristic WRITABLE_OBJ;
     BluetoothGattCharacteristic NOTIFY_OBJ;
@@ -393,7 +397,8 @@ public class WeightScaleControlActivity extends Activity {
     String WRITABLE_CHARACTER = "11127001-b364-11e4-ab27-0800200c9a66";
     String WRITABLE_SERVICE = "11127000-b364-11e4-ab27-0800200c9a66";
     public static List<byte[]> DATA = new ArrayList<byte[]>();
-    private void MysetText(final String value)
+
+    private void writeToConsole(final String value)
     {
         runOnUiThread(new Runnable() {
             @Override
@@ -407,7 +412,7 @@ public class WeightScaleControlActivity extends Activity {
             }
         });
     }
-    private void MysetText(final String value, final TextView textview)
+    private void writeToSumary(final String value, final TextView textview)
     {
         runOnUiThread(new Runnable() {
             @Override
@@ -457,7 +462,7 @@ public class WeightScaleControlActivity extends Activity {
             mBluetoothLeService.connect(mDeviceAddress);
         }
     }
-    public void OnClickGetSendData(View button)
+    public void OnClickSendData(View button)
     {
         Log.d("TOAN123","onClickRegistration");
         Intent intent = new Intent(this, SendDataActivity.class);
@@ -465,10 +470,8 @@ public class WeightScaleControlActivity extends Activity {
     }
     int count_message=0;
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public  void MyOnRecieve(BluetoothGattCharacteristic charac)
+    public  void onReceivingData(BluetoothGattCharacteristic charac)
     {
-        //TextView console = findViewById(R.id.textView_console);
-        //Log.d("TOAN123",""+ charac.getValue().length);
         if ( WRITABLE_OBJ== charac)
         {
             TextView status = findViewById(R.id.textView_toan);
@@ -491,7 +494,7 @@ public class WeightScaleControlActivity extends Activity {
                     //MysetText("Downloading " + ID_CURRENT + "/" + ID_MAX);
                     processed_first_package = true;
 
-                    MysetText("Downloading: " + ID_CURRENT + "/" + ID_MAX,status );
+                    writeToSumary("Downloading: " + ID_CURRENT + "/" + ID_MAX,status );
                 }
             }
             else
@@ -500,7 +503,7 @@ public class WeightScaleControlActivity extends Activity {
                 {
                     Log.d("TOAN324", "len=" + b.length);
                     ID_CURRENT = (Byte.toUnsignedInt(b[4])) * 256 + (Byte.toUnsignedInt(b[5]));
-                    MysetText("Downloading: " + ID_CURRENT + "/" + ID_MAX,status);
+                    writeToSumary("Downloading: " + ID_CURRENT + "/" + ID_MAX,status);
                     //MysetText("Downloading " + ID_CURRENT + "/" + ID_MAX);
                 }
 
@@ -518,21 +521,36 @@ public class WeightScaleControlActivity extends Activity {
                 byte[] data_tmp_copy = java.util.Arrays.copyOf(data_tmp,256);
 
                 //DATA.add(data_tmp_copy);
+
+
+
                 Boolean is_need_to_write = SavedData.TrytoAddToList(DATA,data_tmp_copy);
-                if(!is_need_to_write) {
-                    MysetText("SAVED 256 bytes; current size: " + DATA.size() + "x256");
+                if(is_need_to_write)
+                {
+                    Log.d("TOAN656","SAVED 256 bytes; current size: " + DATA.size() + "x256");
+                    writeToConsole("SAVED 256 bytes; current size: " + DATA.size() + "x256");
                     SavedData.SaveData(getApplicationContext(), DATA);
                 }
-                else MysetText("Skipped to save : " + DATA.size() + "x256");
+                else
+                {
+                    Log.d("TOAN656","Skipped to save : " + DATA.size() + "x256");
+                    writeToConsole("Skipped to save : " + DATA.size() + "x256");
+                }
 
-                OneMinuteSummary a = new OneMinuteSummary(data_tmp_copy);
-                TextView aaa = findViewById(R.id.textView_show);
-                aaa.setText("DATA:" + a.getActivities().toString());
+                UW302Object a = new UW302Object(data_tmp_copy);
+                if(a.getActivities() != null) {
+                    TextView aaa = findViewById(R.id.textView_show);
+                    aaa.setText("DATA:" + a.getActivities().toString());
+                }
+                if(a.getBloodPressure()!=null)
+                    Log.d("CULOLO",a.getBloodPressure().toString());
+                if(a.getWeight()!=null)
+                    Log.d("CULOLO",a.getWeight().toString());
             }
 
             count_message++;
             Log.d("TOAN678","count_message: "+ count_message + " len:" + b.length );
-            MysetText("Receieve package " + count_message + "/13/ (" + ID_CURRENT  + ")"  );
+            writeToConsole("Receieve package " + count_message + "/13/ (" + ID_CURRENT  + ")"  );
             if(count_message==10 && is_auto_get_10)
             {
                 Get3Packages();
@@ -541,7 +559,7 @@ public class WeightScaleControlActivity extends Activity {
             {
                 if(ID_MAX <=1)
                 {
-                    MysetText("FINISHED get " + DATA.size() + "x256 bytes");
+                    writeToConsole("FINISHED get " + DATA.size() + "x256 bytes");
 
                     //Toast toast = Toast.makeText(getApplicationContext() , ("Finished get " + DATA.size() + "x256 bytes"),Toast.LENGTH_LONG);
                     //toast.show();
@@ -552,7 +570,7 @@ public class WeightScaleControlActivity extends Activity {
                 else
                 {
                     GOT_MESSAGE++;
-                    MysetText("Finished 13 packages");
+                    writeToConsole("Finished 13 packages");
                     processed_first_package = false;
                     count_message = 0;
                     Get10Packages(false);
@@ -567,16 +585,16 @@ public class WeightScaleControlActivity extends Activity {
         NOTIFY_OBJ = mBluetoothGatt.getService(UUID.fromString(NOTIFY_SERVICE)).getCharacteristic(UUID.fromString(NOTIFY_CHARACTER));
         if(GOT_MESSAGE==0)
         {
-            if (null != WRITABLE_OBJ) MysetText("Check WRITABLE_OBJ OK");
-            else MysetText("Check WRITABLE_OBJ FAIL");
-            if (null != NOTIFY_OBJ) MysetText("Check NOTIFY_OBJ OK");
-            else MysetText("Check NOTIFY_OBJ FAIL");
+            if (null != WRITABLE_OBJ) writeToConsole("Check WRITABLE_OBJ OK");
+            else writeToConsole("Check WRITABLE_OBJ FAIL");
+            if (null != NOTIFY_OBJ) writeToConsole("Check NOTIFY_OBJ OK");
+            else writeToConsole("Check NOTIFY_OBJ FAIL");
         }
     }
-    void Subcribe()
+    void subcribeData()
     {
         BluetoothGatt mBluetoothGatt = mBluetoothLeService.GetmBluetoothGatt();
-        MysetText("<< BEGIN SUBCRIBE >>");
+        writeToConsole("<< BEGIN SUBCRIBE >>");
         UUID uuid = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
         mBluetoothGatt.setCharacteristicNotification(WRITABLE_OBJ,true);
         BluetoothGattDescriptor descriptor = WRITABLE_OBJ.getDescriptor(uuid);//UUID.fromString(WRITABLE_CHARACTER));
@@ -586,7 +604,7 @@ public class WeightScaleControlActivity extends Activity {
         BluetoothGattDescriptor descriptor2 = WRITABLE_OBJ.getDescriptor(uuid);//UUID.fromString(WRITABLE_CHARACTER));
         descriptor2.setValue(BluetoothGattDescriptor.ENABLE_INDICATION_VALUE);
         mBluetoothGatt.writeDescriptor(descriptor2);
-        MysetText("<< FINISH SUBCRIBE >>");
+        writeToConsole("<< FINISH SUBCRIBE >>");
     }
     byte[] data_tmp = new byte[256];
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -604,28 +622,28 @@ public class WeightScaleControlActivity extends Activity {
 
         if(GOT_MESSAGE==0)
         {
-            byte[] new_datarequest = {(byte) 0x04, (byte) 0x01, (byte) 0x58, (byte) GOT_MESSAGE, (byte) 0x00};
-            if (is_all)  new_datarequest[4] = (byte)1;
-            MysetText("WRITING: " + Byearrytointstring(new_datarequest));
-            WriteToWriteCharacteric(new_datarequest);
+            byte[] getDataCommand = {(byte) 0x04, (byte) 0x01, (byte) 0x58, (byte) GOT_MESSAGE, (byte) 0x00};
+            if (is_all)  getDataCommand[4] = (byte)1;
+            writeToConsole("WRITING: " + Byearrytointstring(getDataCommand));
+            WriteToWriteCharacteric(getDataCommand);
         }
         else
         {
             byte[] new_datarequest = {(byte) 0x03, (byte) 0x01, (byte) 0x58, (byte) 01};
-            MysetText("WRITING: " + Byearrytointstring(new_datarequest));
+            writeToConsole("WRITING: " + Byearrytointstring(new_datarequest));
             WriteToWriteCharacteric(new_datarequest);
         }
 
         if(GOT_MESSAGE==0)
-        Subcribe();
+        subcribeData();
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     void Get3Packages()
     {
-        byte[] new_datarequest = {(byte) 0x03, (byte) 0x01, (byte) 0x58, (byte) 0x01};
-        WriteToWriteCharacteric(new_datarequest);
+        byte[] getLast3PkgCommand = {(byte) 0x03, (byte) 0x01, (byte) 0x58, (byte) 0x01};
+        WriteToWriteCharacteric(getLast3PkgCommand);
 
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -641,8 +659,8 @@ public class WeightScaleControlActivity extends Activity {
         charac.setValue(new_datarequest);
 
         boolean status = mBluetoothGatt.writeCharacteristic(charac);
-        if(status==true) MysetText("WRITE OK OK : " + Byearrytointstring(new_datarequest));
-        else MysetText("WRITE FAIL");
+        if(status==true) writeToConsole("WRITE OK OK : " + Byearrytointstring(new_datarequest));
+        else writeToConsole("WRITE FAIL");
     }
 
 

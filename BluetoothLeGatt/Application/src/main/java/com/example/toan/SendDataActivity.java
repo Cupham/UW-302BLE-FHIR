@@ -1,35 +1,26 @@
 package com.example.toan;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.example.android.bluetoothlegatt.DeviceControlActivity;
 import com.example.android.bluetoothlegatt.R;
 import com.example.cu.ActivityObj;
 import com.example.cu.BloodPressureObj;
-import com.example.cu.OneMinuteSummary;
+import com.example.cu.UW302Object;
 import com.example.cu.WeightObj;
 
 import org.hl7.fhir.r4.model.Observation;
 import org.hl7.fhir.r4.model.Quantity;
 import org.hl7.fhir.r4.model.Reference;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import ca.uhn.fhir.context.FhirContext;
-import ca.uhn.fhir.rest.api.MethodOutcome;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 
 public class SendDataActivity extends Activity
@@ -43,7 +34,7 @@ public class SendDataActivity extends Activity
 
         ((TextView)findViewById(R.id.textView_userinfo)).setText("User: " + SavedUser.getCURRENT_USER_ID(getApplicationContext()));
 
-        OneMinuteSummary oms = null;
+        UW302Object oms = null;
        /* if(DeviceControlActivity.DATA.size()>=1)
         {
             Log.d("TOAN34","Parse data from DATA");
@@ -65,7 +56,7 @@ public class SendDataActivity extends Activity
             }*/
 
         aa2 = Arrays.copyOfRange(aa, aa.length-256,aa.length);
-        oms = new OneMinuteSummary(aa2);
+        oms = new UW302Object(aa2);
         Log.d("TOAN34","Parse data from saved data: bytearraysize: " + aa.length + " expected: " + aa.length/256 + " got:" + oms.getActivities().size() );
 
         ActivityObj ao = oms.getActivities().get(oms.getActivities().size()-1);
@@ -114,7 +105,7 @@ public class SendDataActivity extends Activity
         int n = (aa.length-256);
         byte[] aa2;
         aa2 = Arrays.copyOfRange(aa, aa.length-256,aa.length);
-        final OneMinuteSummary oms = new OneMinuteSummary(aa2);
+        final UW302Object oms = new UW302Object(aa2);
         final String username = SavedUser.getCURRENT_USER_ID(getApplicationContext());
         //ActivityObj ao = oms.getActivities().get(oms.getActivities().size()-1);
        /* int n = aa.length/256;
@@ -142,7 +133,7 @@ public class SendDataActivity extends Activity
     }
 
 
-    public boolean sendToFHIRServer(String user_ID, OneMinuteSummary data){
+    public boolean sendToFHIRServer(String user_ID, UW302Object data){
         Observation obs = new Observation();
         obs.getCode().addCoding().setSystem("http://www.acme.org/nutritionorders")
                 .setCode("123")

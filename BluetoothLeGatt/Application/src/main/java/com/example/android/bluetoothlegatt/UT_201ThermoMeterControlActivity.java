@@ -45,7 +45,7 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.cu.OneMinuteSummary;
+import com.example.cu.UW302Object;
 import com.example.toan.SavedData;
 import com.example.toan.SendDataActivity;
 
@@ -60,9 +60,9 @@ import java.util.UUID;
  * communicates with {@code BluetoothLeService}, which in turn interacts with the
  * Bluetooth LE API.
  */
-public class ThermoMeterControlActivity extends Activity {
-    private final static String TAG = ThermoMeterControlActivity.class.getSimpleName();
-    public  static ThermoMeterControlActivity I;
+public class UT_201ThermoMeterControlActivity extends Activity {
+    private final static String TAG = UT_201ThermoMeterControlActivity.class.getSimpleName();
+    public  static UT_201ThermoMeterControlActivity I;
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
@@ -189,7 +189,7 @@ public class ThermoMeterControlActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         I = this;
-        setContentView(R.layout.activity_thermometer);
+        setContentView(R.layout.activity_ut_201);
 
         final Intent intent = getIntent();
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
@@ -525,7 +525,7 @@ public class ThermoMeterControlActivity extends Activity {
                 }
                 else MysetText("Skipped to save : " + DATA.size() + "x256");
 
-                OneMinuteSummary a = new OneMinuteSummary(data_tmp_copy);
+                UW302Object a = new UW302Object(data_tmp_copy);
                 TextView aaa = findViewById(R.id.textView_show);
                 aaa.setText("DATA:" + a.getActivities().toString());
             }

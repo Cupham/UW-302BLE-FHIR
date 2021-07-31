@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="CULOLO" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
@@ -31,30 +32,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/SumaryObj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_play_core_1_9_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_play_core_1_9_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/AboutActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/BluetoothLeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/BluetoothLeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UW_302ActivityTrackerControlActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/ConnectFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/DrawerItemCustomAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_contact.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_devicescan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_devicescan.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/fragment_connect.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/list_view_item_row.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/menu/main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/main_drawer.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/toolbar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/ThermoMeterControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UT_201ThermoMeterControlActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UserActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/WeightScaleControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UC_352WeightScaleControlActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/BloodPressureObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/BloodPressureObj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/OneMinuteSummary.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UW302Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/WeightObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/WeightObj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SendDataActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SendDataActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_thermometer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_ut_201.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_weightscale.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_uc_352.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/gatt_services_characteristics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_uw_302.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\nmtoa\.android\avd\Pixel_3a_API_30_x86.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[ZY225BHSKW]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BluetoothLeGatt" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BluetoothLeGatt" type="f1a62948:ProjectNode" />
+                <item name="Application" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BluetoothLeGatt" type="f1a62948:ProjectNode" />
+                <item name="Application" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -87,6 +125,7 @@
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/Application/src/main/res/drawable-mdpi" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Application/src/main/res/layout" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1627705837966" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -208,116 +247,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="906" y="378" key="#Inspections" timestamp="1625912601698">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="906" y="378" key="#Inspections/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625912601698" />
-    <state x="855" y="172" width="1377" height="643" key="#PSD" timestamp="1626159655929">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="855" y="172" width="1377" height="643" key="#PSD/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626159655929" />
-    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1625905648258">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625905648258" />
-    <state x="1044" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1626488075650">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1044" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626488075650" />
-    <state x="1085" y="406" key="#com.intellij.ide.util.MemberChooser" timestamp="1626156193877">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1085" y="406" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626156193877" />
-    <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1626243666437">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626243666437" />
-    <state x="1027" y="565" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1625905855566">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1027" y="565" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625905855566" />
-    <state x="860" y="455" key="AndroidCreateResourceFileDialog" timestamp="1626308904392">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="860" y="455" key="AndroidCreateResourceFileDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626308904392" />
-    <state x="1072" y="446" key="AndroidProcessChooserDialog" timestamp="1625748516338">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1072" y="446" key="AndroidProcessChooserDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625748516338" />
-    <state x="1060" y="441" key="FileChooserDialogImpl" timestamp="1626152677840">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1060" y="441" key="FileChooserDialogImpl/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626152677840" />
-    <state width="2285" height="473" key="GridCell.Tab.0.bottom" timestamp="1627632758229">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2285" height="473" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627632758229" />
-    <state width="2285" height="473" key="GridCell.Tab.0.center" timestamp="1627632758229">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2285" height="473" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627632758229" />
-    <state width="2285" height="473" key="GridCell.Tab.0.left" timestamp="1627632758229">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2285" height="473" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627632758229" />
-    <state width="2285" height="473" key="GridCell.Tab.0.right" timestamp="1627632758229">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2285" height="473" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627632758229" />
-    <state width="1808" height="541" key="GridCell.Tab.1.bottom" timestamp="1626315836880">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1808" height="541" key="GridCell.Tab.1.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626315836880" />
-    <state width="1808" height="541" key="GridCell.Tab.1.center" timestamp="1626315836880">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1808" height="541" key="GridCell.Tab.1.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626315836880" />
-    <state width="1808" height="541" key="GridCell.Tab.1.left" timestamp="1626315836879">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1808" height="541" key="GridCell.Tab.1.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626315836879" />
-    <state width="1808" height="541" key="GridCell.Tab.1.right" timestamp="1626315836880">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1808" height="541" key="GridCell.Tab.1.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626315836880" />
-    <state x="2903" y="128" key="RollbackChangesDialog" timestamp="1626133679206">
-      <screen x="2560" y="-852" width="1440" height="2520" />
-    </state>
-    <state x="2903" y="128" key="RollbackChangesDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626133679206" />
-    <state x="781" y="345" key="SettingsEditor" timestamp="1625906096033">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="781" y="345" key="SettingsEditor/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625906096033" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1625728972592">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625728972592" />
-    <state width="1288" height="708" key="XDebugger.FullValuePopup" timestamp="1625796734055">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1288" height="708" key="XDebugger.FullValuePopup/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625796734055" />
-    <state x="1096" y="478" key="chooseDestDirectoryDialog" timestamp="1626488063937">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1096" y="478" key="chooseDestDirectoryDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626488063937" />
-    <state x="92" y="92" width="2376" height="1216" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1625891847394">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="92" y="92" width="2376" height="1216" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625891847394" />
-    <state x="3097" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625797472745">
-      <screen x="2560" y="-852" width="1440" height="2520" />
-    </state>
-    <state x="3097" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1625797472745" />
-    <state x="2560" y="-22" width="1456" height="811" maximized="true" key="dock-window-1" timestamp="1627607655103">
-      <screen x="2560" y="-852" width="1440" height="2520" />
-    </state>
-    <state x="2560" y="-22" width="1456" height="811" maximized="true" key="dock-window-1/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627607655103" />
-    <state x="2943" y="-257" width="672" height="678" key="search.everywhere.popup" timestamp="1626229273927">
-      <screen x="2560" y="-852" width="1440" height="2520" />
-    </state>
-    <state x="2943" y="-257" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1626229273927" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -343,6 +272,8 @@
         <watch expression="(TextView)findViewById(R.id.textView_bpm)" language="JAVA" />
         <watch expression="(TextView)findViewById(R.id.textView_sleep)" language="JAVA" />
         <watch expression="(TextView)findViewById(R.id.textView_sleep_status)" language="JAVA" />
+        <watch expression="aa" />
+        <watch expression="total_calories" />
       </configuration>
     </watches-manager>
   </component>

@@ -18,7 +18,6 @@ package com.example.android.bluetoothlegatt;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCharacteristic;
@@ -32,11 +31,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.IBinder;
-import androidx.annotation.RequiresApi;
-
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,22 +43,16 @@ import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
+import androidx.annotation.RequiresApi;
+
+import com.example.cu.UW302Object;
+import com.example.toan.SavedData;
+import com.example.toan.SendDataActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
-import java.util.function.BinaryOperator;
-
-import android.os.Build;
-import android.widget.Toast;
-
-import com.example.cu.OneMinuteSummary;
-import com.example.toan.PopupRegistration;
-import com.example.toan.SavedData;
-import com.example.toan.SendDataActivity;
 
 /**
  * For a given BLE device, this Activity provides the user interface to connect, display data,
@@ -69,9 +60,9 @@ import com.example.toan.SendDataActivity;
  * communicates with {@code BluetoothLeService}, which in turn interacts with the
  * Bluetooth LE API.
  */
-public class DeviceControlActivity extends Activity {
-    private final static String TAG = DeviceControlActivity.class.getSimpleName();
-    public  static DeviceControlActivity I;
+public class UC_352WeightScaleControlActivity extends Activity {
+    private final static String TAG = UC_352WeightScaleControlActivity.class.getSimpleName();
+    public  static UC_352WeightScaleControlActivity I;
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
@@ -198,7 +189,7 @@ public class DeviceControlActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         I = this;
-        setContentView(R.layout.gatt_services_characteristics);
+        setContentView(R.layout.activity_uc_352);
 
         final Intent intent = getIntent();
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
@@ -534,7 +525,7 @@ public class DeviceControlActivity extends Activity {
                 }
                 else MysetText("Skipped to save : " + DATA.size() + "x256");
 
-                OneMinuteSummary a = new OneMinuteSummary(data_tmp_copy);
+                UW302Object a = new UW302Object(data_tmp_copy);
                 TextView aaa = findViewById(R.id.textView_show);
                 aaa.setText("DATA:" + a.getActivities().toString());
             }

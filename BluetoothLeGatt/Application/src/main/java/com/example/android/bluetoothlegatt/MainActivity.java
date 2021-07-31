@@ -14,7 +14,8 @@ import android.widget.TextView;
 
 import com.example.cu.ActivityObj;
 import com.example.cu.BloodPressureObj;
-import com.example.cu.OneMinuteSummary;
+import com.example.cu.SumaryObj;
+import com.example.cu.UW302Object;
 import com.example.cu.WeightObj;
 import com.example.toan.SavedData;
 import com.google.android.material.navigation.NavigationView;
@@ -42,21 +43,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         //toanstt
-        OneMinuteSummary oms = null;
+        UW302Object oms = null;
         byte[] aa = SavedData.LoadData(getApplicationContext());
+
+        Log.d("TOAN34", "lenaa = " + aa.length);
+
+
+
         if (aa!=null && aa.length>=256) {
             int n = (aa.length - 256);
             byte[] aa2;
             n = aa.length / 256;
-           /* for (int i =0; i < n; i++)
-            {
-                aa2 = Arrays.copyOfRange(aa, i*256,i*256+256);
-                oms = new OneMinuteSummary(aa2);
-                Log.d("TOAN12",oms.getActivities().get(0).toString());
-            }*/
+
 
             aa2 = Arrays.copyOfRange(aa, aa.length - 256, aa.length);
-            oms = new OneMinuteSummary(aa2);
+            oms = new UW302Object(aa2);
             Log.d("TOAN34", "Parse data from saved data: bytearraysize: " + aa.length + " expected: " + aa.length / 256 + " got:" + oms.getActivities().size());
 
             ActivityObj ao = oms.getActivities().get(oms.getActivities().size() - 1);
@@ -87,6 +88,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 ((TextView) findViewById(R.id.textView_SYS)).setText(bo.getSYS() + "");
                 ((TextView) findViewById(R.id.textView_weight_time)).setText(bo.getMeasureTime() + "");
             }
+            //NEW
+            SumaryObj sumaryobj = new SumaryObj(aa);
+            ((TextView) findViewById(R.id.textView_activity)).setText(sumaryobj.total_calories + "(new)");
+
+            ((TextView) findViewById(R.id.textView_weight)).setText(sumaryobj.WEIGHT_WEIGHT + "");
+            //((TextView) findViewById(R.id.textView_bmi)).setText("NA");
+            ((TextView) findViewById(R.id.textView_weight_time)).setText(sumaryobj.WEIGHT_DAY + "");
+
+            //((TextView) findViewById(R.id.textView_DIA)).setText(bo.getDIA() + "");
+            //((TextView) findViewById(R.id.textView_MAP)).setText(bo.getMAP() + "");
+            //((TextView) findViewById(R.id.textView_PUL)).setText(bo.getPUL() + "");
+            ((TextView) findViewById(R.id.textView_SYS)).setText(sumaryobj.BLOOD_SYS + "");
+            ((TextView) findViewById(R.id.textView_blood_time)).setText(sumaryobj.BLOOD_DAY + "");
         }
 
     }

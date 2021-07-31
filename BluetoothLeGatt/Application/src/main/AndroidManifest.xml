@@ -51,14 +51,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".DeviceControlActivity"/>
+        <activity android:name=".UW_302ActivityTrackerControlActivity"/>
         <service android:name=".BluetoothLeService" android:enabled="true"/>
         <activity android:name=".AboutActivity"/>
         <activity android:name=".DeviceScanActivity"/>
         <activity android:name=".DeviceScanActivityToan"/>
         <activity android:name=".UserActivity"/>
-        <activity android:name=".WeightScaleControlActivity"/>
-        <activity android:name=".ThermoMeterControlActivity"/>
+        <activity android:name=".UC_352WeightScaleControlActivity"/>
+        <activity android:name=".UT_201ThermoMeterControlActivity"/>
 
         <activity android:name="com.example.toan.PopupRegistration"/>
         <activity android:name="com.example.toan.PopupLogin"/>

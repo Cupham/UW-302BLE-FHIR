@@ -15,7 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.cu.ActivityObj;
 import com.example.cu.BloodPressureObj;
-import com.example.cu.OneMinuteSummary;
+import com.example.cu.UW302Object;
 import com.example.cu.WeightObj;
 import com.example.toan.PopupLogin;
 import com.example.toan.PopupRegistration;
@@ -77,7 +77,7 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
     void FillData()
     {
         //toanstt
-        OneMinuteSummary oms = null;
+        UW302Object oms = null;
         byte[] aa = SavedData.LoadData(getApplicationContext());
         if (aa.length>=256) {
             int n = (aa.length - 256);
@@ -91,7 +91,7 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
             }*/
 
             aa2 = Arrays.copyOfRange(aa, aa.length - 256, aa.length);
-            oms = new OneMinuteSummary(aa2);
+            oms = new UW302Object(aa2);
             Log.d("TOAN34", "Parse data from saved data: bytearraysize: " + aa.length + " expected: " + aa.length / 256 + " got:" + oms.getActivities().size());
 
             ActivityObj ao = oms.getActivities().get(oms.getActivities().size() - 1);
