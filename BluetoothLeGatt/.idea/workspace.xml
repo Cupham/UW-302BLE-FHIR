@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="CULOLO" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="KHUE" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
@@ -32,35 +32,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/SumaryObj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UA_651BloodPressureControlActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UA_651Obj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UC_352Obj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UT_201Obj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedDevices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_ua_651.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_play_core_1_9_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_play_core_1_9_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/BluetoothLeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/BluetoothLeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UW_302ActivityTrackerControlActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/ThermoMeterControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UT_201ThermoMeterControlActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UserActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/WeightScaleControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UC_352WeightScaleControlActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/BloodPressureObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/BloodPressureObj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/OneMinuteSummary.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UW302Object.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/WeightObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/WeightObj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SendDataActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SendDataActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_thermometer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_ut_201.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_weightscale.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_uc_352.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/gatt_services_characteristics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_uw_302.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UC_352WeightScaleControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UC_352WeightScaleControlActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UT_201ThermoMeterControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UT_201ThermoMeterControlActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_devicescan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_devicescan.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_uc_352.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_uc_352.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_ut_201.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_ut_201.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[ZY225BHSKW]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SerialNumber@G0W0T9058477FEGN]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -138,20 +135,21 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\layout" />
-      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\menu" />
-      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\navigation" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.android.bluetoothlegatt" />
-      <recent name="com.example.toan" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\layout" />
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\drawable-mdpi" />
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\menu" />
       <recent name="C:\Users\nmtoa\Desktop\BLET\BluetoothLeGatt\Application\src\main\res\menu" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.cu" />
+      <recent name="com.example.android.bluetoothlegatt" />
+      <recent name="com.example.toan" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\layout" />
+      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\menu" />
+      <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\navigation" />
     </key>
   </component>
   <component name="RunManager">
@@ -247,6 +245,68 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="1085" y="384" key="#com.intellij.ide.util.MemberChooser" timestamp="1627807767971">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1085" y="384" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627807767971" />
+    <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1627807565689">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627807565689" />
+    <state x="1072" y="446" key="AndroidProcessChooserDialog" timestamp="1627779546898">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1072" y="446" key="AndroidProcessChooserDialog/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627779546898" />
+    <state width="462" height="466" key="DebuggerActiveHint" timestamp="1627779426247">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="462" height="466" key="DebuggerActiveHint/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627779426247" />
+    <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1627797328395">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627797328395" />
+    <state width="2274" height="-2" key="GridCell.Tab.0.bottom" timestamp="1627805685756">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2274" height="-2" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627805685756" />
+    <state width="2274" height="-2" key="GridCell.Tab.0.center" timestamp="1627805685756">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2274" height="-2" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627805685756" />
+    <state width="2274" height="-2" key="GridCell.Tab.0.left" timestamp="1627805685756">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2274" height="-2" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627805685756" />
+    <state width="2274" height="-2" key="GridCell.Tab.0.right" timestamp="1627805685756">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2274" height="-2" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627805685756" />
+    <state width="1803" height="268" key="GridCell.Tab.1.bottom" timestamp="1627801985090">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1803" height="268" key="GridCell.Tab.1.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627801985090" />
+    <state width="1803" height="268" key="GridCell.Tab.1.center" timestamp="1627801985089">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1803" height="268" key="GridCell.Tab.1.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627801985089" />
+    <state width="1803" height="268" key="GridCell.Tab.1.left" timestamp="1627801985089">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1803" height="268" key="GridCell.Tab.1.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627801985089" />
+    <state width="1803" height="268" key="GridCell.Tab.1.right" timestamp="1627801985090">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1803" height="268" key="GridCell.Tab.1.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627801985090" />
+    <state x="2560" y="-164" width="1456" height="1105" maximized="true" key="dock-window-1" timestamp="1627797000618">
+      <screen x="2560" y="-852" width="1440" height="2520" />
+    </state>
+    <state x="2560" y="-164" width="1456" height="1105" maximized="true" key="dock-window-1/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627797000618" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1627802861578">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627802861578" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -256,24 +316,24 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/bluetooth/le/BluetoothLeScanner.java</url>
-          <line>101</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java</url>
+          <line>354</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java</url>
+          <line>371</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="findViewById(R.id.textView_userinfo_time)" language="JAVA" />
-        <watch expression="(TextView)findViewById(R.id.textView_activity)" language="JAVA" />
-        <watch expression="(TextView)findViewById(R.id.textView_activity)" language="JAVA" />
-        <watch expression="(TextView)findViewById(R.id.textView_step)" language="JAVA" />
-        <watch expression="(TextView)findViewById(R.id.textView_distance)" language="JAVA" />
-        <watch expression="(TextView)findViewById(R.id.textView_bpm)" language="JAVA" />
-        <watch expression="(TextView)findViewById(R.id.textView_sleep)" language="JAVA" />
-        <watch expression="(TextView)findViewById(R.id.textView_sleep_status)" language="JAVA" />
-        <watch expression="aa" />
-        <watch expression="total_calories" />
+        <watch expression="intent.getExtras().get(&quot;com.example.bluetooth.le.EXTRA_DATA&quot;)" language="JAVA" />
+        <watch expression="(BluetoothGattCharacteristic)intent.getExtras().get(&quot;com.example.bluetooth.le.EXTRA_DATA&quot;)" language="JAVA" />
+        <watch expression="intent" language="JAVA" />
+        <watch expression="intent.getSerializableExtra(&quot;com.example.bluetooth.le.EXTRA_DATA&quot;)" language="JAVA" />
+        <watch expression="(BluetoothGattCharacteristic)intent.getSerializableExtra(&quot;com.example.bluetooth.le.EXTRA_DATA&quot;)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

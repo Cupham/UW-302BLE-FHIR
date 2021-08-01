@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         UW302Object oms = null;
         byte[] aa = SavedData.LoadData(getApplicationContext());
 
-        Log.d("TOAN34", "lenaa = " + aa.length);
+
 
 
 

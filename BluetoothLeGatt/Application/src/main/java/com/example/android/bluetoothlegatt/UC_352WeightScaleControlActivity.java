@@ -45,9 +45,12 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.cu.UC_352Obj;
 import com.example.cu.UW302Object;
 import com.example.toan.SavedData;
 import com.example.toan.SendDataActivity;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -119,6 +122,8 @@ public class UC_352WeightScaleControlActivity extends Activity {
                 updateConnectionState(R.string.connected);
                 invalidateOptionsMenu();
                 ((Button)findViewById(R.id.button_connect)).setText("Dis");
+                MysetText("Connected to the weight scale");
+
             }
             else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action))
             {
@@ -127,11 +132,13 @@ public class UC_352WeightScaleControlActivity extends Activity {
                 invalidateOptionsMenu();
                 clearUI();
                 ((Button)findViewById(R.id.button_connect)).setText("Conn");
+                MysetText("Waiting for the weight scale");
             }
             else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action))
             {
                 // Show all the supported services and characteristics on the user interface.
                 displayGattServices(mBluetoothLeService.getSupportedGattServices());
+                Subcribe();
             }
             else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action))
             {
@@ -225,7 +232,7 @@ public class UC_352WeightScaleControlActivity extends Activity {
                 builder.show();
             }
         }
-        DATA = SavedData.LoadAndSync(getApplicationContext());
+        //DATA = SavedData.LoadAndSync(getApplicationContext());
     }
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -383,16 +390,8 @@ public class UC_352WeightScaleControlActivity extends Activity {
         intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
         return intentFilter;
     }
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    String Byearrytointstring(byte[] s) { String ss = "";for (int i = 0; i < s.length; i++) { ss+= Byte.toUnsignedInt(s[i]) + " "; }return ss; }
 
-    BluetoothGattCharacteristic WRITABLE_OBJ;
-    BluetoothGattCharacteristic NOTIFY_OBJ;
-    String NOTIFY_CHARACTER = "1a0934f1-b364-11e4-ab27-0800200c9a66";
-    String NOTIFY_SERVICE = "1a0934f0-b364-11e4-ab27-0800200c9a66";
-    String WRITABLE_CHARACTER = "11127001-b364-11e4-ab27-0800200c9a66";
-    String WRITABLE_SERVICE = "11127000-b364-11e4-ab27-0800200c9a66";
-    public static List<byte[]> DATA = new ArrayList<byte[]>();
+
     private void MysetText(final String value)
     {
         runOnUiThread(new Runnable() {
@@ -407,45 +406,9 @@ public class UC_352WeightScaleControlActivity extends Activity {
             }
         });
     }
-    private void MysetText(final String value, final TextView textview)
-    {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run()
-            {
-                textview.setText(value);;
-            }
-        });
-    }
 
-    int ID_MAX =-1;
-    int ID_MIN =-1;
-    int ID_CURRENT =-1;
-    Boolean processed_first_package = false;
-    int GOT_MESSAGE =0;
-    Boolean is_auto_get_10 = true;
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void OnClickGetDataAll(View button)
-    {
-        SavedData.ClearData(getApplicationContext());
-        GOT_MESSAGE=0;
-        processed_first_package = false;
 
-        TextView console = findViewById(R.id.textView_console);
-        console.setText("");
-        is_auto_get_10 = true;
-        Get10Packages(true);
-    }
-    public void OnClickSync(View button)
-    {
-        GOT_MESSAGE=0;
-        processed_first_package = false;
 
-        TextView console = findViewById(R.id.textView_console);
-        console.setText("");
-        is_auto_get_10 = true;
-        Get10Packages(false);
-    }
     public void OnClickConnect(View button)
     {
         if(mConnected == true)
@@ -468,181 +431,51 @@ public class UC_352WeightScaleControlActivity extends Activity {
     public  void MyOnRecieve(BluetoothGattCharacteristic charac)
     {
         //TextView console = findViewById(R.id.textView_console);
-        //Log.d("TOAN123",""+ charac.getValue().length);
-        if ( WRITABLE_OBJ== charac)
-        {
-            TextView status = findViewById(R.id.textView_toan);
-            byte[] b = charac.getValue();
-            if(processed_first_package == false)
-            {
+        Log.d("KHUE123 getdata",charac.getUuid()+": "+ charac.getValue().length);
+        MysetText("KHUE123 getdata: "+charac.getUuid()+": "+ charac.getValue().length);
+        UC_352Obj uc= new UC_352Obj(charac.getValue());
+        MysetText(uc.toString() );
 
-                if(b.length < 8)
-                {
-                    Log.d("TOAN324: ","len:"+b.length + " data= " + Byearrytointstring(b));
-                    processed_first_package = true;
-                }
-                else
-                {
-                    ID_MAX = (Byte.toUnsignedInt(b[6])) * 256 + (Byte.toUnsignedInt(b[7]));
-                    String s = "data= " + Byearrytointstring(b);
-                    Log.d("TOAN324", s);
-                    ID_MIN = (Byte.toUnsignedInt(b[4])) * 256 + (Byte.toUnsignedInt(b[5]));
-                    ID_CURRENT = (Byte.toUnsignedInt(b[4])) * 256 + (Byte.toUnsignedInt(b[5]));
-                    //MysetText("Downloading " + ID_CURRENT + "/" + ID_MAX);
-                    processed_first_package = true;
+        ((TextView)findViewById(R.id.textView_value)).setText(uc.getWeight()+"");
+        ((TextView)findViewById(R.id.textView_unit)).setText(uc.getUnit());
+        ((TextView)findViewById(R.id.textView_time)).setText(uc.getMeasureTime().toString());
 
-                    MysetText("Downloading: " + ID_CURRENT + "/" + ID_MAX,status );
-                }
-            }
-            else
-            {
-                if(b.length >=6)
-                {
-                    Log.d("TOAN324", "len=" + b.length);
-                    ID_CURRENT = (Byte.toUnsignedInt(b[4])) * 256 + (Byte.toUnsignedInt(b[5]));
-                    MysetText("Downloading: " + ID_CURRENT + "/" + ID_MAX,status);
-                    //MysetText("Downloading " + ID_CURRENT + "/" + ID_MAX);
-                }
-
-            }
-        }
-        else if ( NOTIFY_OBJ== charac)
-        {
-            byte[] b = charac.getValue();
-            int len = b.length;
-            int index = 20*count_message;
-            for(int i =index; i < index + len; i++)  data_tmp[i] = b[i-index];
-
-            if(count_message==12)
-            {
-                byte[] data_tmp_copy = java.util.Arrays.copyOf(data_tmp,256);
-
-                //DATA.add(data_tmp_copy);
-                Boolean is_need_to_write = SavedData.TrytoAddToList(DATA,data_tmp_copy);
-                if(!is_need_to_write) {
-                    MysetText("SAVED 256 bytes; current size: " + DATA.size() + "x256");
-                    SavedData.SaveData(getApplicationContext(), DATA);
-                }
-                else MysetText("Skipped to save : " + DATA.size() + "x256");
-
-                UW302Object a = new UW302Object(data_tmp_copy);
-                TextView aaa = findViewById(R.id.textView_show);
-                aaa.setText("DATA:" + a.getActivities().toString());
-            }
-
-            count_message++;
-            Log.d("TOAN678","count_message: "+ count_message + " len:" + b.length );
-            MysetText("Receieve package " + count_message + "/13/ (" + ID_CURRENT  + ")"  );
-            if(count_message==10 && is_auto_get_10)
-            {
-                Get3Packages();
-            }
-            else if(count_message==13)
-            {
-                if(ID_MAX <=1)
-                {
-                    MysetText("FINISHED get " + DATA.size() + "x256 bytes");
-
-                    //Toast toast = Toast.makeText(getApplicationContext() , ("Finished get " + DATA.size() + "x256 bytes"),Toast.LENGTH_LONG);
-                    //toast.show();
-
-                    byte[] new_datarequest = {(byte) 0x03, (byte) 0x01, (byte) 0x58, (byte) 0x03};
-                    WriteToWriteCharacteric(new_datarequest);
-                }
-                else
-                {
-                    GOT_MESSAGE++;
-                    MysetText("Finished 13 packages");
-                    processed_first_package = false;
-                    count_message = 0;
-                    Get10Packages(false);
-                }
-            }
-        }
     }
-    void ProcessObjects()
-    {
-        BluetoothGatt mBluetoothGatt = mBluetoothLeService.GetmBluetoothGatt();
-        WRITABLE_OBJ = mBluetoothGatt.getService(UUID.fromString(WRITABLE_SERVICE)).getCharacteristic(UUID.fromString(WRITABLE_CHARACTER));
-        NOTIFY_OBJ = mBluetoothGatt.getService(UUID.fromString(NOTIFY_SERVICE)).getCharacteristic(UUID.fromString(NOTIFY_CHARACTER));
-        if(GOT_MESSAGE==0)
-        {
-            if (null != WRITABLE_OBJ) MysetText("Check WRITABLE_OBJ OK");
-            else MysetText("Check WRITABLE_OBJ FAIL");
-            if (null != NOTIFY_OBJ) MysetText("Check NOTIFY_OBJ OK");
-            else MysetText("Check NOTIFY_OBJ FAIL");
-        }
-    }
+
     void Subcribe()
     {
+        //mBluetoothLeService.getSupportedGattServices()
+
         BluetoothGatt mBluetoothGatt = mBluetoothLeService.GetmBluetoothGatt();
+        List<BluetoothGattService> listServices = mBluetoothGatt.getServices();
+        BluetoothGattCharacteristic weightscalechar = null;
+        for(int i =0; i < listServices.size(); i++)
+        {
+            List<BluetoothGattCharacteristic> listChas= listServices.get(i).getCharacteristics();
+
+            for(int j =0; j < listChas.size(); j++)
+                if(listChas.get(j).getUuid().toString().indexOf("00002a9d")==0) {
+                    MysetText("Weight scale service found: " + listServices.get(i).getUuid().toString()); //181d
+                    MysetText("Weight scale charac found: " + listChas.get(j).getUuid().toString());
+
+                    weightscalechar =listChas.get(j);
+                }
+        }
+        if(weightscalechar==null) return;
+
+
         MysetText("<< BEGIN SUBCRIBE >>");
+        //weightscalechar uuid = 00002a9d
+        mBluetoothGatt.setCharacteristicNotification(weightscalechar,true);
         UUID uuid = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
-        mBluetoothGatt.setCharacteristicNotification(WRITABLE_OBJ,true);
-        BluetoothGattDescriptor descriptor = WRITABLE_OBJ.getDescriptor(uuid);//UUID.fromString(WRITABLE_CHARACTER));
+        BluetoothGattDescriptor descriptor= weightscalechar.getDescriptor(uuid);
+        MysetText("Setting descriptor: " + descriptor.getUuid().toString());
         descriptor.setValue(BluetoothGattDescriptor.ENABLE_INDICATION_VALUE);
         mBluetoothGatt.writeDescriptor(descriptor);
-        mBluetoothGatt.setCharacteristicNotification(NOTIFY_OBJ,true);
-        BluetoothGattDescriptor descriptor2 = WRITABLE_OBJ.getDescriptor(uuid);//UUID.fromString(WRITABLE_CHARACTER));
-        descriptor2.setValue(BluetoothGattDescriptor.ENABLE_INDICATION_VALUE);
-        mBluetoothGatt.writeDescriptor(descriptor2);
+
+
+
         MysetText("<< FINISH SUBCRIBE >>");
-    }
-    byte[] data_tmp = new byte[256];
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    void Get10Packages(Boolean is_all )
-    {
-        ProcessObjects();
-        count_message=0;
-        BluetoothGatt mBluetoothGatt = mBluetoothLeService.GetmBluetoothGatt();
-        BluetoothGattService Service = WRITABLE_OBJ.getService();
-        if (Service == null)  Log.e("TOAN", "service not found!");
-        UUID uuid_write = UUID.fromString(WRITABLE_CHARACTER);
-        BluetoothGattCharacteristic charac = Service.getCharacteristic(uuid_write);
-
-        if (charac == null) Log.e("TOAN", "char not found!");
-
-        if(GOT_MESSAGE==0)
-        {
-            byte[] new_datarequest = {(byte) 0x04, (byte) 0x01, (byte) 0x58, (byte) GOT_MESSAGE, (byte) 0x00};
-            if (is_all)  new_datarequest[4] = (byte)1;
-            MysetText("WRITING: " + Byearrytointstring(new_datarequest));
-            WriteToWriteCharacteric(new_datarequest);
-        }
-        else
-        {
-            byte[] new_datarequest = {(byte) 0x03, (byte) 0x01, (byte) 0x58, (byte) 01};
-            MysetText("WRITING: " + Byearrytointstring(new_datarequest));
-            WriteToWriteCharacteric(new_datarequest);
-        }
-
-        if(GOT_MESSAGE==0)
-        Subcribe();
-
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    void Get3Packages()
-    {
-        byte[] new_datarequest = {(byte) 0x03, (byte) 0x01, (byte) 0x58, (byte) 0x01};
-        WriteToWriteCharacteric(new_datarequest);
-
-    }
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    void WriteToWriteCharacteric(byte[] new_datarequest)
-    {
-        BluetoothGatt mBluetoothGatt = mBluetoothLeService.GetmBluetoothGatt();
-        BluetoothGattService Service = WRITABLE_OBJ.getService();
-        if (Service == null)  Log.e("TOAN", "service not found!");
-        UUID uuid_write = UUID.fromString(WRITABLE_CHARACTER);
-        BluetoothGattCharacteristic charac = Service.getCharacteristic(uuid_write);
-        if (charac == null) Log.e("TOAN", "char not found!");
-        //byte[] new_datarequest = {(byte) 0x03, (byte) 0x01, (byte) 0x58, (byte) 0x01};
-        charac.setValue(new_datarequest);
-
-        boolean status = mBluetoothGatt.writeCharacteristic(charac);
-        if(status==true) MysetText("WRITE OK OK : " + Byearrytointstring(new_datarequest));
-        else MysetText("WRITE FAIL");
     }
 
 

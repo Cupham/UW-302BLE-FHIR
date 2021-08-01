@@ -7,21 +7,57 @@
     android:id="@+id/drawer"
     tools:context=".DeviceScanActivityToan">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
         android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/listview_scan"
-            android:layout_width="match_parent"
-            android:layout_height="611dp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_orange_dark"
+                android:gravity="center"
+                android:text="Known devices"
+                android:textAlignment="center"
+                android:textSize="10pt" />
+
+            <ListView
+                android:id="@+id/listview_knowndevices"
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_orange_dark"
+                android:gravity="center"
+                android:text="Scanning"
+                android:textAlignment="center"
+                android:textSize="10pt" />
+
+            <ListView
+                android:id="@+id/listview_scan"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent" />
+        </LinearLayout>
 
     </LinearLayout>
+
 
 
     <include

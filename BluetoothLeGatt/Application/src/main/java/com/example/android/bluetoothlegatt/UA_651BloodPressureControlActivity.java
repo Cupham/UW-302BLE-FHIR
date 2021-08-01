@@ -45,8 +45,7 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.cu.UC_352Obj;
-import com.example.cu.UT_201Obj;
+import com.example.cu.UA_651Obj;
 import com.example.toan.SendDataActivity;
 
 import java.util.ArrayList;
@@ -60,9 +59,9 @@ import java.util.UUID;
  * communicates with {@code BluetoothLeService}, which in turn interacts with the
  * Bluetooth LE API.
  */
-public class UT_201ThermoMeterControlActivity extends Activity {
-    private final static String TAG = UT_201ThermoMeterControlActivity.class.getSimpleName();
-    public  static UT_201ThermoMeterControlActivity I;
+public class UA_651BloodPressureControlActivity extends Activity {
+    private final static String TAG = UA_651BloodPressureControlActivity.class.getSimpleName();
+    public  static UA_651BloodPressureControlActivity I;
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
@@ -129,7 +128,7 @@ public class UT_201ThermoMeterControlActivity extends Activity {
                 invalidateOptionsMenu();
                 clearUI();
                 ((Button)findViewById(R.id.button_connect)).setText("Conn");
-                MysetText("Waiting for the weight scale");
+                MysetText("Disconnected");
             }
             else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action))
             {
@@ -196,7 +195,7 @@ public class UT_201ThermoMeterControlActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         I = this;
-        setContentView(R.layout.activity_ut_201);
+        setContentView(R.layout.activity_ua_651);
 
         final Intent intent = getIntent();
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
@@ -432,21 +431,18 @@ public class UT_201ThermoMeterControlActivity extends Activity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public  void MyOnRecieve(BluetoothGattCharacteristic charac)
     {
-        if(charac== temperatureTypeChar)
+        if(charac ==bloodpressureChar )
         {
-            MysetText("RE: temperatureTypeChar: " + charac.getValue().toString() + " " +charac.getValue().length);
-        }
-        else
-            if(charac ==thermometterChar )
-        {
-            MysetText("RE: thermometterChar: " + charac.getValue().toString() + " " +charac.getValue().length);
+            MysetText("RE: bloodpressureChar: " + charac.getValue().toString() + " " +charac.getValue().length);
 
-            UT_201Obj ut = new UT_201Obj(charac.getValue(), temperatureTypeChar.getValue()[0] );
-            ((TextView)findViewById(R.id.textView_value)).setText(ut.getTemperature()+"");
-            ((TextView)findViewById(R.id.textView_unit)).setText(ut.getUnit()+"");
-            ((TextView)findViewById(R.id.textView_type)).setText(ut.getTemperatureType()+"");
 
-            ((TextView)findViewById(R.id.textView_time)).setText(ut.getMeasureTime()+"");
+            UA_651Obj ua = new UA_651Obj(charac.getValue());
+
+            ((TextView)findViewById(R.id.textView_blood_time)).setText(ua.getMeasureTime() + "");
+            ((TextView)findViewById(R.id.textView_DIA)).setText(ua.getDIA() + "");
+            ((TextView)findViewById(R.id.textView_MAP)).setText(ua.getMAP() + "");
+            ((TextView)findViewById(R.id.textView_PUL)).setText(ua.getPUL() + "");
+            ((TextView)findViewById(R.id.textView_SYS)).setText(ua.getSYS() + "");
 
 
         }
@@ -454,10 +450,10 @@ public class UT_201ThermoMeterControlActivity extends Activity {
     }
     public  void MyOnRecieveRead(BluetoothGattCharacteristic characteristic)
     {
-        MysetText("READ: temperatureTypeChar "+ characteristic.getValue().toString());
+        MysetText("READ: bloodpressureChar "+ characteristic.getValue().toString());
     }
-    BluetoothGattCharacteristic thermometterChar = null;
-    BluetoothGattCharacteristic temperatureTypeChar = null;
+    BluetoothGattCharacteristic bloodpressureChar = null;
+    BluetoothGattCharacteristic bloodpressureFeatureChar = null;
     void Subcribe()
     {
         //mBluetoothLeService.getSupportedGattServices()
@@ -471,40 +467,45 @@ public class UT_201ThermoMeterControlActivity extends Activity {
             Log.d("TOAN12345SERVICE",listServices.get(i).getUuid().toString() );
             for(int j =0; j < listChas.size(); j++) {
                 Log.d("TOAN12345CHAR",listChas.get(j).getUuid().toString() );
-                if (listChas.get(j).getUuid().toString().indexOf("00002a1c") == 0)
+                if (listChas.get(j).getUuid().toString().indexOf("00002a49") == 0)
                 {
                     //MysetText("Weight scale service found: " + listServices.get(i).getUuid().toString()); //1809
-                    MysetText("thermometterChar found: " + listChas.get(j).getUuid().toString());
-                    thermometterChar = listChas.get(j);
+                    MysetText("bloodpressureFeatureChar found: " + listChas.get(j).getUuid().toString());
+                    bloodpressureFeatureChar = listChas.get(j);
                 }
-                if(listChas.get(j).getUuid().toString().indexOf("00002a1d")==0)
+                if(listChas.get(j).getUuid().toString().indexOf("00002a35")==0)
                 {
                     //MysetText("Weight scale service found: " + listServices.get(i).getUuid().toString()); //1809
-                    MysetText("temperatureTypeChar found: " + listChas.get(j).getUuid().toString());
-                    temperatureTypeChar =listChas.get(j);
+                    MysetText("bloodpressureChar found: " + listChas.get(j).getUuid().toString());
+                    bloodpressureChar =listChas.get(j);
                 }
             }
         }
 
-        if(thermometterChar!=null)
+        if(bloodpressureChar!=null)
         {
+            MysetText("<< BEGIN SUBCRIBE >>");
 
-            mBluetoothGatt.readCharacteristic(temperatureTypeChar);
 
-
-            mBluetoothGatt.setCharacteristicNotification(thermometterChar,true);
+            mBluetoothGatt.setCharacteristicNotification(bloodpressureChar,true);
             UUID uuid = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
-            BluetoothGattDescriptor descriptor= thermometterChar.getDescriptor(uuid);
+            BluetoothGattDescriptor descriptor= bloodpressureChar.getDescriptor(uuid);
+
+
             MysetText("Setting descriptor: " + descriptor.getUuid().toString());
             descriptor.setValue(BluetoothGattDescriptor.ENABLE_INDICATION_VALUE);
             mBluetoothGatt.writeDescriptor(descriptor);
 
 
 
+            //mBluetoothGatt.readCharacteristic(bloodpressureFeatureChar);
+
+
+            MysetText("<< FINISH SUBCRIBE >>");
         }
 
 
-        MysetText("<< BEGIN SUBCRIBE >>");
+
         //weightscalechar uuid = 00002a9d
         //mBluetoothGatt.setCharacteristicNotification(weightscalechar,true);
         //UUID uuid = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
@@ -515,7 +516,7 @@ public class UT_201ThermoMeterControlActivity extends Activity {
 
 
 
-        MysetText("<< FINISH SUBCRIBE >>");
+
     }
 
 

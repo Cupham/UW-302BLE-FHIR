@@ -33,6 +33,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -46,6 +47,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.toan.SavedDevices;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -101,6 +103,91 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
             finish();
             return;
         }
+
+        //toanstt
+
+        ArrayList<SavedDevices.DeviceInfo> deviceInfos = SavedDevices.loadArray(getApplicationContext());
+        ArrayList<String> arrayList = new ArrayList<>();
+        for(int i =0; i < deviceInfos.size(); i++)
+            arrayList.add(deviceInfos.get(i).Name);
+        Log.d("TOAN234", "LOADED: " + deviceInfos.size() + " devices" );
+        ListView listKnownDevices = (ListView)findViewById(R.id.listview_knowndevices);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList);
+        listKnownDevices.setAdapter(adapter);
+        listKnownDevices.setOnItemClickListener((parent, view, position, id) ->{
+            Log.d("TOAN23", "ON CLICKING " + position);
+            ProcessOnClickKnownDevice(deviceInfos.get(position));
+        });
+
+
+    }
+    void ProcessOnClickKnownDevice(SavedDevices.DeviceInfo deviceInfo)
+    {
+
+        if(deviceInfo.Name.indexOf("UC-352BLE") >=0)
+        {
+            BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UC_352;
+            final Intent intent = new Intent(this, UC_352WeightScaleControlActivity.class);
+            intent.putExtra(UC_352WeightScaleControlActivity.EXTRAS_DEVICE_NAME, deviceInfo.Name);
+            intent.putExtra(UC_352WeightScaleControlActivity.EXTRAS_DEVICE_ADDRESS,  deviceInfo.Address);
+            if (mScanning)
+            {
+                mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                mScanning = false;
+            }
+            startActivity(intent);
+        }
+        else if(deviceInfo.Name.indexOf("UT-201BLE") >=0 || deviceInfo.Name.indexOf("UT201BLE") >=0)
+        {
+            BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UT_201;
+            final Intent intent = new Intent(this, UT_201ThermoMeterControlActivity.class);
+            intent.putExtra(UT_201ThermoMeterControlActivity.EXTRAS_DEVICE_NAME, deviceInfo.Name);
+            intent.putExtra(UT_201ThermoMeterControlActivity.EXTRAS_DEVICE_ADDRESS, deviceInfo.Address);
+            if (mScanning) {
+                mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                mScanning = false;
+            }
+            startActivity(intent);
+        }
+        else if(deviceInfo.Name.indexOf("UW-302BLE") >=0)
+        {
+            BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UW_302;
+            final Intent intent = new Intent(this, UW_302ActivityTrackerControlActivity.class);
+            intent.putExtra(UW_302ActivityTrackerControlActivity.EXTRAS_DEVICE_NAME, deviceInfo.Name);
+            intent.putExtra(UW_302ActivityTrackerControlActivity.EXTRAS_DEVICE_ADDRESS, deviceInfo.Address);
+            if (mScanning) {
+                mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                mScanning = false;
+            }
+            startActivity(intent);
+        }
+        else if(deviceInfo.Name.indexOf("UA-651BLE") >=0|| deviceInfo.Name.indexOf("UA651BLE") >=0)
+        {
+            BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UA_651;
+            final Intent intent = new Intent(this, UA_651BloodPressureControlActivity.class);
+            intent.putExtra(UA_651BloodPressureControlActivity.EXTRAS_DEVICE_NAME, deviceInfo.Name);
+            intent.putExtra(UA_651BloodPressureControlActivity.EXTRAS_DEVICE_ADDRESS, deviceInfo.Address);
+            if (mScanning) {
+                mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                mScanning = false;
+            }
+            startActivity(intent);
+        }
+        else //if(device.getName().indexOf("BL") >=0)
+        {
+            BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UNKNOWN;
+            final Intent intent = new Intent(this, UW_302ActivityTrackerControlActivity.class);
+            intent.putExtra(UW_302ActivityTrackerControlActivity.EXTRAS_DEVICE_NAME, deviceInfo.Name);
+            intent.putExtra(UW_302ActivityTrackerControlActivity.EXTRAS_DEVICE_ADDRESS, deviceInfo.Address);
+            if (mScanning) {
+                mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                mScanning = false;
+            }
+            startActivity(intent);
+        }
+
+
     }
     @Override
     public boolean onNavigationItemSelected(MenuItem item)
@@ -265,10 +352,11 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
                 if (device == null) return;
 
 
-                Log.d("TOAN345","on clidk: " + device.getName());
+                Log.d("TOAN234","on clidk: " + device.getName());
                 if(device.getName().indexOf("UC-352BLE") >=0)
                 {
                     BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UC_352;
+                    SaveDevice(device);
                     final Intent intent = new Intent(this, UC_352WeightScaleControlActivity.class);
                     intent.putExtra(UC_352WeightScaleControlActivity.EXTRAS_DEVICE_NAME, device.getName());
                     intent.putExtra(UC_352WeightScaleControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
@@ -279,9 +367,11 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
                     }
                     startActivity(intent);
                 }
-                else if(device.getName().indexOf("UT-201BLE") >=0)
+                else if(device.getName().indexOf("UT-201BLE") >=0 || device.getName().indexOf("UT201BLE") >=0)
                 {
                     BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UT_201;
+                    Log.d("TOAN234", "clicking UT-201BLE");
+                    SaveDevice(device);
                     final Intent intent = new Intent(this, UT_201ThermoMeterControlActivity.class);
                     intent.putExtra(UT_201ThermoMeterControlActivity.EXTRAS_DEVICE_NAME, device.getName());
                     intent.putExtra(UT_201ThermoMeterControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
@@ -294,6 +384,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
                 else if(device.getName().indexOf("UW-302BLE") >=0)
                 {
                     BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UW_302;
+                    //SaveDevice(device);
                     final Intent intent = new Intent(this, UW_302ActivityTrackerControlActivity.class);
                     intent.putExtra(UW_302ActivityTrackerControlActivity.EXTRAS_DEVICE_NAME, device.getName());
                     intent.putExtra(UW_302ActivityTrackerControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
@@ -303,18 +394,20 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
                     }
                     startActivity(intent);
                 }
-                else if(device.getName().indexOf("UA-651BLE") >=0)
+                else if(device.getName().indexOf("UA-651BLE") >=0|| device.getName().indexOf("UA651BLE") >=0)
                 {
                     BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UA_651;
-                    final Intent intent = new Intent(this, UW_302ActivityTrackerControlActivity.class);
-                    intent.putExtra(UW_302ActivityTrackerControlActivity.EXTRAS_DEVICE_NAME, device.getName());
-                    intent.putExtra(UW_302ActivityTrackerControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+                    SaveDevice(device);
+                    final Intent intent = new Intent(this, UA_651BloodPressureControlActivity.class);
+                    intent.putExtra(UA_651BloodPressureControlActivity.EXTRAS_DEVICE_NAME, device.getName());
+                    intent.putExtra(UA_651BloodPressureControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
                     if (mScanning) {
                         mBluetoothAdapter.stopLeScan(mLeScanCallback);
                         mScanning = false;
                     }
                     startActivity(intent);
-                }else //if(device.getName().indexOf("BL") >=0)
+                }
+                else //if(device.getName().indexOf("BL") >=0)
                 {
                     BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UNKNOWN;
                     final Intent intent = new Intent(this, UW_302ActivityTrackerControlActivity.class);
@@ -326,11 +419,25 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
                     }
                     startActivity(intent);
                 }
+
+                if(BluetoothLeService.deviceType!= BluetoothLeService.AandDDeviceType.UNKNOWN)
+                {
+
+                }
             });
             scanLeDevice(true);
         }
     }
+    void SaveDevice(BluetoothDevice device )
+    {
+        SavedDevices.DeviceInfo df = new SavedDevices.DeviceInfo();
+        df.Address = device.getAddress();
+        df.Name = device.getName();
+        df.Type = device.getType();
 
+        SavedDevices.tryToAddAndSave(df, getApplicationContext());
+        Log.d("TOAN234", "SAVING A DEVICE");
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // User chose not to enable Bluetooth.

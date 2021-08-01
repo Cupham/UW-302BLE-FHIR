@@ -109,10 +109,24 @@ public class BluetoothLeService extends Service {
         }
 
         @Override
-        public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
+        public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status)
+        {
             Log.d("KHUE1"," READ OK <"+Byearrytointstring(characteristic.getValue()) + "> len:" + characteristic.getValue().length);
-            if (status == BluetoothGatt.GATT_SUCCESS) {
+
+            if (status == BluetoothGatt.GATT_SUCCESS)
+            {
                 broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
+            }
+            switch (deviceType){
+                case UT_201:
+                    if(UT_201ThermoMeterControlActivity.I!=null)
+                        UT_201ThermoMeterControlActivity.I.MyOnRecieveRead(characteristic);
+                    break;
+                case UA_651:
+                    if(UA_651BloodPressureControlActivity.I!=null)
+                        UA_651BloodPressureControlActivity.I.MyOnRecieveRead(characteristic);
+                    break;
+
             }
 
         }
@@ -120,9 +134,13 @@ public class BluetoothLeService extends Service {
         @Override
         public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic)
         {
+            Log.d("KHUE9", "onCharacteristicChanged " + characteristic.getUuid().toString());
+
             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
             switch (deviceType){
                 case UA_651:
+                    if(UA_651BloodPressureControlActivity.I!=null)
+                        UA_651BloodPressureControlActivity.I.MyOnRecieve(characteristic);
                     break;
                 case UW_302:
                     if(UW_302ActivityTrackerControlActivity.I!=null) {
@@ -130,8 +148,13 @@ public class BluetoothLeService extends Service {
                     }
                     break;
                 case UT_201:
+                    if(UT_201ThermoMeterControlActivity.I!=null) {
+                        UT_201ThermoMeterControlActivity.I.MyOnRecieve(characteristic);
+                    }
                     break;
                 case UC_352:
+                    if(UC_352WeightScaleControlActivity.I!=null)
+                        UC_352WeightScaleControlActivity.I.MyOnRecieve(characteristic);
                     break;
                 case UNKNOWN:
                     break;
@@ -150,7 +173,7 @@ public class BluetoothLeService extends Service {
         @Override
         public void onDescriptorWrite(BluetoothGatt gatt, BluetoothGattDescriptor descriptor, int status)
         {
-            Log.d("KHUE6", "onDescriptorWrite :" + ((status == BluetoothGatt.GATT_SUCCESS) ? "Sucess" : "false"));
+            Log.d("KHUE6", "onDescriptorWrite :" + descriptor.getUuid().toString() +" : "+ ((status == BluetoothGatt.GATT_SUCCESS) ? "Sucess" : "false"));
             super.onDescriptorWrite(gatt, descriptor, status);
         }
     };

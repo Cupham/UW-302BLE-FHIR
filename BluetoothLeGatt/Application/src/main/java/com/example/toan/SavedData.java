@@ -51,6 +51,7 @@ public class SavedData
     {
         List<byte[]> l = new ArrayList<>();
         byte[] bytes = LoadData(context);
+        if(bytes == null) return null;
         int n = bytes.length/256;
         for(int i =0; i < n; i ++)
         {
