@@ -67,7 +67,7 @@ public class UT_201Obj {
         return rs;
     }
     private String typeFromByte(byte type){
-        String rs = "";
+        String rs = "N/A";
         switch (type){
             case 1:
                 rs = "Armpit";
@@ -105,25 +105,24 @@ public class UT_201Obj {
     }
     private void measurementDataFromBytes(byte[] bytes, byte type)
     {
-        String flag = String.format("%8s", Integer.toBinaryString(bytes[0] & 0xFF)).replace(' ', '0');
-
-        if(flag.substring(0,1).equals("0")) {
+        byte flag = bytes[0];
+        if(flag >> 7 %2 ==0) {
             this.setUnit("Celsius");
-            this.setTemperature(temperatureFromBytes(Arrays.copyOfRange(bytes,1,5)));
+            ByteBuffer temperature = ByteBuffer.wrap(Arrays.copyOfRange(bytes,1,5)).order(ByteOrder.LITTLE_ENDIAN);
+            this.setTemperature(floatFromSFLOAT32(temperature));
         } else {
             this.setUnit("Fahrenheit");
-            this.setTemperature(temperatureFromBytes(Arrays.copyOfRange(bytes,1,5)));
+            ByteBuffer temperature = ByteBuffer.wrap(Arrays.copyOfRange(bytes,1,5)).order(ByteOrder.LITTLE_ENDIAN);
+            this.setTemperature(floatFromSFLOAT32(temperature));
         }
-
-        if(flag.substring(1,2).equals("0")) {
-            this.setMeasureTime(null);
-        } else {
-            this.setMeasureTime(timeFromBytes(Arrays.copyOfRange(bytes,5,12)));
-        }
-        if(flag.substring(2,3).equals("0")) {
-            this.setTemperatureType("");
-        } else {
+        if(flag >>6 %2 ==0) {
             this.setTemperatureType(typeFromByte(bytes[5]));
+            //No Time
+
+        } else {
+            //Have Time
+            this.setMeasureTime(timeFromBytes(Arrays.copyOfRange(bytes,5,12)));
+            this.setTemperatureType(typeFromByte(bytes[12]));
         }
     }
     private void setUnitFromByte(byte by)
@@ -145,6 +144,22 @@ public class UT_201Obj {
 
     public void setTemperatureType(String temperatureType) {
         this.temperatureType = temperatureType;
+    }
+    public static float floatFromSFLOAT32(ByteBuffer data) {
+        byte b0 = data.get();
+        byte b1 = data.get();
+        byte b2 = data.get();
+        byte b3 = data.get();
+        int mantissa = unsignedToSigned((b0 & 0xFF) + ((b1 & 0xFF) << 8)
+                + ((b2 & 0xFF) << 16), 24);
+        return (float) (mantissa * Math.pow(10, b3));
+    }
+
+    private static int unsignedToSigned(int unsigned, int size) {
+        if ((unsigned & (1 << size - 1)) != 0)
+            unsigned = -1
+                    * ((1 << size - 1) - (unsigned & ((1 << size - 1) - 1)));
+        return unsigned;
     }
     @Override
     public String toString() {

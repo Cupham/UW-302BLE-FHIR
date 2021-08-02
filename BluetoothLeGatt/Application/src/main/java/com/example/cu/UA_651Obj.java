@@ -1,5 +1,7 @@
 package com.example.cu;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -7,10 +9,10 @@ import java.util.Date;
 
 public class UA_651Obj {
     private Date measureTime;
-    private int SYS;
-    private int DIA;
-    private int MAP;
-    private int PUL;
+    private double SYS;
+    private double DIA;
+    private double MAP;
+    private double PUL;
     private String measurementStatus;
 
     public String getUnit() {
@@ -36,30 +38,31 @@ public class UA_651Obj {
     public void setMeasureTime(Date measureTime) {
         this.measureTime = measureTime;
     }
-    public int getSYS() {
+    public double getSYS() {
         return SYS;
     }
-    public void setSYS(int sYS) {
+    public void setSYS(double sYS) {
         SYS = sYS;
     }
-    public int getDIA() {
+    public double getDIA() {
         return DIA;
     }
-    public void setDIA(int dIA) {
+    public void setDIA(double dIA) {
         DIA = dIA;
     }
-    public int getMAP() {
+    public double getMAP() {
         return MAP;
     }
-    public void setMAP(int mAP) {
+    public void setMAP(double mAP) {
         MAP = mAP;
     }
-    public int getPUL() {
+    public double getPUL() {
         return PUL;
     }
-    public void setPUL(int pUL) {
+    public void setPUL(double pUL) {
         PUL = pUL;
     }
+
     public String isMeasurementStatus() {
         return measurementStatus;
     }
@@ -100,36 +103,115 @@ public class UA_651Obj {
         byte flag = bytes[0];
         if(flag >> 7 % 2 ==0) {
             this.setUnit("mmHg");
-            this.setSYS(intFromBytesLE(new byte[] {bytes[1], bytes[2]}));
-            this.setDIA(intFromBytesLE(new byte[] {bytes[3], bytes[4]}));
-            this.setMAP(intFromBytesLE(new byte[] {bytes[5], bytes[6]}));
+            this.setSYS(doubleFromSFLOATBytes(new byte[] {bytes[1], bytes[2]}));
+            this.setDIA(doubleFromSFLOATBytes(new byte[] {bytes[3], bytes[4]}));
+            this.setMAP(doubleFromSFLOATBytes(new byte[] {bytes[5], bytes[6]}));
         } else {
             this.setUnit("kPa");
-            this.setSYS(intFromBytesLE(new byte[] {bytes[1], bytes[2]}));
-            this.setDIA(intFromBytesLE(new byte[] {bytes[3], bytes[4]}));
-            this.setMAP(intFromBytesLE(new byte[] {bytes[5], bytes[6]}));
+            this.setSYS(doubleFromSFLOATBytes(new byte[] {bytes[1], bytes[2]}));
+            this.setDIA(doubleFromSFLOATBytes(new byte[] {bytes[3], bytes[4]}));
+            this.setMAP(doubleFromSFLOATBytes(new byte[] {bytes[5], bytes[6]}));
         }
         if(flag >> 6 % 2 ==0) {
-            if(flag >> 5 %2 ==0){
-
-            } else {
-                this.setPUL(intFromBytesLE(new byte[] {bytes[7], bytes[9]}));
-            }
+            // No timeStamp
+            this.setPUL(intFromBytesLE(new byte[] {bytes[7], bytes[8]}));
+            this.setMeasurementStatus(measurementStatusFromBytes(new byte[] {bytes[9], bytes[10]}));
         } else {
+            // With timeStamp
             this.setMeasureTime(timeFromBytes(Arrays.copyOfRange(bytes,7,14)));
-            if(flag >> 5 %2 ==0){
-
-            } else {
-                this.setPUL(intFromBytesLE(new byte[] {bytes[15], bytes[17]}));
-            }
+            this.setPUL(intFromBytesLE(new byte[] {bytes[14], bytes[15]}));
+            this.setMeasurementStatus(measurementStatusFromBytes(new byte[] {bytes[16], bytes[17]}));
         }
 
 
+    }
+    private String measurementStatusFromBytes(byte[] status){
+
+        return "No body movement";
     }
     @Override
     public String toString() {
         return "Time:" + measureTime + ", SYS=" + SYS + ", DIA=" + DIA + ", MAP=" + MAP
                 + ", PUL=" + PUL ;
+    }
+
+    private String byteToString(byte b) {
+        byte[] masks = { -128, 64, 32, 16, 8, 4, 2, 1 };
+        StringBuilder builder = new StringBuilder();
+        for (byte m : masks) {
+            if ((b & m) == m) {
+                builder.append('1');
+            } else {
+                builder.append('0');
+            }
+        }
+        return builder.toString();
+    }
+
+    public static float floatFromSFLOATByte(ByteBuffer data) {
+        byte b0 = data.get();
+        byte b1 = data.get();
+        int mantissa = unsignedToSigned((b0 & 0xFF) + ((b1 & 0x0F) << 8),
+                12);
+        int exponent = unsignedToSigned((b1 & 0xFF) >> 4, 4);
+        return (float) (mantissa * Math.pow(10, exponent));
+    }
+
+    private static int unsignedToSigned(int unsigned, int size) {
+        if ((unsigned & (1 << size - 1)) != 0)
+            unsigned = -1
+                    * ((1 << size - 1) - (unsigned & ((1 << size - 1) - 1)));
+        return unsigned;
+    }
+    private double doubleFromSFLOATBytes(byte[] two_bytes)
+    {
+        short value = ByteBuffer.wrap(two_bytes).order(ByteOrder.LITTLE_ENDIAN).getShort();
+        // NaN
+        if (value == 0x07FF)
+        {
+            return Double.NaN;
+        }
+        // NRes (not at this resolution)
+        else if (value == 0x0800)
+        {
+            return Double.NaN;
+        }
+        // +INF
+        else if (value == 0x07FE)
+        {
+            return Double.POSITIVE_INFINITY;
+        }
+        // -INF
+        else if (value == 0x0802)
+        {
+            return Double.NEGATIVE_INFINITY;
+        }
+        // Reserved
+        else if (value == 0x0801)
+        {
+            return Double.NaN;
+        }
+        else
+        {
+            return ((double) getMantissa(value)) * Math.pow(10, getExponent(value));
+        }
+    }
+    private short getExponent(short value)
+    {
+        if (value < 0)
+        { // if exponent should be negative
+            return (byte) (((value >> 12) & 0x0F) | 0xF0);
+        }
+        return (short) ((value >> 12) & 0x0F);
+    }
+
+    private short getMantissa(short value)
+    {
+        if ((value & 0x0800) != 0)
+        { // if mantissa should be negative
+            return (short) ((value & 0x0FFF) | 0xF000);
+        }
+        return (short) (value & 0x0FFF);
     }
 
 }
