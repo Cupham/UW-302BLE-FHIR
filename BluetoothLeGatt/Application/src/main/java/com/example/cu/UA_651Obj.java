@@ -1,5 +1,10 @@
 package com.example.cu;
 
+import org.hl7.fhir.r4.model.Observation;
+import org.hl7.fhir.r4.model.Patient;
+import org.hl7.fhir.r4.model.Quantity;
+import org.hl7.fhir.r4.model.Reference;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.text.ParseException;
@@ -41,23 +46,85 @@ public class UA_651Obj {
     public double getSYS() {
         return SYS;
     }
+    public Observation.ObservationComponentComponent getSYSObservation() {
+        Observation.ObservationComponentComponent sys = new Observation.ObservationComponentComponent();
+        sys.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("8480-6")
+                .setDisplay("Systolic blood pressure");
+        sys.setValue(
+                new Quantity()
+                        .setValue(this.getSYS())
+                        .setUnit("mmHg")
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode("mm[Hg]"));
+        sys.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("8480-6")
+                .setDisplay("Systolic blood pressure");
+        sys.setValue(
+                new Quantity()
+                        .setValue(this.getSYS())
+                        .setUnit("mmHg")
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode("mm[Hg]"));
+        return sys;
+    }
     public void setSYS(double sYS) {
         SYS = sYS;
     }
     public double getDIA() {
         return DIA;
     }
+    public Observation.ObservationComponentComponent getDIAObservation() {
+        Observation.ObservationComponentComponent sys = new Observation.ObservationComponentComponent();
+        sys.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("8480-4")
+                .setDisplay("Diastolic blood pressure");
+        sys.setValue(
+                new Quantity()
+                        .setValue(this.getDIA())
+                        .setUnit("mmHg")
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode("mm[Hg]"));
+        return sys;
+    }
+
     public void setDIA(double dIA) {
         DIA = dIA;
     }
     public double getMAP() {
         return MAP;
     }
+    public Observation.ObservationComponentComponent getMAPObservation() {
+        Observation.ObservationComponentComponent sys = new Observation.ObservationComponentComponent();
+        sys.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("8478-0")
+                .setDisplay("Mean blood pressure");
+        sys.setValue(
+                new Quantity()
+                        .setValue(this.getMAP())
+                        .setUnit("mmHg")
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode("mm[Hg]"));
+        return sys;
+    }
     public void setMAP(double mAP) {
         MAP = mAP;
     }
     public double getPUL() {
         return PUL;
+    }
+    public Observation.ObservationComponentComponent getPULObservation() {
+        Observation.ObservationComponentComponent sys = new Observation.ObservationComponentComponent();
+        sys.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("8867-4")
+                .setDisplay("Heart rate");
+        sys.setValue(
+                new Quantity()
+                        .setValue(this.getPUL())
+                        .setUnit("beats/minute")
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode("/min"));
+        return sys;
     }
     public void setPUL(double pUL) {
         PUL = pUL;
@@ -135,18 +202,7 @@ public class UA_651Obj {
                 + ", PUL=" + PUL ;
     }
 
-    private String byteToString(byte b) {
-        byte[] masks = { -128, 64, 32, 16, 8, 4, 2, 1 };
-        StringBuilder builder = new StringBuilder();
-        for (byte m : masks) {
-            if ((b & m) == m) {
-                builder.append('1');
-            } else {
-                builder.append('0');
-            }
-        }
-        return builder.toString();
-    }
+
 
     public static float floatFromSFLOATByte(ByteBuffer data) {
         byte b0 = data.get();
@@ -213,6 +269,34 @@ public class UA_651Obj {
         }
         return (short) (value & 0x0FFF);
     }
+    public Observation toObservation(Patient patient){
+        Observation obs = new Observation();
+        obs.setStatus(Observation.ObservationStatus.FINAL);
+        obs.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("85354-9")
+                .setDisplay("Blood pressure panel with all children optional");
+        obs.getCategoryFirstRep().addCoding()
+                .setSystem("http://terminology.hl7.org/CodeSystem/observation-category")
+                .setCode("vital-signs")
+                .setDisplay("Vital Signs");
+        obs.setSubject(new Reference(patient.getIdElement().getValue()));
+        if(this.getMeasureTime() != null) {
+            Date date = this.getMeasureTime();
+            obs.getEffectiveDateTimeType()
+                    .setYear(date.getYear())
+                    .setMonth(date.getMonth())
+                    .setDay(date.getDay())
+                    .setHour(date.getHours())
+                    .setMinute(date.getMinutes())
+                    .setSecond(date.getSeconds());
+        }
+        obs.addComponent(this.getSYSObservation());
+        obs.addComponent(this.getDIAObservation());
+        obs.addComponent(this.getMAPObservation());
+        obs.addComponent(this.getPULObservation());
+        return obs;
+    }
+
 
 }
 

@@ -1,5 +1,10 @@
 package com.example.cu;
 
+import org.hl7.fhir.r4.model.Observation;
+import org.hl7.fhir.r4.model.Patient;
+import org.hl7.fhir.r4.model.Quantity;
+import org.hl7.fhir.r4.model.Reference;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.text.ParseException;
@@ -125,11 +130,6 @@ public class UT_201Obj {
             this.setTemperatureType(typeFromByte(bytes[12]));
         }
     }
-    private void setUnitFromByte(byte by)
-    {
-        if(by>>7==0) unit="Kg";
-        else unit="Pound";
-    }
     public float getTemperature() {
         return temperature;
     }
@@ -164,5 +164,41 @@ public class UT_201Obj {
     @Override
     public String toString() {
         return "Time:" + measureTime + ", temp=" +this.getTemperatureType()  +  " " +unit;
+    }
+    public Observation toObservation(Patient patient){
+        Observation obs = new Observation();
+        obs.setStatus(Observation.ObservationStatus.FINAL);
+        obs.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("8310-5")
+                .setDisplay("Body temperature");
+        obs.getCategoryFirstRep().addCoding()
+                .setSystem("http://terminology.hl7.org/CodeSystem/observation-category")
+                .setCode("vital-signs")
+                .setDisplay("Vital Signs");
+        obs.setSubject(new Reference(patient.getIdElement().getValue()));
+        if(this.getMeasureTime() != null) {
+            Date date = this.getMeasureTime();
+            obs.getEffectiveDateTimeType()
+                    .setYear(date.getYear())
+                    .setMonth(date.getMonth())
+                    .setDay(date.getDay())
+                    .setHour(date.getHours())
+                    .setMinute(date.getMinutes())
+                    .setSecond(date.getSeconds());
+        }
+        if(this.getTemperatureType() != null && !this.getTemperatureType().equals("Unknown")
+                && !this.getTemperatureType().equals("N/A")) {
+                    obs.getBodySite().addCoding()
+                    .setDisplay(this.getTemperatureType())
+                    .setSystem("http://snomed.info/sct");
+        }
+        obs.setValue(
+                new Quantity()
+                        .setValue(this.getTemperature())
+                        .setUnit(this.getUnit())
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode(this.getUnit().equals("Celsius") ? "Cel" : "degF")
+        );
+        return obs;
     }
 }

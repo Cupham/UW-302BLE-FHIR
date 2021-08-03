@@ -1,5 +1,12 @@
 package com.example.cu;
 
+import org.hl7.fhir.r4.model.BooleanType;
+import org.hl7.fhir.r4.model.Observation;
+import org.hl7.fhir.r4.model.Patient;
+import org.hl7.fhir.r4.model.Quantity;
+import org.hl7.fhir.r4.model.Reference;
+import org.hl7.fhir.r4.model.StringType;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,7 +33,7 @@ public class ActivityObj {
 		this.setCalories(bytes[8]*10);
 		this.setSleepStatus(sleepStatusFromBytes(bytes[9]));
 		this.setSleptHours(bytes[10]);
-		this.setSleptHours(bytes[11]);
+		this.setSleptMinutes(bytes[11]);
 	}
 	public Date getMeasureTime() {
 		return measureTime;
@@ -37,11 +44,35 @@ public class ActivityObj {
 	public double getTemperature() {
 		return temperature;
 	}
+	public Observation.ObservationComponentComponent getTemperatureObservation() {
+		Observation.ObservationComponentComponent component = new Observation.ObservationComponentComponent();
+		component.getCode().addCoding().setSystem("http://loinc.org")
+				.setCode("8310-5")
+				.setDisplay("Body temperature");
+		component.setValue(
+				new Quantity()
+						.setValue(this.getTemperature())
+						.setUnit("Celsius")
+						.setSystem("http://unitsofmeasure.org")
+						.setCode("Cel"));
+		return component;
+	}
 	public void setTemperature(double temperature) {
 		this.temperature = temperature;
 	}
 	public int getStep() {
 		return step;
+	}
+	public Observation.ObservationComponentComponent getStepObservation() {
+		Observation.ObservationComponentComponent component = new Observation.ObservationComponentComponent();
+		component.getCode().addCoding().setSystem("http://loinc.org")
+				.setCode("41950-7")
+				.setDisplay("Number of steps in 24 hour Measured");
+		component.setValue(
+				new Quantity()
+						.setValue(this.getTemperature())
+						.setUnit("steps"));
+		return component;
 	}
 	public void setStep(int step) {
 		this.step = step;
@@ -49,11 +80,37 @@ public class ActivityObj {
 	public int getCalories() {
 		return calories;
 	}
+	public Observation.ObservationComponentComponent getCaloriesObservation() {
+		Observation.ObservationComponentComponent component = new Observation.ObservationComponentComponent();
+		component.getCode().addCoding().setSystem("http://loinc.org")
+				.setCode("41979-6")
+				.setDisplay("Calories burned in 24 hour Calculated");
+		component.setValue(
+				new Quantity()
+						.setValue(this.getCalories())
+						.setUnit("kcal")
+						.setSystem("http://unitsofmeasure.org")
+						.setCode("kilocalorie"));
+		return component;
+	}
 	public void setCalories(int calories) {
 		this.calories = calories;
 	}
 	public int getSleptHours() {
 		return sleptHours;
+	}
+	public Observation.ObservationComponentComponent getSleptHoursObservation() {
+		Observation.ObservationComponentComponent component = new Observation.ObservationComponentComponent();
+		component.getCode().addCoding().setSystem("http://loinc.org")
+				.setCode("93832-4")
+				.setDisplay("Sleep duration");
+		component.setValue(
+				new Quantity()
+						.setValue(this.getSleptHours())
+						.setUnit("Hour")
+						.setSystem("http://unitsofmeasure.org")
+						.setCode("h"));
+		return component;
 	}
 	public void setSleptHours(int sleptHours) {
 		this.sleptHours = sleptHours;
@@ -61,17 +118,50 @@ public class ActivityObj {
 	public int getSleptMinutes() {
 		return sleptMinutes;
 	}
+	public Observation.ObservationComponentComponent getSleptMinutesObservation() {
+		Observation.ObservationComponentComponent component = new Observation.ObservationComponentComponent();
+		component.getCode().addCoding().setSystem("http://loinc.org")
+				.setCode("93830-8")
+				.setDisplay("Light sleep duration");
+		component.setValue(
+				new Quantity()
+						.setValue(this.getSleptMinutes())
+						.setUnit("Minutes")
+						.setSystem("http://unitsofmeasure.org")
+						.setCode("min"));
+		return component;
+	}
 	public void setSleptMinutes(int sleptMinutes) {
 		this.sleptMinutes = sleptMinutes;
 	}
 	public boolean isWearing() {
 		return isWearing;
 	}
+	public Observation.ObservationComponentComponent getWearingObservation() {
+		Observation.ObservationComponentComponent component = new Observation.ObservationComponentComponent();
+		component.getCode().addCoding().setSystem("http://loinc.org")
+				.setCode("unknown")
+				.setDisplay("SmartWatch wearing status");
+		component.setValue(
+				new StringType()
+						.setValue(isWearing ? "Wearing" : "Not_Wear"));
+		return component;
+	}
 	public void setWearing(boolean isWearing) {
 		this.isWearing = isWearing;
 	}
 	public String getSleepStatus() {
 		return sleepStatus;
+	}
+	public Observation.ObservationComponentComponent getSleepStatusObservation() {
+		Observation.ObservationComponentComponent component = new Observation.ObservationComponentComponent();
+		component.getCode().addCoding().setSystem("http://loinc.org")
+				.setCode("unknown")
+				.setDisplay("Sleep status");
+		component.setValue(
+				new StringType()
+						.setValue(this.getSleepStatus()));
+		return component;
 	}
 	public void setSleepStatus(String sleepStatus) {
 		this.sleepStatus = sleepStatus;
@@ -146,6 +236,35 @@ public class ActivityObj {
 				+ ", calories=" + calories + ", sleptHours=" + sleptHours + ", sleepStatus=" + sleepStatus
 				+ ", sleptMinutes=" + sleptMinutes + ", isWearing=" + isWearing;
 		return rs;
+	}
+	public Observation toObservation(Patient patient){
+		Observation obs = new Observation();
+		obs.setStatus(Observation.ObservationStatus.FINAL);
+		obs.getCode().addCoding().setSystem("http://loinc.org")
+				.setCode("82611-5")
+				.setDisplay("Wearable device external physiologic monitoring panel");
+		obs.getCategoryFirstRep().addCoding()
+				.setSystem("http://terminology.hl7.org/CodeSystem/observation-category")
+				.setCode("vital-signs")
+				.setDisplay("Vital Signs");
+		obs.setSubject(new Reference(patient.getIdElement().getValue()));
+		if(this.getMeasureTime() != null) {
+			Date date = this.getMeasureTime();
+			obs.getEffectiveDateTimeType()
+					.setYear(date.getYear())
+					.setMonth(date.getMonth())
+					.setDay(date.getDay())
+					.setHour(date.getHours())
+					.setMinute(date.getMinutes())
+					.setSecond(date.getSeconds());
+		}
+		obs.addComponent(getTemperatureObservation());
+		obs.addComponent(getStepObservation());
+		obs.addComponent(getCaloriesObservation());
+		obs.addComponent(getSleepStatusObservation());
+		obs.addComponent(getSleptHoursObservation());
+		obs.addComponent(getSleptMinutesObservation());
+		return obs;
 	}
 	
 }

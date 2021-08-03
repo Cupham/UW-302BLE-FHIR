@@ -2,8 +2,13 @@ package com.example.cu;
 
 import android.util.Log;
 
+import org.hl7.fhir.r4.model.Observation;
+import org.hl7.fhir.r4.model.Patient;
+import org.hl7.fhir.r4.model.Reference;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class UW302Object {
@@ -97,8 +102,6 @@ public class UW302Object {
 	public void setBloodPressure(BloodPressureObj bloodPressure) {
 		this.bloodPressure = bloodPressure;
 	}
-
-
 }
 
 

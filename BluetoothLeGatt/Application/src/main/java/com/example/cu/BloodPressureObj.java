@@ -5,10 +5,17 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
+import org.hl7.fhir.r4.model.Observation;
+import org.hl7.fhir.r4.model.Patient;
+import org.hl7.fhir.r4.model.Quantity;
+import org.hl7.fhir.r4.model.Reference;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class BloodPressureObj {
     private Date measureTime;
@@ -34,11 +41,46 @@ public class BloodPressureObj {
     public int getSYS() {
         return SYS;
     }
+    public Observation.ObservationComponentComponent getSYSObservation() {
+        Observation.ObservationComponentComponent sys = new Observation.ObservationComponentComponent();
+        sys.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("8480-6")
+                .setDisplay("Systolic blood pressure");
+        sys.setValue(
+                new Quantity()
+                        .setValue(this.getSYS())
+                        .setUnit("mmHg")
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode("mm[Hg]"));
+        sys.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("8480-6")
+                .setDisplay("Systolic blood pressure");
+        sys.setValue(
+                new Quantity()
+                        .setValue(this.getSYS())
+                        .setUnit("mmHg")
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode("mm[Hg]"));
+        return sys;
+    }
     public void setSYS(int sYS) {
         SYS = sYS;
     }
     public int getDIA() {
         return DIA;
+    }
+    public Observation.ObservationComponentComponent getDIAObservation() {
+        Observation.ObservationComponentComponent sys = new Observation.ObservationComponentComponent();
+        sys.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("8480-4")
+                .setDisplay("Diastolic blood pressure");
+        sys.setValue(
+                new Quantity()
+                        .setValue(this.getDIA())
+                        .setUnit("mmHg")
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode("mm[Hg]"));
+        return sys;
     }
     public void setDIA(int dIA) {
         DIA = dIA;
@@ -46,11 +88,37 @@ public class BloodPressureObj {
     public int getMAP() {
         return MAP;
     }
+    public Observation.ObservationComponentComponent getMAPObservation() {
+        Observation.ObservationComponentComponent sys = new Observation.ObservationComponentComponent();
+        sys.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("8478-0")
+                .setDisplay("Mean blood pressure");
+        sys.setValue(
+                new Quantity()
+                        .setValue(this.getMAP())
+                        .setUnit("mmHg")
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode("mm[Hg]"));
+        return sys;
+    }
     public void setMAP(int mAP) {
         MAP = mAP;
     }
     public int getPUL() {
         return PUL;
+    }
+    public Observation.ObservationComponentComponent getPULObservation() {
+        Observation.ObservationComponentComponent sys = new Observation.ObservationComponentComponent();
+        sys.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("8867-4")
+                .setDisplay("Heart rate");
+        sys.setValue(
+                new Quantity()
+                        .setValue(this.getPUL())
+                        .setUnit("beats/minute")
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode("/min"));
+        return sys;
     }
     public void setPUL(int pUL) {
         PUL = pUL;
@@ -104,6 +172,33 @@ public class BloodPressureObj {
     public String toString() {
         return "Time:" + measureTime + ", SYS=" + SYS + ", DIA=" + DIA + ", MAP=" + MAP
                 + ", PUL=" + PUL + ", Status=" + measurementStatus;
+    }
+    public Observation toObservation(Patient patient){
+        Observation obs = new Observation();
+        obs.setStatus(Observation.ObservationStatus.FINAL);
+        obs.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("85354-9")
+                .setDisplay("Blood pressure panel with all children optional");
+        obs.getCategoryFirstRep().addCoding()
+                .setSystem("http://terminology.hl7.org/CodeSystem/observation-category")
+                .setCode("vital-signs")
+                .setDisplay("Vital Signs");
+        obs.setSubject(new Reference(patient.getIdElement().getValue()));
+        if(this.getMeasureTime() != null) {
+            Date date = this.getMeasureTime();
+            obs.getEffectiveDateTimeType()
+                    .setYear(date.getYear())
+                    .setMonth(date.getMonth())
+                    .setDay(date.getDay())
+                    .setHour(date.getHours())
+                    .setMinute(date.getMinutes())
+                    .setSecond(date.getSeconds());
+        }
+        obs.addComponent(this.getSYSObservation());
+        obs.addComponent(this.getDIAObservation());
+        obs.addComponent(this.getMAPObservation());
+        obs.addComponent(this.getPULObservation());
+        return obs;
     }
 
 }

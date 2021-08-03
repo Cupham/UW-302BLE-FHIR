@@ -1,5 +1,10 @@
 package com.example.cu;
 
+import org.hl7.fhir.r4.model.Observation;
+import org.hl7.fhir.r4.model.Patient;
+import org.hl7.fhir.r4.model.Quantity;
+import org.hl7.fhir.r4.model.Reference;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -62,5 +67,35 @@ public class WeightObj {
     @Override
     public String toString() {
         return "Time:" + measureTime + ", weight=" + weight + " kg";
+    }
+    public Observation toObservation(Patient patient){
+        Observation obs = new Observation();
+        obs.setStatus(Observation.ObservationStatus.FINAL);
+        obs.getCode().addCoding().setSystem("http://loinc.org")
+                .setCode("29463-7")
+                .setDisplay("Body Weight");
+        obs.getCategoryFirstRep().addCoding()
+                .setSystem("http://terminology.hl7.org/CodeSystem/observation-category")
+                .setCode("vital-signs")
+                .setDisplay("Vital Signs");
+        obs.setSubject(new Reference(patient.getIdElement().getValue()));
+        if(this.getMeasureTime() != null) {
+            Date date = this.getMeasureTime();
+            obs.getEffectiveDateTimeType()
+                    .setYear(date.getYear())
+                    .setMonth(date.getMonth())
+                    .setDay(date.getDay())
+                    .setHour(date.getHours())
+                    .setMinute(date.getMinutes())
+                    .setSecond(date.getSeconds());
+        }
+        obs.setValue(
+          new Quantity()
+                  .setValue(this.getWeight())
+                  .setUnit("kg")
+                  .setSystem("http://unitsofmeasure.org")
+                  .setCode("kg")
+        );
+        return obs;
     }
 }
