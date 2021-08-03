@@ -30,10 +30,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,17 +47,26 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.cu.MyFHIRClient;
 import com.example.cu.UC_352Obj;
 import com.example.cu.UW302Object;
 import com.example.toan.SavedData;
+import com.example.toan.SavedUser;
 import com.example.toan.SendDataActivity;
 
+import org.hl7.fhir.r4.model.Observation;
+import org.hl7.fhir.r4.model.Patient;
+import org.hl7.fhir.r4.model.Quantity;
+import org.hl7.fhir.r4.model.Reference;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+
+import ca.uhn.fhir.context.FhirContext;
+import ca.uhn.fhir.rest.client.api.IGenericClient;
 
 /**
  * For a given BLE device, this Activity provides the user interface to connect, display data,
@@ -122,7 +133,7 @@ public class UC_352WeightScaleControlActivity extends Activity {
                 updateConnectionState(R.string.connected);
                 invalidateOptionsMenu();
                 ((Button)findViewById(R.id.button_connect)).setText("Dis");
-                MysetText("Connected to the weight scale");
+                MysetText("Connected");
 
             }
             else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action))
@@ -132,12 +143,13 @@ public class UC_352WeightScaleControlActivity extends Activity {
                 invalidateOptionsMenu();
                 clearUI();
                 ((Button)findViewById(R.id.button_connect)).setText("Conn");
-                MysetText("Waiting for the weight scale");
+                MysetText("Disconnected");
             }
             else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action))
             {
                 // Show all the supported services and characteristics on the user interface.
                 displayGattServices(mBluetoothLeService.getSupportedGattServices());
+                MysetText("Calling subcribe");
                 Subcribe();
             }
             else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action))
@@ -146,6 +158,7 @@ public class UC_352WeightScaleControlActivity extends Activity {
                 String s = intent.getStringExtra(BluetoothLeService.EXTRA_DATA);
                 TextView console = findViewById(R.id.textView_console);
                 //console.setText(console.getText()+"\n"+"Receiced(" + (++count_receive) + ") len=" + s.length() + ": " + s)
+                MysetText("ACTION_DATA_AVAILABLE");
             }
 
             //Log.d("TOAN:Received", intent.toString());
@@ -233,6 +246,7 @@ public class UC_352WeightScaleControlActivity extends Activity {
             }
         }
         //DATA = SavedData.LoadAndSync(getApplicationContext());
+        MysetText("OnCteated finished");
     }
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -420,12 +434,7 @@ public class UC_352WeightScaleControlActivity extends Activity {
             mBluetoothLeService.connect(mDeviceAddress);
         }
     }
-    public void OnClickGetSendData(View button)
-    {
-        Log.d("TOAN123","onClickRegistration");
-        Intent intent = new Intent(this, SendDataActivity.class);
-        startActivity(intent);
-    }
+
     int count_message=0;
     @RequiresApi(api = Build.VERSION_CODES.O)
     public  void MyOnRecieve(BluetoothGattCharacteristic charac)
@@ -439,7 +448,7 @@ public class UC_352WeightScaleControlActivity extends Activity {
         ((TextView)findViewById(R.id.textView_value)).setText(uc.getWeight()+"");
         ((TextView)findViewById(R.id.textView_unit)).setText(uc.getUnit());
         ((TextView)findViewById(R.id.textView_time)).setText(uc.getMeasureTime().toString());
-
+        UC_OJBECT_FINAL = uc;
     }
 
     void Subcribe()
@@ -478,7 +487,64 @@ public class UC_352WeightScaleControlActivity extends Activity {
         MysetText("<< FINISH SUBCRIBE >>");
     }
 
+    public static  UC_352Obj UC_OJBECT_FINAL=null;
+    public void OnClickGetSendData(View button)
+    {
+       /* Log.d("TOAN123","onClickRegistration");
+        Intent intent = new Intent(this, SendDataActivity.class);
+        startActivity(intent);*/
 
+       /* Bundle bundle = MyFHIRClient.getClient()
+                .search()
+                .forResource(Patient.class)
+                .where(Patient.IDENTIFIER.exactly().code(SavedUser.getCURRENT_USER_ID(getApplicationContext()))
+                .returnBundle(Bundle.class)
+                .execute();
+
+
+        org.hl7.fhir.r4.model.Bundle bundle = new org.hl7.fhir.r4.model.Bundle();
+        bundle.setType(org.hl7.fhir.r4.model.Bundle.BundleType.TRANSACTION);
+        bundle.addEntry().setResource(UC_OJBECT_FINAL.toObservation( ))
+        MyFHIRClient.getClient().transaction().withBundle()*/
+
+
+    }
+    public boolean sendToFHIRServer(String user_ID, UW302Object data){
+        Observation obs = new Observation();
+        obs.getCode().addCoding().setSystem("http://www.acme.org/nutritionorders")
+                .setCode("123")
+                .setDisplay("Consumed calories in kCal");
+        obs.setValue( new Quantity().setValue(data.getActivities().get(data.getActivities().size() -1).getCalories())
+                .setUnit("kCal").setSystem("http://unitsofmeasure.org").setCode("aaa")
+        );
+        obs.setSubject(new Reference(user_ID));
+        org.hl7.fhir.r4.model.Bundle b = new org.hl7.fhir.r4.model.Bundle();
+        b.setType( org.hl7.fhir.r4.model.Bundle.BundleType.TRANSACTION);
+        b.addEntry()
+                .setResource(obs)
+                .getRequest()
+                .setUrl("Observation")
+                .setMethod( org.hl7.fhir.r4.model.Bundle.HTTPVerb.POST);
+        FhirContext ctx = FhirContext.forR4();
+        System.out.println(ctx.newJsonParser().setPrettyPrint(true).encodeResourceToString(b));
+
+// Create a client and post the transaction to the server
+        IGenericClient client = ctx.newRestfulGenericClient("http://hapi.fhir.org/baseR4");
+        org.hl7.fhir.r4.model.Bundle resp = client.transaction().withBundle(b).execute();
+        Log.d("TOAN3434",resp.toString());
+
+
+
+        /*SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences (getApplicationContext());
+
+        sp.getInt("userid+asdasd", 99);
+
+        SharedPreferences.Editor mEdit1 = sp.edit();
+        mEdit1.putInt("userid+asdasd", 98);
+        mEdit1.commit();*/
+
+        return true;
+    }
 
 }
 

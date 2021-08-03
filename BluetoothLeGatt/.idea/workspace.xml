@@ -6,7 +6,6 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="KHUE" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
@@ -32,17 +31,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/FHIRUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/MyFHIRClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/PopupRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/PopupRegistration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UC_352WeightScaleControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UC_352WeightScaleControlActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedDevices.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedDevices.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SerialNumber@ZY225BHSKW]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -97,8 +96,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="VirtualDevicePath@C:\Users\nmtoa\.android\avd\Pixel_3a_API_30_x86.avd" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-07-17T03:10:15.320319400Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="SerialNumber@ZY225BHSKW" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-08-03T06:56:53.295729Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-viewC:/Users/nmtoa/AppData/Local/Android/Sdk/sources/android-28/android/view/View.java_SELECTED" value="View" />
@@ -230,6 +229,44 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
+  <component name="WindowStateProjectService">
+    <state width="1802" height="684" key="GridCell.Tab.0.bottom" timestamp="1627973617391">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1802" height="684" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
+    <state width="1802" height="684" key="GridCell.Tab.0.center" timestamp="1627973617391">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1802" height="684" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
+    <state width="1802" height="684" key="GridCell.Tab.0.left" timestamp="1627973617391">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1802" height="684" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
+    <state width="1802" height="684" key="GridCell.Tab.0.right" timestamp="1627973617391">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1802" height="684" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
+    <state width="1802" height="684" key="GridCell.Tab.1.bottom" timestamp="1627973617391">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1802" height="684" key="GridCell.Tab.1.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
+    <state width="1802" height="684" key="GridCell.Tab.1.center" timestamp="1627973617391">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1802" height="684" key="GridCell.Tab.1.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
+    <state width="1802" height="684" key="GridCell.Tab.1.left" timestamp="1627973617391">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1802" height="684" key="GridCell.Tab.1.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
+    <state width="1802" height="684" key="GridCell.Tab.1.right" timestamp="1627973617391">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1802" height="684" key="GridCell.Tab.1.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
+    <state x="2560" y="-225" width="1456" height="1057" maximized="true" key="dock-window-1" timestamp="1627973269072">
+      <screen x="2560" y="-852" width="1440" height="2520" />
+    </state>
+    <state x="2560" y="-225" width="1456" height="1057" maximized="true" key="dock-window-1/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973269072" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -240,29 +277,20 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java</url>
-          <line>354</line>
+          <line>362</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java</url>
-          <line>371</line>
+          <line>381</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/cu/BloodPressureObj.java</url>
-          <line>69</line>
+          <line>137</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="intent.getExtras().get(&quot;com.example.bluetooth.le.EXTRA_DATA&quot;)" language="JAVA" />
-        <watch expression="(BluetoothGattCharacteristic)intent.getExtras().get(&quot;com.example.bluetooth.le.EXTRA_DATA&quot;)" language="JAVA" />
-        <watch expression="intent" language="JAVA" />
-        <watch expression="intent.getSerializableExtra(&quot;com.example.bluetooth.le.EXTRA_DATA&quot;)" language="JAVA" />
-        <watch expression="(BluetoothGattCharacteristic)intent.getSerializableExtra(&quot;com.example.bluetooth.le.EXTRA_DATA&quot;)" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

@@ -2,6 +2,7 @@ package com.example.toan;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.location.Address;
 import android.preference.PreferenceManager;
 
 import java.util.ArrayList;
@@ -11,9 +12,10 @@ public class SavedDevices
 {
     static public class DeviceInfo
     {
-        public String Address;
-        public String Name;
-        public int Type;
+        public String Address="noaddress";
+        public String Name="noname";
+        public int Type=0;
+        public String User_ID="";
         public DeviceInfo()
         {
 
@@ -22,13 +24,14 @@ public class SavedDevices
         public DeviceInfo(String string)
         {
             String[] strings = string.split(";");
-            Address = strings[0];
-            Name = strings[1];
-            Type = Integer.parseInt(strings[2]);
+            if(strings.length>=1) Address = strings[0];
+            if(strings.length>=2) Name = strings[1];
+            if(strings.length>=3) Type = Integer.parseInt(strings[2]);
+            if(strings.length>=4) User_ID = strings[3];
         }
         public  String toString()
         {
-            return Address + ";" + Name + ";" + Type;
+            return Address + ";" + Name + ";" + Type + ";" + User_ID;
         }
     }
 
@@ -65,10 +68,11 @@ public class SavedDevices
     {
         boolean is_have = false;
         for(int i=0;i < devices.size(); i++)
-        if(devices.get(i).Address.equals(deviceInfo.Address))
         {
-            is_have = true;
-            break;
+            if ( IsSame(devices.get(i),deviceInfo )) {
+                is_have = true;
+                break;
+            }
         }
         if(!is_have)
         {
@@ -77,16 +81,27 @@ public class SavedDevices
         }
         return !is_have;
     }
-   /* public static String getCURRENT_USER_ID(Context context)
+    static public boolean IsSame(DeviceInfo df1, DeviceInfo df2)
     {
-        SharedPreferences aa = context.getSharedPreferences("toanstt",Context.MODE_PRIVATE);
-        return aa.getString("CURRENT_USER_ID","" );
+        if(!df1.Address.equals(df2.Address)) return false;
+        if(!df1.User_ID .equals(df2.User_ID)) return false;
+        return true;
     }
-    public  static  void setCURRENT_USER_ID(Context context, String ss)
+
+
+    public static String getCURRENT_DEVICE_ID(Context context)
     {
-        SharedPreferences aa = context.getSharedPreferences("toanstt",Context.MODE_PRIVATE);
+        SharedPreferences aa = context.getSharedPreferences("CURRENT_DEVICE_ADDRESS",Context.MODE_PRIVATE);
+        return aa.getString("CURRENT_DEVICE_ID","" );
+    }
+    public  static  void setCURRENT_DEVICE_ID(Context context, String ss)
+    {
+        SharedPreferences aa = context.getSharedPreferences("CURRENT_DEVICE_ADDRESS",Context.MODE_PRIVATE);
         SharedPreferences.Editor edi = aa.edit();
-        edi.putString("CURRENT_USER_ID", ss);
+        edi.putString("CURRENT_DEVICE_ID", ss);
         edi.commit();
-    }*/
+    }
+
+
+
 }
