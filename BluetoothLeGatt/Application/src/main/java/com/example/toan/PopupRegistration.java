@@ -90,32 +90,6 @@ public class PopupRegistration extends Activity
 
     }
 
-    public class PatientFhirHelper
-    {
-
-        private IGenericClient client;
-        private FhirContext ctx;
-
-        public PatientFhirHelper() {
-            ctx = FhirContext.forR4();
-            client = ctx.newRestfulGenericClient("http://hapi.fhir.org/baseR4");
-        }
-
-        public List<Patient> getPatients()
-        {
-            // Invoke the client
-            Bundle bundle = client.search().forResource(Patient.class)
-                    .where(new TokenClientParam("gender").exactly().code("unknown"))
-                    .prettyPrint()
-                    .returnBundle(Bundle.class)
-                    .execute();
-            return BundleUtil.toListOfResourcesOfType(ctx, bundle, Patient.class);
-        }
-
-        public IGenericClient getClient() {
-            return client;
-        }
-    }
 
 
 }
