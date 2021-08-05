@@ -45,9 +45,13 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.cu.MyFHIRClient;
 import com.example.cu.UC_352Obj;
 import com.example.cu.UT_201Obj;
+import com.example.toan.SavedUser;
 import com.example.toan.SendDataActivity;
+
+import org.hl7.fhir.r4.model.Patient;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -422,11 +426,21 @@ public class UT_201ThermoMeterControlActivity extends Activity {
             mBluetoothLeService.connect(mDeviceAddress);
         }
     }
+    public static  UT_201Obj UT_201=null;
     public void OnClickGetSendData(View button)
     {
-        Log.d("TOAN123","onClickRegistration");
-        Intent intent = new Intent(this, SendDataActivity.class);
-        startActivity(intent);
+        //String id = SavedUser.getCURRENT_USER_ID(getApplicationContext());
+        String id = "androidusertest";
+        Patient patient = MyFHIRClient.getClient().read().resource(Patient.class).withId(id).execute();
+        org.hl7.fhir.r4.model.Bundle bundle = new org.hl7.fhir.r4.model.Bundle();
+        bundle.setType(org.hl7.fhir.r4.model.Bundle.BundleType.TRANSACTION);
+        bundle.addEntry()
+                .setResource(UT_201.toObservation(patient))
+                .getRequest()
+                .setUrl("Observation")
+                .setMethod(org.hl7.fhir.r4.model.Bundle.HTTPVerb.POST);
+        org.hl7.fhir.r4.model.Bundle res = MyFHIRClient.getClient().transaction().withBundle(bundle).execute();
+        MysetText("Finished Observation ID " + res.getId());
     }
     int count_message=0;
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -447,7 +461,7 @@ public class UT_201ThermoMeterControlActivity extends Activity {
             ((TextView)findViewById(R.id.textView_type)).setText(ut.getTemperatureType()+"");
 
             ((TextView)findViewById(R.id.textView_time)).setText(ut.getMeasureTime()+"");
-
+            UT_201 = ut;
 
         }
         else MysetText("RE: UN: " + charac.getValue().toString() + " " +charac.getValue().length);
@@ -489,7 +503,7 @@ public class UT_201ThermoMeterControlActivity extends Activity {
         if(thermometterChar!=null)
         {
 
-            mBluetoothGatt.readCharacteristic(temperatureTypeChar);
+           // mBluetoothGatt.readCharacteristic(temperatureTypeChar);
 
 
             mBluetoothGatt.setCharacteristicNotification(thermometterChar,true);

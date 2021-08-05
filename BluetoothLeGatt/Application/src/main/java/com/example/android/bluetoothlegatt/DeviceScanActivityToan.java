@@ -131,7 +131,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
 
         if(deviceInfo.Name.indexOf("UC-352BLE") >=0)
         {
-            SavedDevices.CURRENT_DEVICE_ADDRESS = deviceInfo.Address;
+           // SavedDevices.CURRENT_DEVICE_ADDRESS = deviceInfo.Address;
             BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UC_352;
             final Intent intent = new Intent(this, UC_352WeightScaleControlActivity.class);
             intent.putExtra(UC_352WeightScaleControlActivity.EXTRAS_DEVICE_NAME, deviceInfo.Name);
@@ -145,7 +145,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
         }
         else if(deviceInfo.Name.indexOf("UT-201BLE") >=0 || deviceInfo.Name.indexOf("UT201BLE") >=0)
         {
-            SavedDevices.CURRENT_DEVICE_ADDRESS = deviceInfo.Address;
+           // SavedDevices.CURRENT_DEVICE_ADDRESS = deviceInfo.Address;
             BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UT_201;
             final Intent intent = new Intent(this, UT_201ThermoMeterControlActivity.class);
             intent.putExtra(UT_201ThermoMeterControlActivity.EXTRAS_DEVICE_NAME, deviceInfo.Name);
@@ -158,7 +158,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
         }
         else if(deviceInfo.Name.indexOf("UW-302BLE") >=0)
         {
-            SavedDevices.CURRENT_DEVICE_ADDRESS = deviceInfo.Address;
+           // SavedDevices.CURRENT_DEVICE_ADDRESS = deviceInfo.Address;
             BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UW_302;
             final Intent intent = new Intent(this, UW_302ActivityTrackerControlActivity.class);
             intent.putExtra(UW_302ActivityTrackerControlActivity.EXTRAS_DEVICE_NAME, deviceInfo.Name);
@@ -171,7 +171,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
         }
         else if(deviceInfo.Name.indexOf("UA-651BLE") >=0|| deviceInfo.Name.indexOf("UA651BLE") >=0)
         {
-            SavedDevices.CURRENT_DEVICE_ADDRESS = deviceInfo.Address;
+            //SavedDevices.CURRENT_DEVICE_ADDRESS = deviceInfo.Address;
             BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UA_651;
             final Intent intent = new Intent(this, UA_651BloodPressureControlActivity.class);
             intent.putExtra(UA_651BloodPressureControlActivity.EXTRAS_DEVICE_NAME, deviceInfo.Name);
@@ -363,7 +363,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
                 Log.d("TOAN234","on clidk: " + device.getName());
                 if(device.getName().indexOf("UC-352BLE") >=0)
                 {
-                    SavedDevices.CURRENT_DEVICE_ADDRESS = device.getName();
+                    //SavedDevices.CURRENT_DEVICE_ADDRESS = device.getName();
                     BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UC_352;
                     SaveDevice(device);
                     final Intent intent = new Intent(this, UC_352WeightScaleControlActivity.class);
@@ -378,7 +378,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
                 }
                 else if(device.getName().indexOf("UT-201BLE") >=0 || device.getName().indexOf("UT201BLE") >=0)
                 {
-                    SavedDevices.CURRENT_DEVICE_ADDRESS = device.getName();
+                   // SavedDevices.CURRENT_DEVICE_ADDRESS = device.getName();
                     BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UT_201;
                     Log.d("TOAN234", "clicking UT-201BLE");
                     SaveDevice(device);
@@ -393,7 +393,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
                 }
                 else if(device.getName().indexOf("UW-302BLE") >=0)
                 {
-                    SavedDevices.CURRENT_DEVICE_ADDRESS = device.getName();
+                    //SavedDevices.CURRENT_DEVICE_ADDRESS = device.getName();
                     BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UW_302;
                     //SaveDevice(device);
                     final Intent intent = new Intent(this, UW_302ActivityTrackerControlActivity.class);
@@ -407,7 +407,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
                 }
                 else if(device.getName().indexOf("UA-651BLE") >=0|| device.getName().indexOf("UA651BLE") >=0)
                 {
-                    SavedDevices.CURRENT_DEVICE_ADDRESS = device.getName();
+                    //SavedDevices.CURRENT_DEVICE_ADDRESS = device.getName();
                     BluetoothLeService.deviceType = BluetoothLeService.AandDDeviceType.UA_651;
                     SaveDevice(device);
                     final Intent intent = new Intent(this, UA_651BloodPressureControlActivity.class);

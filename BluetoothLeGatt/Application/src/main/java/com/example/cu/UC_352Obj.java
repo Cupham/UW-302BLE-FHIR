@@ -8,6 +8,7 @@ import org.hl7.fhir.r4.model.Reference;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 
 public class UC_352Obj {
@@ -98,14 +99,7 @@ public class UC_352Obj {
                 .setDisplay("Vital Signs");
         obs.setSubject(new Reference(patient.getIdElement().getValue()));
         if(this.getMeasureTime() != null) {
-            Date date = this.getMeasureTime();
-            obs.getEffectiveDateTimeType()
-                    .setYear(date.getYear())
-                    .setMonth(date.getMonth())
-                    .setDay(date.getDay())
-                    .setHour(date.getHours())
-                    .setMinute(date.getMinutes())
-                    .setSecond(date.getSeconds());
+            obs.getValueDateTimeType().setValue(this.getMeasureTime());
         }
         obs.setValue(
                 new Quantity()

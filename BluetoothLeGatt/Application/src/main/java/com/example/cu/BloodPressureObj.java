@@ -185,14 +185,7 @@ public class BloodPressureObj {
                 .setDisplay("Vital Signs");
         obs.setSubject(new Reference(patient.getIdElement().getValue()));
         if(this.getMeasureTime() != null) {
-            Date date = this.getMeasureTime();
-            obs.getEffectiveDateTimeType()
-                    .setYear(date.getYear())
-                    .setMonth(date.getMonth())
-                    .setDay(date.getDay())
-                    .setHour(date.getHours())
-                    .setMinute(date.getMinutes())
-                    .setSecond(date.getSeconds());
+            obs.getValueDateTimeType().setValue(this.getMeasureTime());
         }
         obs.addComponent(this.getSYSObservation());
         obs.addComponent(this.getDIAObservation());

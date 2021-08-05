@@ -61,6 +61,7 @@ import org.hl7.fhir.r4.model.Reference;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -490,6 +491,25 @@ public class UC_352WeightScaleControlActivity extends Activity {
     public static  UC_352Obj UC_OJBECT_FINAL=null;
     public void OnClickGetSendData(View button)
     {
+        Thread validateThread = new Thread() {
+            @Override
+            public void run() {
+                String id = "androidusertest";
+                Patient patient = MyFHIRClient.getClient().read().resource(Patient.class).withId(id).execute();
+                org.hl7.fhir.r4.model.Bundle bundle = new org.hl7.fhir.r4.model.Bundle();
+                bundle.setType(org.hl7.fhir.r4.model.Bundle.BundleType.TRANSACTION);
+                bundle.addEntry()
+                        .setResource(UC_OJBECT_FINAL     .toObservation(patient))
+                        .getRequest()
+                        .setUrl("Observation")
+                        .setMethod(org.hl7.fhir.r4.model.Bundle.HTTPVerb.POST);
+                org.hl7.fhir.r4.model.Bundle res = MyFHIRClient.getClient().transaction().withBundle(bundle).execute();
+                MysetText("Finished Observation ID " + res.getId());
+            }
+        };
+        validateThread.start();
+
+
        /* Log.d("TOAN123","onClickRegistration");
         Intent intent = new Intent(this, SendDataActivity.class);
         startActivity(intent);*/

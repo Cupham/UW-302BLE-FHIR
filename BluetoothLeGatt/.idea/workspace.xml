@@ -34,14 +34,20 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UC_352WeightScaleControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UC_352WeightScaleControlActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedDevices.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedDevices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UT_201ThermoMeterControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UT_201ThermoMeterControlActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/ActivityObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/ActivityObj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/BloodPressureObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/BloodPressureObj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UA_651Obj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UA_651Obj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UC_352Obj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UC_352Obj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UT_201Obj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UT_201Obj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/WeightObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/WeightObj.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SerialNumber@ZY225BHSKW]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[ZY225BHSKW]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -96,10 +102,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DEBUGGABLE_DEVICE" value="motorola-moto_z3_play-ZY225BHSKW" />
+    <property name="DEBUGGABLE_PROCESS" value="com.example.android.bluetoothlegatt" />
+    <property name="DEBUGGER_ID" value="Auto" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="SerialNumber@ZY225BHSKW" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-08-03T06:56:53.295729Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="android-custom-viewC:/Users/nmtoa/AppData/Local/Android/Sdk/sources/android-28/android/view/View.java_SELECTED" value="View" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
@@ -229,44 +239,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state width="1802" height="684" key="GridCell.Tab.0.bottom" timestamp="1627973617391">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1802" height="684" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
-    <state width="1802" height="684" key="GridCell.Tab.0.center" timestamp="1627973617391">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1802" height="684" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
-    <state width="1802" height="684" key="GridCell.Tab.0.left" timestamp="1627973617391">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1802" height="684" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
-    <state width="1802" height="684" key="GridCell.Tab.0.right" timestamp="1627973617391">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1802" height="684" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
-    <state width="1802" height="684" key="GridCell.Tab.1.bottom" timestamp="1627973617391">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1802" height="684" key="GridCell.Tab.1.bottom/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
-    <state width="1802" height="684" key="GridCell.Tab.1.center" timestamp="1627973617391">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1802" height="684" key="GridCell.Tab.1.center/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
-    <state width="1802" height="684" key="GridCell.Tab.1.left" timestamp="1627973617391">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1802" height="684" key="GridCell.Tab.1.left/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
-    <state width="1802" height="684" key="GridCell.Tab.1.right" timestamp="1627973617391">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1802" height="684" key="GridCell.Tab.1.right/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973617391" />
-    <state x="2560" y="-225" width="1456" height="1057" maximized="true" key="dock-window-1" timestamp="1627973269072">
-      <screen x="2560" y="-852" width="1440" height="2520" />
-    </state>
-    <state x="2560" y="-225" width="1456" height="1057" maximized="true" key="dock-window-1/0.0.2560.1400/2560.-852.1440.2520@0.0.2560.1400" timestamp="1627973269072" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -290,7 +262,18 @@
           <line>137</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/cu/UC_352Obj.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="obs.getEffectiveDateTimeType().setValue(cal)" language="JAVA" />
+        <watch expression="obs.getEffectiveDateTimeType().setValue(this.getMeasureTime())" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
