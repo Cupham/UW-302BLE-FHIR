@@ -57,15 +57,6 @@ public class UA_651Obj {
                         .setUnit("mmHg")
                         .setSystem("http://unitsofmeasure.org")
                         .setCode("mm[Hg]"));
-        sys.getCode().addCoding().setSystem("http://loinc.org")
-                .setCode("8480-6")
-                .setDisplay("Systolic blood pressure");
-        sys.setValue(
-                new Quantity()
-                        .setValue(this.getSYS())
-                        .setUnit("mmHg")
-                        .setSystem("http://unitsofmeasure.org")
-                        .setCode("mm[Hg]"));
         return sys;
     }
     public void setSYS(double sYS) {
@@ -179,15 +170,16 @@ public class UA_651Obj {
             this.setDIA(doubleFromSFLOATBytes(new byte[] {bytes[3], bytes[4]}));
             this.setMAP(doubleFromSFLOATBytes(new byte[] {bytes[5], bytes[6]}));
         }
-        if(flag >> 6 % 2 ==0) {
-            // No timeStamp
-            this.setPUL(intFromBytesLE(new byte[] {bytes[7], bytes[8]}));
-            this.setMeasurementStatus(measurementStatusFromBytes(new byte[] {bytes[9], bytes[10]}));
-        } else {
+        if(flag >> 6 % 2 ==1 && bytes.length >=18) {
             // With timeStamp
             this.setMeasureTime(timeFromBytes(Arrays.copyOfRange(bytes,7,14)));
             this.setPUL(intFromBytesLE(new byte[] {bytes[14], bytes[15]}));
             this.setMeasurementStatus(measurementStatusFromBytes(new byte[] {bytes[16], bytes[17]}));
+
+        } else {
+            // No timeStamp
+            this.setPUL(intFromBytesLE(new byte[] {bytes[7], bytes[8]}));
+            this.setMeasurementStatus(measurementStatusFromBytes(new byte[] {bytes[9], bytes[10]}));
         }
 
 

@@ -45,8 +45,12 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.cu.MyFHIRClient;
 import com.example.cu.UA_651Obj;
+import com.example.toan.SavedUser;
 import com.example.toan.SendDataActivity;
+
+import org.hl7.fhir.r4.model.Patient;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -421,11 +425,28 @@ public class UA_651BloodPressureControlActivity extends Activity {
             mBluetoothLeService.connect(mDeviceAddress);
         }
     }
+    public static UA_651Obj UA_651 = null;
     public void OnClickGetSendData(View button)
     {
-        Log.d("TOAN123","onClickRegistration");
-        Intent intent = new Intent(this, SendDataActivity.class);
-        startActivity(intent);
+        MysetText("Sending to FHIR");
+        Thread validateThread = new Thread() {
+            @Override
+            public void run() {
+                //String id = "androidusertest";
+                String id = SavedUser.getCURRENT_USER_ID(getApplicationContext());
+                Patient patient = MyFHIRClient.getClient().read().resource(Patient.class).withId(id).execute();
+                org.hl7.fhir.r4.model.Bundle bundle = new org.hl7.fhir.r4.model.Bundle();
+                bundle.setType(org.hl7.fhir.r4.model.Bundle.BundleType.TRANSACTION);
+                bundle.addEntry()
+                        .setResource(UA_651.toObservation(patient))
+                        .getRequest()
+                        .setUrl("Observation")
+                        .setMethod(org.hl7.fhir.r4.model.Bundle.HTTPVerb.POST);
+                org.hl7.fhir.r4.model.Bundle res = MyFHIRClient.getClient().transaction().withBundle(bundle).execute();
+                MysetText("Finished Observation ID " + res.getId());
+            }
+        };
+        validateThread.start();
     }
     int count_message=0;
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -444,7 +465,7 @@ public class UA_651BloodPressureControlActivity extends Activity {
             ((TextView)findViewById(R.id.textView_PUL)).setText(ua.getPUL() + "");
             ((TextView)findViewById(R.id.textView_SYS)).setText(ua.getSYS() + "");
 
-
+            UA_651 = ua;
         }
         else MysetText("RE: UN: " + charac.getValue().toString() + " " +charac.getValue().length);
     }

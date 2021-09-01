@@ -429,18 +429,25 @@ public class UT_201ThermoMeterControlActivity extends Activity {
     public static  UT_201Obj UT_201=null;
     public void OnClickGetSendData(View button)
     {
-        //String id = SavedUser.getCURRENT_USER_ID(getApplicationContext());
-        String id = "androidusertest";
-        Patient patient = MyFHIRClient.getClient().read().resource(Patient.class).withId(id).execute();
-        org.hl7.fhir.r4.model.Bundle bundle = new org.hl7.fhir.r4.model.Bundle();
-        bundle.setType(org.hl7.fhir.r4.model.Bundle.BundleType.TRANSACTION);
-        bundle.addEntry()
-                .setResource(UT_201.toObservation(patient))
-                .getRequest()
-                .setUrl("Observation")
-                .setMethod(org.hl7.fhir.r4.model.Bundle.HTTPVerb.POST);
-        org.hl7.fhir.r4.model.Bundle res = MyFHIRClient.getClient().transaction().withBundle(bundle).execute();
-        MysetText("Finished Observation ID " + res.getId());
+        MysetText("Send data to FHIR");
+        Thread validateThread = new Thread() {
+            @Override
+            public void run() {
+                //String id = "androidusertest";
+                String id = SavedUser.getCURRENT_USER_ID(getApplicationContext());
+                Patient patient = MyFHIRClient.getClient().read().resource(Patient.class).withId(id).execute();
+                org.hl7.fhir.r4.model.Bundle bundle = new org.hl7.fhir.r4.model.Bundle();
+                bundle.setType(org.hl7.fhir.r4.model.Bundle.BundleType.TRANSACTION);
+                bundle.addEntry()
+                        .setResource(UT_201.toObservation(patient))
+                        .getRequest()
+                        .setUrl("Observation")
+                        .setMethod(org.hl7.fhir.r4.model.Bundle.HTTPVerb.POST);
+                org.hl7.fhir.r4.model.Bundle res = MyFHIRClient.getClient().transaction().withBundle(bundle).execute();
+                MysetText("Finished Observation ID " + res.getId());
+            }
+        };
+        validateThread.start();
     }
     int count_message=0;
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -453,9 +460,12 @@ public class UT_201ThermoMeterControlActivity extends Activity {
         else
             if(charac ==thermometterChar )
         {
-            MysetText("RE: thermometterChar: " + charac.getValue().toString() + " " +charac.getValue().length);
+            byte[] rs = charac.getValue();
+            String flag = rs[0] >> 5 % 2 == 1 ? "1":"0";
+            String flag1 = rs[0] >> 2 % 2 == 1 ? "1":"0";
+            MysetText("RE: thermometterChar: " + charac.getValue().toString() + " " +charac.getValue().length  +  "  " +  flag + flag1);
 
-            UT_201Obj ut = new UT_201Obj(charac.getValue(), temperatureTypeChar.getValue()[0] );
+            UT_201Obj ut = new UT_201Obj(charac.getValue());
             ((TextView)findViewById(R.id.textView_value)).setText(ut.getTemperature()+"");
             ((TextView)findViewById(R.id.textView_unit)).setText(ut.getUnit()+"");
             ((TextView)findViewById(R.id.textView_type)).setText(ut.getTemperatureType()+"");

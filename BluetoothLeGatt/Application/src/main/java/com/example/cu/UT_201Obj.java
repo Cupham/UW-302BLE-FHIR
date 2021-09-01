@@ -30,6 +30,10 @@ public class UT_201Obj {
     {
         measurementDataFromBytes(temperatureBytes, type);
     }
+    public UT_201Obj(byte[] temperatureBytes)
+    {
+        measurementDataFromBytes(temperatureBytes);
+    }
     public String getUnit() {
         return unit;
     }
@@ -125,6 +129,28 @@ public class UT_201Obj {
             //No Time
 
         } else {
+            //Have Time
+            this.setMeasureTime(timeFromBytes(Arrays.copyOfRange(bytes,5,12)));
+            this.setTemperatureType(typeFromByte(bytes[12]));
+        }
+    }
+    private void measurementDataFromBytes(byte[] bytes)
+    {
+        byte flag = bytes[0];
+        if(flag >> 7 %2 ==1) {
+            this.setUnit("Fahrenheit");
+            ByteBuffer temperature = ByteBuffer.wrap(Arrays.copyOfRange(bytes,1,5)).order(ByteOrder.LITTLE_ENDIAN);
+            this.setTemperature(floatFromSFLOAT32(temperature));
+        } else {
+            this.setUnit("Celsius");
+            ByteBuffer temperature = ByteBuffer.wrap(Arrays.copyOfRange(bytes,1,5)).order(ByteOrder.LITTLE_ENDIAN);
+            this.setTemperature(floatFromSFLOAT32(temperature));
+        }
+        if(flag >>6 %2 ==0) {
+            this.setTemperatureType(typeFromByte(bytes[5]));
+            //No Time
+
+        } else  if(bytes.length >= 13){
             //Have Time
             this.setMeasureTime(timeFromBytes(Arrays.copyOfRange(bytes,5,12)));
             this.setTemperatureType(typeFromByte(bytes[12]));

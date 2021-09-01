@@ -442,7 +442,7 @@ public class UC_352WeightScaleControlActivity extends Activity {
     {
         //TextView console = findViewById(R.id.textView_console);
         Log.d("KHUE123 getdata",charac.getUuid()+": "+ charac.getValue().length);
-        MysetText("KHUE123 getdata: "+charac.getUuid()+": "+ charac.getValue().length);
+        MysetText(" getdata: "+charac.getUuid()+": "+ charac.getValue().length);
         UC_352Obj uc= new UC_352Obj(charac.getValue());
         MysetText(uc.toString() );
 
