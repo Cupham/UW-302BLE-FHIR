@@ -31,23 +31,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_play_core_1_9_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_play_core_1_9_1_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UA_651BloodPressureControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UA_651BloodPressureControlActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UC_352WeightScaleControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UC_352WeightScaleControlActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UT_201ThermoMeterControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UT_201ThermoMeterControlActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UserActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UA_651Obj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UA_651Obj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UT_201Obj.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/cu/UT_201Obj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/SavedUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[ZY225BHSKW]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SerialNumber@G0W0T9058477FEGN]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -105,8 +102,8 @@
     <property name="DEBUGGABLE_DEVICE" value="motorola-moto_z3_play-ZY225BHSKW" />
     <property name="DEBUGGABLE_PROCESS" value="com.example.android.bluetoothlegatt" />
     <property name="DEBUGGER_ID" value="Auto" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="SerialNumber@ZY225BHSKW" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-08-03T06:56:53.295729Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="SerialNumber@G0W0T9058477FEGN" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-09-01T08:11:02.585308700Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
@@ -115,7 +112,7 @@
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/Application/src/main/res/drawable-mdpi" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Application/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="memory.settings.postsync.last.time.stamp" value="1627705837966" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
@@ -264,7 +261,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/cu/UC_352Obj.java</url>
-          <line>91</line>
+          <line>92</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>

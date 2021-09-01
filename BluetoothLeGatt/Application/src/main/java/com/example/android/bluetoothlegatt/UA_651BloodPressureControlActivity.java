@@ -444,6 +444,7 @@ public class UA_651BloodPressureControlActivity extends Activity {
                         .setMethod(org.hl7.fhir.r4.model.Bundle.HTTPVerb.POST);
                 org.hl7.fhir.r4.model.Bundle res = MyFHIRClient.getClient().transaction().withBundle(bundle).execute();
                 MysetText("Finished Observation ID " + res.getId());
+                //SavedUser.getCURRENT_OBSERVATION_ID(I.getApplicationContext());
             }
         };
         validateThread.start();

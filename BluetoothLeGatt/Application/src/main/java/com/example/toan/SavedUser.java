@@ -49,4 +49,46 @@ public class SavedUser
         edi.putString("CURRENT_USER_ID", ss);
         edi.commit();
     }
+
+    public static String getCURRENT_OBSERVATION_UA_ID(Context context)
+    {
+        SharedPreferences aa = context.getSharedPreferences("toanstt",Context.MODE_PRIVATE);
+        return aa.getString("CURRENT_OBSERVATION_UA_ID","" );
+    }
+    public  static  void setCURRENT_OBSERVATION_UA_ID(Context context, String ss)
+    {
+        SharedPreferences aa = context.getSharedPreferences("toanstt",Context.MODE_PRIVATE);
+        SharedPreferences.Editor edi = aa.edit();
+        edi.putString("CURRENT_OBSERVATION_UA_ID", ss);
+        edi.commit();
+    }
+
+
+    public static String getCURRENT_OBSERVATION_UC_ID(Context context)
+    {
+        SharedPreferences aa = context.getSharedPreferences("toanstt",Context.MODE_PRIVATE);
+        return aa.getString("CURRENT_OBSERVATION_UC_ID","" );
+    }
+    public  static  void setCURRENT_OBSERVATION_UC_ID(Context context, String ss)
+    {
+        SharedPreferences aa = context.getSharedPreferences("toanstt",Context.MODE_PRIVATE);
+        SharedPreferences.Editor edi = aa.edit();
+        edi.putString("CURRENT_OBSERVATION_UC_ID", ss);
+        edi.commit();
+    }
+
+    public static String getCURRENT_OBSERVATION_UT_ID(Context context)
+    {
+        SharedPreferences aa = context.getSharedPreferences("toanstt",Context.MODE_PRIVATE);
+        return aa.getString("CURRENT_OBSERVATION_UT_ID","" );
+    }
+    public  static  void setCURRENT_OBSERVATION_UT_ID(Context context, String ss)
+    {
+        SharedPreferences aa = context.getSharedPreferences("toanstt",Context.MODE_PRIVATE);
+        SharedPreferences.Editor edi = aa.edit();
+        edi.putString("CURRENT_OBSERVATION_UT_ID", ss);
+        edi.commit();
+    }
+
+
 }
