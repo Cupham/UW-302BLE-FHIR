@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class JSONDevices
 {
@@ -16,5 +17,14 @@ public class JSONDevices
             adapter.add(devices.get(i).id);
         }
         return adapter;
+    }
+    public  String[] GetIDSStrings()
+    {
+        List<String> aa = new ArrayList<>();
+        for(int i=0; i < devices.size(); i++)
+        {
+            aa.add(devices.get(i).id);
+        }
+        return aa.toArray(new String[0]);
     }
 }

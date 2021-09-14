@@ -6,7 +6,6 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="TOAN" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
@@ -32,44 +31,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_volley_volley_1_2_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_PhilJay_MPAndroidChart_v3_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/ApplicancesActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplicanceAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BloodPressureChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BodyWeighingChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/GeneralLightingChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/HomeAirConditionerChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/MyChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/SwitchChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ThermoMeterChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONBloodPressure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONBodyWeighing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONDevice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONDevices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONGeneralLighing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONHomeAirConditioner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONManufacturer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONManufacturerDescriptions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONProtocol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONSwitch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONThermoMeter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_applicances.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/layout/item_applicance.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/AxisValueFormatter_ONOFF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Application/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UserActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/iconmenu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/menu/iconmenu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/menu/main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/menu/main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/ApplicancesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/ApplicancesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplicanceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplicanceAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BloodPressureChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BloodPressureChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BodyWeighingChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BodyWeighingChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/GeneralLightingChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/GeneralLightingChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/HomeAirConditionerChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/HomeAirConditionerChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/MyChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/MyChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/SwitchChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/SwitchChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ThermoMeterChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ThermoMeterChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONDevices.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONDevices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_applicances.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_applicances.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/item_applicance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/item_applicance.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

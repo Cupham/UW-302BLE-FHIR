@@ -52,6 +52,7 @@ public class ApplicancesActivity extends AppCompatActivity implements Navigation
         toolbar.setTitle("Applicances");
         Log.d("TOAN1","Init applicaces");
 
+
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navmenu);
         navigationView.setItemIconTintList(null);
@@ -87,12 +88,10 @@ public class ApplicancesActivity extends AppCompatActivity implements Navigation
                         devices = gson.fromJson(response, JSONDevices.class);
                         Log.d("TOAN1", devices.devices.size() + "");
 
-
-
                         ListView listView=(ListView)findViewById(R.id.list);
 
-
-                        ApplicanceAdapter adapter = new ApplicanceAdapter((Activity) getApplicationContext(),devices );
+                        String[] maintitle = devices.GetIDSStrings();
+                        ApplicanceAdapter adapter = new ApplicanceAdapter(getApplicationContext(),maintitle,devices );
                         listView.setAdapter(adapter);
 
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -102,7 +101,6 @@ public class ApplicancesActivity extends AppCompatActivity implements Navigation
                                 Log.d("TOAN","onItemClick");
                                 /*DeviceInfoFragment.myJSONdevice = devices.devices.get(position);
                                 ((MainActivity)getActivity()).MyChangeFragment(R.id.nav_gallery);*/
-
                             }
                         });
 

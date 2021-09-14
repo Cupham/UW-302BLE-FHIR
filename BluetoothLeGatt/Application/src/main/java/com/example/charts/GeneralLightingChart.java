@@ -1,4 +1,4 @@
-package com.example.uichart.ui.deviceinfo;
+package com.example.charts;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,26 +11,23 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.charts.MyChart;
 import com.example.uichart.ui.json.JSONDevice;
 import com.example.uichart.ui.json.JSONGeneralLighing;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class GeneralLightingChart extends  MyChart
+public class GeneralLightingChart extends MyChart
 {
     Context context;
     LineChart chart;
@@ -67,15 +64,17 @@ public class GeneralLightingChart extends  MyChart
 
 
         data = new LineData(dataSets);
-        data.setDrawValues(false);
+
 
         chart.getXAxis().setValueFormatter(new LineChartXAxisValueFormatter_GeneralLightingChart());
-        chart.getAxisLeft().setValueFormatter(new LineChartXAxisValueFormatter_new());
+        chart.getAxisLeft().setValueFormatter(new AxisValueFormatter_ONOFF());
+        data.setDrawValues(false);
         chart.getAxisRight().setEnabled(false);
-
-
+        chart.getDescription().setEnabled(false);
         chart.getAxisLeft().setAxisMinimum(-0.1f);
         chart.getAxisLeft().setAxisMaximum(1.1f);
+        chart.getLegend().setEnabled(false);
+
         chart.setData(data);
 
 
@@ -135,15 +134,3 @@ class LineChartXAxisValueFormatter_GeneralLightingChart extends IndexAxisValueFo
 }
 
 
-class LineChartXAxisValueFormatter_new extends IndexAxisValueFormatter
-{
-
-    @Override
-    public String getFormattedValue(float value)
-    {
-       if(value==0.0) return "OFF";
-       if(value==1.0) return "ON";
-       return "";
-    }
-
-}

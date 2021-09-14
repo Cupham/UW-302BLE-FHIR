@@ -1,4 +1,4 @@
-package com.example.uichart.ui.deviceinfo;
+package com.example.charts;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,7 +11,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.charts.MyChart;
 import com.example.uichart.ui.json.JSONDevice;
 import com.example.uichart.ui.json.JSONThermoMeter;
 import com.github.mikephil.charting.charts.LineChart;
@@ -27,7 +27,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class ThermoMeterChart extends  MyChart
+public class ThermoMeterChart extends MyChart
 {
     Context context;
     LineChart chart;

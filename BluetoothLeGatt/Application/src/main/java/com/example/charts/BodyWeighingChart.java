@@ -1,4 +1,4 @@
-package com.example.uichart.ui.deviceinfo;
+package com.example.charts;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,7 +11,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.charts.MyChart;
 import com.example.uichart.ui.json.JSONBodyWeighing;
 import com.example.uichart.ui.json.JSONDevice;
 import com.github.mikephil.charting.charts.LineChart;
@@ -27,7 +27,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class BodyWeighingChart extends  MyChart
+public class BodyWeighingChart extends MyChart
 {
     Context context;
     LineChart chart;
@@ -85,7 +85,16 @@ public class BodyWeighingChart extends  MyChart
                     {
                         Log.d("TOAN2","Response is: "+ response);
                         Gson gson = new Gson();
-                        JSONBodyWeighing json = gson.fromJson(response, JSONBodyWeighing.class);
+                        JSONBodyWeighing json = null;
+                        try
+                        {
+                            json = gson.fromJson(response, JSONBodyWeighing.class);
+                        }
+                        catch (Exception e)
+                        {
+                            return;
+                        }
+
                         Date currentTime = Calendar.getInstance().getTime();
                         float currenttime2 = currentTime.getHours()*3600 + currentTime.getMinutes()*60 + currentTime.getSeconds();
                         Log.d("TOAN31",currenttime2+"");

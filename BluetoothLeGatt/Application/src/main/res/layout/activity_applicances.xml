@@ -16,9 +16,11 @@
         layout="@layout/content_main"/>
 
     <ListView
+        android:layout_marginTop="55dp"
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+         />
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"

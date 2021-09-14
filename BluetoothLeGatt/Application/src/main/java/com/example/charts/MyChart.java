@@ -1,4 +1,4 @@
-package com.example.uichart.ui.deviceinfo;
+package com.example.charts;
 
 import android.content.Context;
 import android.widget.LinearLayout;
