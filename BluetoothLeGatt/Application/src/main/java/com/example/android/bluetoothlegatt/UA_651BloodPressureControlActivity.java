@@ -50,12 +50,15 @@ import com.example.cu.UA_651Obj;
 import com.example.toan.SavedUser;
 import com.example.toan.SendDataActivity;
 
+import org.hl7.fhir.r4.model.Observation;
 import org.hl7.fhir.r4.model.Patient;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+
+import ca.uhn.fhir.rest.api.MethodOutcome;
 
 /**
  * For a given BLE device, this Activity provides the user interface to connect, display data,
@@ -429,25 +432,40 @@ public class UA_651BloodPressureControlActivity extends Activity {
     public void OnClickGetSendData(View button)
     {
         MysetText("Sending to FHIR");
-        Thread validateThread = new Thread() {
+        Thread createObs = new Thread() {
             @Override
             public void run() {
-                //String id = "androidusertest";
                 String id = SavedUser.getCURRENT_USER_ID(getApplicationContext());
                 Patient patient = MyFHIRClient.getClient().read().resource(Patient.class).withId(id).execute();
-                org.hl7.fhir.r4.model.Bundle bundle = new org.hl7.fhir.r4.model.Bundle();
-                bundle.setType(org.hl7.fhir.r4.model.Bundle.BundleType.TRANSACTION);
-                bundle.addEntry()
-                        .setResource(UA_651.toObservation(patient))
-                        .getRequest()
-                        .setUrl("Observation")
-                        .setMethod(org.hl7.fhir.r4.model.Bundle.HTTPVerb.POST);
-                org.hl7.fhir.r4.model.Bundle res = MyFHIRClient.getClient().transaction().withBundle(bundle).execute();
-                MysetText("Finished Observation ID " + res.getId());
-                //SavedUser.getCURRENT_OBSERVATION_ID(I.getApplicationContext());
+                MethodOutcome outcome =  MyFHIRClient.getClient().create()
+                        .resource(UA_651.toObservation(patient))
+                        .prettyPrint().encodedJson().execute();
+                String createdID =outcome.getId().getBaseUrl() + "/" + outcome.getId().getIdPart();
+                MysetText("Created Observation ID " + createdID);
+                SavedUser.setCURRENT_OBSERVATION_UA_ID(I.getApplicationContext(),createdID);
             }
         };
-        validateThread.start();
+        Thread updateObs = new Thread() {
+            @Override
+            public void run() {
+                String id = SavedUser.getCURRENT_USER_ID(getApplicationContext());
+                Patient patient = MyFHIRClient.getClient().read().resource(Patient.class).withId(id).execute();
+                String obsID = SavedUser.getCURRENT_OBSERVATION_UA_ID(I.getApplicationContext());
+
+                Observation obs = UA_651.toObservation(patient);
+                obs.setId(obsID);
+                MethodOutcome outcome =  MyFHIRClient.getClient().update()
+                        .resource(obs)
+                        .prettyPrint().encodedJson().execute();
+                String createdID = outcome.getId().getIdPart();
+                MysetText("Updated Observation ID " + createdID);
+            }
+        };
+        if(SavedUser.getCURRENT_OBSERVATION_UA_ID(I.getApplicationContext()) != "") {
+            updateObs.start();
+        } else {
+            createObs.start();
+        }
     }
     int count_message=0;
     @RequiresApi(api = Build.VERSION_CODES.O)

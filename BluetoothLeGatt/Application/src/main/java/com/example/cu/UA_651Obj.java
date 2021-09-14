@@ -267,6 +267,7 @@ public class UA_651Obj {
         obs.getCode().addCoding().setSystem("http://loinc.org")
                 .setCode("85354-9")
                 .setDisplay("Blood pressure panel with all children optional");
+        obs.getCode().setText("pchaBloodPressure");
         obs.getCategoryFirstRep().addCoding()
                 .setSystem("http://terminology.hl7.org/CodeSystem/observation-category")
                 .setCode("vital-signs")
