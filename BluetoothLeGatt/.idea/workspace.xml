@@ -31,20 +31,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/AxisValueFormatter_ONOFF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/ApplicancesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/ApplicancesActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplicanceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplicanceAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BloodPressureChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BloodPressureChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BodyWeighingChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BodyWeighingChart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/GeneralLightingChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/GeneralLightingChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/HomeAirConditionerChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/HomeAirConditionerChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/MyChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/MyChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/SwitchChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/SwitchChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ThermoMeterChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ThermoMeterChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONDevices.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONDevices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_applicances.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_applicances.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/item_applicance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/item_applicance.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +102,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="android-custom-viewC:/Users/nmtoa/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v3.1.0/45d3ce505f744a595313d5eb84efd3ca3c8d2d04/MPAndroidChart-v3.1.0-sources.jar!/com/github/mikephil/charting/charts/LineChart.java_LineChart_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewC:/Users/nmtoa/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v3.1.0/45d3ce505f744a595313d5eb84efd3ca3c8d2d04/MPAndroidChart-v3.1.0-sources.jar!/com/github/mikephil/charting/charts/LineChart.java_SELECTED" value="LineChart" />
     <property name="android-custom-viewC:/Users/nmtoa/AppData/Local/Android/Sdk/sources/android-28/android/view/View.java_SELECTED" value="View" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />

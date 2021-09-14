@@ -74,6 +74,7 @@ public class GeneralLightingChart extends MyChart
         chart.getAxisLeft().setAxisMinimum(-0.1f);
         chart.getAxisLeft().setAxisMaximum(1.1f);
         chart.getLegend().setEnabled(false);
+        chart.setDrawMarkers(false);
 
         chart.setData(data);
 
