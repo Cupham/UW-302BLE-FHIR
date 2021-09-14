@@ -26,13 +26,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
+    static public  MainActivity I;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        I = this;
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Home");
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navmenu);
         navigationView.setItemIconTintList(null);
@@ -114,18 +117,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 h.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(h);
                 break;
-            case R.id.nav_about:
-               /* Intent i= new Intent(MainActivity.this,AboutActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(i);*/
+            case R.id.nav_device:
                 Intent i= new Intent(MainActivity.this, DeviceScanActivityToan.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
                 break;
-            case R.id.nav_contact:
+            case R.id.nav_user:
                 Intent g= new Intent(MainActivity.this,UserActivity.class);
                 g.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(g);
+                break;
+            case R.id.nav_appliances:
+                Intent g2= new Intent(MainActivity.this,ApplicancesActivity.class);
+                g2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(g2);
                 break;
 
         }

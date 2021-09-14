@@ -37,6 +37,7 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
         CheckLogedin();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("User");
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navmenu);
         navigationView.setItemIconTintList(null);
@@ -127,7 +128,8 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(MenuItem item)
     {
-        int id=item.getItemId();
+        return MainActivity.I.onNavigationItemSelected(item);
+        /*int id=item.getItemId();
 
         switch (id){
 
@@ -137,13 +139,13 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
                 h.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(h);
                 break;
-            case R.id.nav_about:
+            case R.id.nav_device:
                 Log.d("TOAN234","onNavigationItemSelected" + "devide"  );
                 Intent i= new Intent(UserActivity.this, DeviceScanActivityToan.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
                 break;
-            case R.id.nav_contact:
+            case R.id.nav_user:
                 Log.d("TOAN234","onNavigationItemSelected" + "user"  );
                 Intent g= new Intent(UserActivity.this, UserActivity.class);
                 g.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -156,7 +158,7 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
+        return true;*/
     }
     @Override
     public void onBackPressed()

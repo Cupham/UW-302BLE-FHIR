@@ -68,6 +68,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Devices");
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navmenu);
         navigationView.setItemIconTintList(null);
@@ -76,7 +77,6 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
         toggle.setDrawerIndicatorEnabled(true);
         navigationView.setNavigationItemSelectedListener(this);
         toggle.syncState();
-
 
         //new
 
@@ -128,7 +128,6 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
     }
     void ProcessOnClickKnownDevice(SavedDevices.DeviceInfo deviceInfo)
     {
-
         if(deviceInfo.Name.indexOf("UC-352BLE") >=0)
         {
            // SavedDevices.CURRENT_DEVICE_ADDRESS = deviceInfo.Address;
@@ -200,7 +199,8 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
     @Override
     public boolean onNavigationItemSelected(MenuItem item)
     {
-        int id=item.getItemId();
+        return MainActivity.I.onNavigationItemSelected(item);
+        /*int id=item.getItemId();
 
         switch (id){
             case R.id.nav_home:
@@ -208,11 +208,12 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
                 h.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(h);
                 break;
-            case R.id.nav_contact:
+            case R.id.nav_user:
                 Intent g= new Intent(DeviceScanActivityToan.this,UserActivity.class);
                 g.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(g);
                 break;
+
 
         }
 
@@ -221,7 +222,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         drawerLayout.closeDrawer(GravityCompat.START);
 
-        return true;
+        return true;*/
     }
 
     private LeDeviceListAdapter mLeDeviceListAdapter=null;
