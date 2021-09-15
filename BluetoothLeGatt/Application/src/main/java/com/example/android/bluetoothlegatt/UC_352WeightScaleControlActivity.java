@@ -451,6 +451,8 @@ public class UC_352WeightScaleControlActivity extends Activity {
         ((TextView)findViewById(R.id.textView_unit)).setText(uc.getUnit());
         ((TextView)findViewById(R.id.textView_time)).setText(uc.getMeasureTime().toString());
         UC_OJBECT_FINAL = uc;
+
+        OnClickGetSendData(null);
     }
 
     void Subcribe()

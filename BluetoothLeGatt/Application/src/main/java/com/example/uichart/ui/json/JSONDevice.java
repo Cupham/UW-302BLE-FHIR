@@ -6,4 +6,5 @@ public class JSONDevice
     public String id;
     public  JSONManufacturer manufacturer;
     public  JSONProtocol protocol;
+    public String installationLocation;
 }

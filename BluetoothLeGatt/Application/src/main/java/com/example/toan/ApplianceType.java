@@ -1,11 +1,15 @@
 package com.example.toan;
 
-public enum ApplianceType {
+public enum ApplianceType
+{
     GENERAL_LIGHTING,
     SWITCH,
     BLOOD_PRESSURE_METER,
     BODY_WEIGHING_MACHINE,
     CHINICAL_THERMOMETER,
     HOME_AIRCONDITIONER,
+    ILUMINANCE_SENSOR,
+    TEMPERATURE_SENSOR_INSIDE,
+    TEMPERATURE_SENSOR_OUTSIDE,
     UNKNOWN
 }

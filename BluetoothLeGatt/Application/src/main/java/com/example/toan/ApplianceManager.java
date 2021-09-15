@@ -11,7 +11,7 @@ import com.example.charts.ThermoMeterChart;
 
 public class ApplianceManager
 {
-    public  static ApplianceType GetApplianceTypeFromTypeString(String s)
+    public  static ApplianceType GetApplianceTypeFromTypeString(String s, String installationLocation)
     {
         switch (s)
         {
@@ -21,6 +21,15 @@ public class ApplianceManager
             case "bodyWeighingMachine": return ApplianceType.BODY_WEIGHING_MACHINE;
             case "clinicalThermometer": return ApplianceType.CHINICAL_THERMOMETER;
             case "homeAirConditioner": return ApplianceType.HOME_AIRCONDITIONER;
+            case "temperatureSensor":
+            {
+                if(installationLocation=="livingroom")
+                    return ApplianceType.TEMPERATURE_SENSOR_INSIDE;
+                else return ApplianceType.TEMPERATURE_SENSOR_OUTSIDE;
+            }
+            //case "homeAirConditioner": return ApplianceType.HOME_AIRCONDITIONER;
+            case "illuminanceSensor": return ApplianceType.ILUMINANCE_SENSOR;
+
             default: return ApplianceType.UNKNOWN;
 
         }

@@ -5,6 +5,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
+import com.example.toan.ApplianceManager;
+import com.example.toan.ApplianceType;
 import com.example.uichart.ui.json.JSONDevice;
 
 public class MyChart
@@ -20,25 +22,28 @@ public class MyChart
     }
     final static public MyChart NewChartClass(Context context, LinearLayout view, JSONDevice myJSONdevice, String URL, RequestQueue queue)
     {
+        ApplianceType type = ApplianceManager.GetApplianceTypeFromTypeString(myJSONdevice.deviceType, myJSONdevice.installationLocation);
         MyChart chart;
-        switch (myJSONdevice.deviceType)
+
+
+        switch (type)
         {
-            case "generalLighting":
+            case GENERAL_LIGHTING:
                 chart = new GeneralLightingChart(context, view,myJSONdevice,URL,queue);
                 break;
-            case "switch":
+            case SWITCH:
                 chart = new SwitchChart(context, view,myJSONdevice,URL,queue);
                 break;
-            case "bloodPressureMeter":
+            case BLOOD_PRESSURE_METER:
                 chart = new BloodPressureChart(context, view,myJSONdevice,URL,queue);
                 break;
-            case "bodyWeighingMachine":
+            case BODY_WEIGHING_MACHINE:
                 chart = new BodyWeighingChart(context, view,myJSONdevice,URL,queue);
                 break;
-            case "clinicalThermometer":
+            case CHINICAL_THERMOMETER:
                 chart = new ThermoMeterChart(context, view,myJSONdevice,URL,queue);
                 break;
-            case "homeAirConditioner":
+            case HOME_AIRCONDITIONER:
                 chart = new HomeAirConditionerChart(context, view,myJSONdevice,URL,queue);
                 break;
             default:

@@ -70,7 +70,7 @@ public class ApplianceAdapter extends ArrayAdapter<String> {
         titleText.setText(JSONdevices.devices.get(position).id);
         LinearLayout chartview = (LinearLayout)rowView.findViewById(R.id.item_chart_view);
         JSONDevice JSONdevice = JSONdevices.devices.get(position);
-        ApplianceType mytype = ApplianceManager.GetApplianceTypeFromTypeString(JSONdevice.deviceType);
+        ApplianceType mytype = ApplianceManager.GetApplianceTypeFromTypeString(JSONdevice.deviceType,JSONdevice.installationLocation );
 
         imageView.setImageResource(ApplianceManager.GetIconIdByType(mytype) );
         String URL = "http://150.65.231.31:5000/elapi/v1/devices/";

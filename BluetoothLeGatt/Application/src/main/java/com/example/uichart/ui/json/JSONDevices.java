@@ -36,7 +36,7 @@ public class JSONDevices
         JSONDevices t = new JSONDevices();
         for(int i =0; i < devices.devices.size(); i++)
         {
-            ApplianceType type = ApplianceManager.GetApplianceTypeFromTypeString(devices.devices.get(i).deviceType);
+            ApplianceType type = ApplianceManager.GetApplianceTypeFromTypeString(devices.devices.get(i).deviceType, devices.devices.get(i).installationLocation );
             if(type == ApplianceType.HOME_AIRCONDITIONER || type == ApplianceType.GENERAL_LIGHTING)
                 t.devices.add(devices.devices.get(i));
         }
