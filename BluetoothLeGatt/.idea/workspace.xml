@@ -31,13 +31,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/airconditioner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/lightbulb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/switch_.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/AppliancesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/AppliancesActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplianceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplianceAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/GeneralLightingChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/GeneralLightingChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/blood-pressure-gauge.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/bloodpressure-gauge.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/weighing-scale.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/ApplianceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/ApplianceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/item_appliance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/item_appliance.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

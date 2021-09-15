@@ -1,5 +1,6 @@
 package com.example.toan;
 
+import com.example.android.bluetoothlegatt.R;
 import com.example.charts.BloodPressureChart;
 import com.example.charts.BodyWeighingChart;
 import com.example.charts.GeneralLightingChart;
@@ -34,5 +35,16 @@ public class ApplianceManager
     {
         if( t == ApplianceType.HOME_AIRCONDITIONER) return true;
         return false;
+    }
+    public static int GetIconIdByType(ApplianceType t)
+    {
+        if(t==ApplianceType.GENERAL_LIGHTING) return R.drawable.lightbulb;
+        if(t==ApplianceType.SWITCH) return R.drawable.switch_;
+        if(t==ApplianceType.BLOOD_PRESSURE_METER) return R.drawable.bloodpressure;
+        if(t==ApplianceType.BODY_WEIGHING_MACHINE) return R.drawable.weighingscale;
+        if(t==ApplianceType.CHINICAL_THERMOMETER) return R.drawable.thermometer;
+        if(t==ApplianceType.HOME_AIRCONDITIONER) return R.drawable.airconditioner;
+        return R.drawable.unknown;
+
     }
 }

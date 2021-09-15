@@ -49,6 +49,7 @@ public class ApplianceAdapter extends ArrayAdapter<String> {
     }
     public View getView(int position, View view, ViewGroup parent)
     {
+        //return CreateView(position,view,parent);
         if(views[position]==null)
             views[position] =  CreateView(position,view,parent);
         return views[position];
@@ -57,13 +58,16 @@ public class ApplianceAdapter extends ArrayAdapter<String> {
     View CreateView(int position, View view, ViewGroup parent)
     {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View rowView = inflater.inflate(R.layout.item_appliance, null, true);
+        View rowView = inflater.inflate(R.layout.item_appliance, parent, false);
         TextView titleText = (TextView) rowView.findViewById(R.id.title);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
-        imageView.setImageResource(R.drawable.tile);
+
         titleText.setText(JSONdevices.devices.get(position).id);
         LinearLayout chartview = (LinearLayout)rowView.findViewById(R.id.item_chart_view);
         JSONDevice JSONdevice = JSONdevices.devices.get(position);
+        ApplianceType mytype = ApplianceManager.GetApplianceTypeFromTypeString(JSONdevice.deviceType);
+
+        imageView.setImageResource(ApplianceManager.GetIconIdByType(mytype) );
         String URL = "http://150.65.231.31:5000/elapi/v1/devices/";
         MyChart chart = MyChart.NewChartClass(context, chartview,JSONdevice,URL,queue);
         charts.add(chart);
@@ -82,7 +86,7 @@ public class ApplianceAdapter extends ArrayAdapter<String> {
         }, 50); // 1 second delay (takes millis)
 
 
-        ApplianceType mytype = ApplianceManager.GetApplianceTypeFromTypeString(JSONdevice.deviceType);
+
 
         if(ApplianceManager.IsSupportONOFF((mytype)))
         {
