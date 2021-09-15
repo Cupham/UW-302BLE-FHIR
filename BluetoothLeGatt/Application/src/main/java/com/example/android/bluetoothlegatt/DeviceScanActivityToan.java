@@ -117,7 +117,8 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
         Log.d("TOAN234", "LOADED: " + deviceInfos.size() + " devices" );
         ListView listKnownDevices = (ListView)findViewById(R.id.listview_knowndevices);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList);
+        SavedDeviceAdapter adapter = new SavedDeviceAdapter(getApplicationContext(), arrayList,deviceInfos);
         listKnownDevices.setAdapter(adapter);
         listKnownDevices.setOnItemClickListener((parent, view, position, id) ->{
             Log.d("TOAN23", "ON CLICKING " + position);

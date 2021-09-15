@@ -1,20 +1,15 @@
 package com.example.android.bluetoothlegatt;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.android.volley.Request;
@@ -23,22 +18,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.charts.ApplicanceAdapter;
-import com.example.cu.ActivityObj;
-import com.example.cu.BloodPressureObj;
-import com.example.cu.UW302Object;
-import com.example.cu.WeightObj;
-import com.example.toan.PopupLogin;
-import com.example.toan.PopupRegistration;
-import com.example.toan.SavedData;
-import com.example.toan.SavedUser;
+import com.example.charts.ApplianceAdapter;
 import com.example.uichart.ui.json.JSONDevices;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 
-import java.util.Arrays;
-
-public class ApplicancesActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+public class AppliancesActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -49,7 +34,7 @@ public class ApplicancesActivity extends AppCompatActivity implements Navigation
         setContentView(R.layout.activity_applicances);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Applicances");
+        toolbar.setTitle("Appliances");
         Log.d("TOAN1","Init applicaces");
 
 
@@ -91,7 +76,7 @@ public class ApplicancesActivity extends AppCompatActivity implements Navigation
                         ListView listView=(ListView)findViewById(R.id.list);
 
                         String[] maintitle = devices.GetIDSStrings();
-                        ApplicanceAdapter adapter = new ApplicanceAdapter(getApplicationContext(),maintitle,devices );
+                        ApplianceAdapter adapter = new ApplianceAdapter(getApplicationContext(),maintitle,devices );
                         listView.setAdapter(adapter);
 
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

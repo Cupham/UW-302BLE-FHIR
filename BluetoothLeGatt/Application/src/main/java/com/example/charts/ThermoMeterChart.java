@@ -60,11 +60,19 @@ public class ThermoMeterChart extends MyChart
         dataset_highest = new LineDataSet(line_entry,"C");
         dataset_highest.setLineWidth(4);
         dataset_highest.setColor(Color.RED);
+        dataset_highest.setDrawCircles(false);
         dataSets.add(dataset_highest);
 
 
         data = new LineData(dataSets);
         chart.getXAxis().setValueFormatter(new LineChartXAxisValueFormatter());
+
+        data.setDrawValues(false);
+        chart.getAxisRight().setEnabled(false);
+        chart.getDescription().setEnabled(false);
+        chart.getLegend().setEnabled(false);
+        chart.setDrawMarkers(false);
+
         chart.setData(data);
 
 

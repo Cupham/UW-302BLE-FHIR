@@ -64,15 +64,20 @@ public class BloodPressureChart extends MyChart
         dataset_highest = new LineDataSet(line_highest,"highestPressure");
         dataset_highest.setLineWidth(4);
         dataset_highest.setColor(Color.RED);
+        dataset_highest.setDrawCircles(false);
         dataSets.add(dataset_highest);
 
         dataset_lowest = new LineDataSet(line_lowest,"lowestPressure");
         dataset_lowest.setLineWidth(4);
+        dataset_lowest.setDrawCircles(false);
         dataSets.add(dataset_lowest);
 
 
         data = new LineData(dataSets);
         chart.getXAxis().setValueFormatter(new LineChartXAxisValueFormatter());
+        data.setDrawValues(false);
+        chart.getAxisRight().setEnabled(false);
+        chart.getDescription().setEnabled(false);
         chart.setData(data);
 
 

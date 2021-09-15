@@ -58,6 +58,7 @@ public class GeneralLightingChart extends MyChart
         float currenttime2 = currentTime.getHours()*3600 + currentTime.getMinutes()*60 + currentTime.getSeconds();
         Log.d("TOAN3",currenttime2+"");
         dataset_highest = new LineDataSet(line_entry,"Light");
+        dataset_highest.setDrawCircles(false);
         dataset_highest.setLineWidth(4);
         dataset_highest.setColor(Color.GREEN);
         dataSets.add(dataset_highest);
@@ -77,13 +78,6 @@ public class GeneralLightingChart extends MyChart
         chart.setDrawMarkers(false);
 
         chart.setData(data);
-
-
-
-        //ArrayList<String> yAxisVals = new ArrayList<>(Arrays.asList("OFF", "ON"));
-
-        //chart.getAxisLeft().setValueFormatter(new IndexAxisValueFormatter(yAxisVals));
-
 
         chart.notifyDataSetChanged();
         chart.invalidate();

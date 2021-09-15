@@ -60,11 +60,24 @@ public class SwitchChart extends MyChart
         dataset_highest = new LineDataSet(line_entry,"switch");
         dataset_highest.setLineWidth(4);
         dataset_highest.setColor(Color.YELLOW);
+        dataset_highest.setDrawCircles(false);
         dataSets.add(dataset_highest);
 
 
         data = new LineData(dataSets);
         chart.getXAxis().setValueFormatter(new LineChartXAxisValueFormatter_SwitchChart());
+
+
+        chart.getAxisLeft().setValueFormatter(new AxisValueFormatter_ONOFF());
+        data.setDrawValues(false);
+        chart.getAxisRight().setEnabled(false);
+        chart.getDescription().setEnabled(false);
+        chart.getAxisLeft().setAxisMinimum(-0.1f);
+        chart.getAxisLeft().setAxisMaximum(1.1f);
+        chart.getLegend().setEnabled(false);
+        chart.setDrawMarkers(false);
+
+
         chart.setData(data);
 
 

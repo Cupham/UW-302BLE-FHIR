@@ -57,7 +57,7 @@
 
         <activity android:name=".DeviceScanActivityToan"/>
         <activity android:name=".UserActivity"/>
-        <activity android:name=".ApplicancesActivity"/>
+        <activity android:name=".AppliancesActivity"/>
 
         <activity android:name=".UC_352WeightScaleControlActivity"/>
         <activity android:name=".UA_651BloodPressureControlActivity"/>

@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(g);
                 break;
             case R.id.nav_appliances:
-                Intent g2= new Intent(MainActivity.this,ApplicancesActivity.class);
+                Intent g2= new Intent(MainActivity.this, AppliancesActivity.class);
                 g2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(g2);
                 break;

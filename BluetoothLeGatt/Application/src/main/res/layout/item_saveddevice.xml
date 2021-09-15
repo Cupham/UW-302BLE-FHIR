@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingBottom="10pt">
+    android:paddingBottom="1pt">
 
 
     <LinearLayout android:layout_width="wrap_content"
@@ -14,23 +14,25 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-
-
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:padding="5dp" />
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="itemname"
-            android:textAlignment="center" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/item_chart_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="testname"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+    </LinearLayout>
 </LinearLayout>
