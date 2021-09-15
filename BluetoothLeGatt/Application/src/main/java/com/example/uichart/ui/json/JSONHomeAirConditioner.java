@@ -13,5 +13,6 @@ public class JSONHomeAirConditioner {
     public String productCode;
     public String productionDate;
     public Protocol protocol;
+    public String operationMode;
 
 }

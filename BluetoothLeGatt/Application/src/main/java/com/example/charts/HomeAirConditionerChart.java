@@ -102,6 +102,13 @@ public class HomeAirConditionerChart extends MyChart
                         chart.getData().notifyDataChanged();
                         chart.notifyDataSetChanged();
                         chart.invalidate();
+
+                        if(TextView_Mode!=null)
+                        {
+                            TextView_Mode.setText("Mode: " + json.operationMode);
+                        }
+
+
                     }
                 }, new Response.ErrorListener() {
             @Override

@@ -2,12 +2,14 @@ package com.example.charts;
 
 import android.content.Context;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.example.uichart.ui.json.JSONDevice;
 
 public class MyChart
 {
+    public TextView TextView_Mode=null;
     public MyChart(Context context, LinearLayout rl, JSONDevice myJSONdevice, String url, RequestQueue queue)
     {
 

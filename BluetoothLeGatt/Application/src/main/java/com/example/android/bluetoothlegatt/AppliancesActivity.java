@@ -84,6 +84,7 @@ public class AppliancesActivity extends AppCompatActivity implements NavigationV
                         //textView.setText();
                         Gson gson = new Gson();
                         devices = gson.fromJson(response, JSONDevices.class);
+                        devices = JSONDevices.GetAppliances(devices);
                         Log.d("TOAN1", devices.devices.size() + "");
 
                         ListView listView=(ListView)findViewById(R.id.list);

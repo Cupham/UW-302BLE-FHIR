@@ -3,6 +3,9 @@ package com.example.uichart.ui.json;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
+import com.example.toan.ApplianceManager;
+import com.example.toan.ApplianceType;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,4 +30,17 @@ public class JSONDevices
         }
         return aa.toArray(new String[0]);
     }
+
+   public static JSONDevices GetAppliances(JSONDevices devices )
+    {
+        JSONDevices t = new JSONDevices();
+        for(int i =0; i < devices.devices.size(); i++)
+        {
+            ApplianceType type = ApplianceManager.GetApplianceTypeFromTypeString(devices.devices.get(i).deviceType);
+            if(type == ApplianceType.HOME_AIRCONDITIONER || type == ApplianceType.GENERAL_LIGHTING)
+                t.devices.add(devices.devices.get(i));
+        }
+        return t;
+    }
+
 }

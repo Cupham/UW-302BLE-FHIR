@@ -3,21 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/nav_home"
-        android:icon="@drawable/tile"
-        android:title="Home"/>
+        android:icon="@drawable/house"
+        android:title="Dashboard"/>
+    <item
+        android:id="@+id/nav_appliances"
+        android:icon="@drawable/dashboard"
+        android:title="Appliances" />
+
 
     <item
         android:id="@+id/nav_device"
-        android:icon="@drawable/tile"
-        android:title="Devices" />
+        android:icon="@drawable/healthcaredevices"
+        android:title="Healthcare Devices" />
 
     <item
         android:id="@+id/nav_user"
-        android:icon="@drawable/tile"
+        android:icon="@drawable/oldman"
         android:title="User" />
-    <item
-        android:id="@+id/nav_appliances"
-        android:icon="@drawable/tile"
-        android:title="Appliances" />
+
 
 </menu>

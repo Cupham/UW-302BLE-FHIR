@@ -10,32 +10,48 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.charts.ApplianceAdapter;
 import com.example.cu.ActivityObj;
 import com.example.cu.BloodPressureObj;
 import com.example.cu.SumaryObj;
 import com.example.cu.UW302Object;
 import com.example.cu.WeightObj;
 import com.example.toan.SavedData;
+import com.example.uichart.ui.json.JSONDevices;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
 
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+{
+    public static MainActivity I;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
-    static public  MainActivity I;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         I = this;
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_applicances);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Home");
+        toolbar.setTitle("Dashboard");
+        Log.d("TOAN1","Init applicaces");
+
+
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navmenu);
         navigationView.setItemIconTintList(null);
@@ -44,76 +60,85 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.setDrawerIndicatorEnabled(true);
         navigationView.setNavigationItemSelectedListener(this);
         toggle.syncState();
+        Log.d("TOAN1","Init applicaces");
+        Init();
+    }
+    void Init()
+    {
+        ListView lv = findViewById(R.id.list);
+       /* lv.setOnScrollListener(new AbsListView.OnScrollListener() {
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                if ( scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE )
+                {
+                    lv.invalidateViews();
+                }
 
-        //toanstt
-        UW302Object oms = null;
-        byte[] aa = SavedData.LoadData(getApplicationContext());
-
-
-
-
-
-        if (aa!=null && aa.length>=256) {
-            int n = (aa.length - 256);
-            byte[] aa2;
-            n = aa.length / 256;
-
-
-            aa2 = Arrays.copyOfRange(aa, aa.length - 256, aa.length);
-            oms = new UW302Object(aa2);
-            Log.d("TOAN34", "Parse data from saved data: bytearraysize: " + aa.length + " expected: " + aa.length / 256 + " got:" + oms.getActivities().size());
-
-            ActivityObj ao = oms.getActivities().get(oms.getActivities().size() - 1);
-
-
-            ((TextView) findViewById(R.id.textView_userinfo_time)).setText(ao.getMeasureTime().toString());
-            ((TextView) findViewById(R.id.textView_activity)).setText(ao.getCalories() + " ");
-            ((TextView) findViewById(R.id.textView_step)).setText(ao.getStep() + "");
-            ((TextView) findViewById(R.id.textView_distance)).setText("NA");
-            ((TextView) findViewById(R.id.textView_bpm)).setText("NA");
-            ((TextView) findViewById(R.id.textView_sleep)).setText(ao.getSleptHours() + ":" + ao.getSleptMinutes());
-            ((TextView) findViewById(R.id.textView_sleep_status)).setText(ao.getSleepStatus());
-
-
-            WeightObj wo = oms.getWeight();
-            if (wo != null) {
-                ((TextView) findViewById(R.id.textView_weight)).setText(wo.getWeight() + "");
-                ((TextView) findViewById(R.id.textView_bmi)).setText("NA");
-                ((TextView) findViewById(R.id.textView_weight_time)).setText(wo.getMeasureTime() + "");
             }
 
+            @Override
+            public void onScroll(AbsListView arg0, int arg1, int arg2, int arg3) {}
+        });*/
+        LoadDevices();
+    }
 
-            BloodPressureObj bo = oms.getBloodPressure();
-            if (bo != null) {
-                ((TextView) findViewById(R.id.textView_DIA)).setText(bo.getDIA() + "");
-                ((TextView) findViewById(R.id.textView_MAP)).setText(bo.getMAP() + "");
-                ((TextView) findViewById(R.id.textView_PUL)).setText(bo.getPUL() + "");
-                ((TextView) findViewById(R.id.textView_SYS)).setText(bo.getSYS() + "");
-                ((TextView) findViewById(R.id.textView_weight_time)).setText(bo.getMeasureTime() + "");
+    public  static JSONDevices devices = null;
+    String LoadDevices()
+    {
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        String url ="http://150.65.231.31:5000/elapi/v1/devices";
+        Log.d("TOAN1","Loading  " + url);
+// Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("TOAN1","Response is: "+ response );
+                        // Display the first 500 characters of the response string.
+                        //textView.setText();
+                        Gson gson = new Gson();
+                        devices = gson.fromJson(response, JSONDevices.class);
+                        Log.d("TOAN1", devices.devices.size() + "");
+
+                        ListView listView=(ListView)findViewById(R.id.list);
+
+                        String[] maintitle = devices.GetIDSStrings();
+                        ApplianceAdapter adapter = new ApplianceAdapter(getApplicationContext(),maintitle,devices );
+                        listView.setAdapter(adapter);
+
+
+                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l)
+                            {
+                                Log.d("TOAN","onItemClick");
+                                /*DeviceInfoFragment.myJSONdevice = devices.devices.get(position);
+                                ((MainActivity)getActivity()).MyChangeFragment(R.id.nav_gallery);*/
+                            }
+                        });
+
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+                Log.d("TOAN1","That didn't work: "  + error.getMessage()); //textView.setText("That didn't work!");
             }
-            //NEW
-            SumaryObj sumaryobj = new SumaryObj(aa);
-            ((TextView) findViewById(R.id.textView_activity)).setText(sumaryobj.total_calories + "(new)");
+        });
 
-            ((TextView) findViewById(R.id.textView_weight)).setText(sumaryobj.WEIGHT_WEIGHT + "");
-            //((TextView) findViewById(R.id.textView_bmi)).setText("NA");
-            ((TextView) findViewById(R.id.textView_weight_time)).setText(sumaryobj.WEIGHT_DAY + "");
+// Add the request to the RequestQueue.
+        queue.add(stringRequest);
 
-            //((TextView) findViewById(R.id.textView_DIA)).setText(bo.getDIA() + "");
-            //((TextView) findViewById(R.id.textView_MAP)).setText(bo.getMAP() + "");
-            //((TextView) findViewById(R.id.textView_PUL)).setText(bo.getPUL() + "");
-            ((TextView) findViewById(R.id.textView_SYS)).setText(sumaryobj.BLOOD_SYS + "");
-            ((TextView) findViewById(R.id.textView_blood_time)).setText(sumaryobj.BLOOD_DAY + "");
-        }
-
+        return "aaa";
     }
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
         int id=item.getItemId();
         switch (id){
 
             case R.id.nav_home:
-                Intent h= new Intent(MainActivity.this,MainActivity.class);
+                Intent h= new Intent(MainActivity.this, MainActivity.class);
                 h.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(h);
                 break;
@@ -141,6 +166,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onBackPressed()
     {
+
+    }
+
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
 
     }
 }

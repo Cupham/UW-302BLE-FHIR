@@ -68,7 +68,7 @@ public class DeviceScanActivityToan extends AppCompatActivity implements Navigat
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Devices");
+        toolbar.setTitle("Healthcare Devices");
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navmenu);
         navigationView.setItemIconTintList(null);

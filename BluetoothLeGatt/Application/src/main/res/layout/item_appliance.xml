@@ -46,28 +46,56 @@
     <LinearLayout
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
 
         <Button
             android:id="@+id/button_on"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="ON" />
 
         <Button
             android:id="@+id/button_off"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="OFF" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        <TextView
+            android:id="@+id/textview_currentmode"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:entries="@array/airconditioner_modes" />
+            android:text="Mode: ">
+
+        </TextView>
+
+
+    </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:entries="@array/airconditioner_modes" />
+            <Button
+                android:id="@+id/button_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SEND" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

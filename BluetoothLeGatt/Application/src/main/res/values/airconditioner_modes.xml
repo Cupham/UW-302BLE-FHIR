@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="airconditioner_modes">
-        <item>Warm</item>
-        <item>Cool</item>
+        <item>Auto</item>
+        <item>Cooling</item>
+        <item>Heating</item>
+        <item>Dehumidification</item>
+        <item>Circulation</item>
+        <item>Other</item>
     </string-array>
 </resources>
