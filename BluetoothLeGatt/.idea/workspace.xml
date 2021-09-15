@@ -31,31 +31,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/SavedDeviceAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/ApplianceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/ApplianceType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/DeviceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/bloodpressure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/smartwatch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/thermometer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/unknown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/weighingscale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/layout/item_appliance.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/values/airconditioner_modes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/ApplicancesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/AppliancesActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/DeviceScanActivityToan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplicanceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplianceAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BloodPressureChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BloodPressureChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/AppliancesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/AppliancesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplianceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplianceAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/GeneralLightingChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/GeneralLightingChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/HomeAirConditionerChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/HomeAirConditionerChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/SwitchChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/SwitchChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ThermoMeterChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ThermoMeterChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/item_applicance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/item_saveddevice.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/blood-pressure-gauge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/bloodpressure-gauge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/weighing-scale.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

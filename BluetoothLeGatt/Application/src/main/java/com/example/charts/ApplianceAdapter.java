@@ -102,8 +102,8 @@ public class ApplianceAdapter extends ArrayAdapter<String> {
         }
         else
         {
-            rowView.findViewById(R.id.button_on).setVisibility(View.INVISIBLE);
-            rowView.findViewById(R.id.button_off).setVisibility(View.INVISIBLE);
+            rowView.findViewById(R.id.button_on).setVisibility(View.GONE);
+            rowView.findViewById(R.id.button_off).setVisibility(View.GONE);
         }
 
         if(ApplianceManager.IsSupportMODE(mytype))
@@ -112,7 +112,7 @@ public class ApplianceAdapter extends ArrayAdapter<String> {
         }
         else
         {
-            rowView.findViewById(R.id.spinner).setVisibility(View.INVISIBLE);
+            rowView.findViewById(R.id.spinner).setVisibility(View.GONE);
         }
         return rowView;
     }

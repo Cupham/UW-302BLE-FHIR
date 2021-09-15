@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -52,6 +53,18 @@ public class AppliancesActivity extends AppCompatActivity implements NavigationV
     void Init()
     {
         ListView lv = findViewById(R.id.list);
+       /* lv.setOnScrollListener(new AbsListView.OnScrollListener() {
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                if ( scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE )
+                {
+                    lv.invalidateViews();
+                }
+
+            }
+
+            @Override
+            public void onScroll(AbsListView arg0, int arg1, int arg2, int arg3) {}
+        });*/
         LoadDevices();
     }
 
@@ -78,6 +91,7 @@ public class AppliancesActivity extends AppCompatActivity implements NavigationV
                         String[] maintitle = devices.GetIDSStrings();
                         ApplianceAdapter adapter = new ApplianceAdapter(getApplicationContext(),maintitle,devices );
                         listView.setAdapter(adapter);
+
 
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override

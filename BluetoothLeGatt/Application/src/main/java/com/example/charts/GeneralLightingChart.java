@@ -96,7 +96,13 @@ public class GeneralLightingChart extends MyChart
                     {
                         Log.d("TOAN2","Response is: "+ response);
                         Gson gson = new Gson();
-                        JSONGeneralLighing json = gson.fromJson(response, JSONGeneralLighing.class);
+                        JSONGeneralLighing json;
+                        try {
+                            json = gson.fromJson(response, JSONGeneralLighing.class);
+                        } catch (Exception e)
+                        {
+                            return;
+                        }
                         Date currentTime = Calendar.getInstance().getTime();
                         float currenttime2 = currentTime.getHours()*3600 + currentTime.getMinutes()*60 + currentTime.getSeconds();
                         Log.d("TOAN31",currenttime2+"");
