@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="10pt">
+    android:paddingBottom="2pt"
+    android:paddingTop="2pt"
+    android:background="@drawable/bg_button_rounded_gray">
 
     <LinearLayout
         android:layout_width="match_parent"

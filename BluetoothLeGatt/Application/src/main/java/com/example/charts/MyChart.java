@@ -46,6 +46,9 @@ public class MyChart
             case HOME_AIRCONDITIONER:
                 chart = new HomeAirConditionerChart(context, view,myJSONdevice,URL,queue);
                 break;
+            case MERGED_TEMPETATURE:
+                chart = new MergedTemperatureChart(context, view,myJSONdevice,URL,queue);
+                break;
             default:
                 chart = new MyChart(context, view,myJSONdevice,URL,queue);
                 break;

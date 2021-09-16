@@ -93,18 +93,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onResponse(String response) {
                         Log.d("TOAN1","Response is: "+ response );
-                        // Display the first 500 characters of the response string.
-                        //textView.setText();
                         Gson gson = new Gson();
                         devices = gson.fromJson(response, JSONDevices.class);
+                        JSONDevices devices_merged = devices.MergeThermoDevices();
+                        devices = devices_merged;
                         Log.d("TOAN1", devices.devices.size() + "");
-
                         ListView listView=(ListView)findViewById(R.id.list);
-
                         String[] maintitle = devices.GetIDSStrings();
                         ApplianceAdapter adapter = new ApplianceAdapter(getApplicationContext(),maintitle,devices );
                         listView.setAdapter(adapter);
-
 
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override

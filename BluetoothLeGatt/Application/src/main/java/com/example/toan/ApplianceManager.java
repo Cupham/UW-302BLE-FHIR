@@ -21,6 +21,7 @@ public class ApplianceManager
             case "bodyWeighingMachine": return ApplianceType.BODY_WEIGHING_MACHINE;
             case "clinicalThermometer": return ApplianceType.CHINICAL_THERMOMETER;
             case "homeAirConditioner": return ApplianceType.HOME_AIRCONDITIONER;
+            case "mergedtemperature": return ApplianceType.MERGED_TEMPETATURE;
             case "temperatureSensor":
             {
                 if(installationLocation=="livingroom")
@@ -29,9 +30,7 @@ public class ApplianceManager
             }
             //case "homeAirConditioner": return ApplianceType.HOME_AIRCONDITIONER;
             case "illuminanceSensor": return ApplianceType.ILUMINANCE_SENSOR;
-
             default: return ApplianceType.UNKNOWN;
-
         }
         //return ApplianceType.UNKNOWN;
     }
@@ -53,6 +52,7 @@ public class ApplianceManager
         if(t==ApplianceType.BODY_WEIGHING_MACHINE) return R.drawable.weighingscale;
         if(t==ApplianceType.CHINICAL_THERMOMETER) return R.drawable.thermometer;
         if(t==ApplianceType.HOME_AIRCONDITIONER) return R.drawable.airconditioner;
+        if(t==ApplianceType.MERGED_TEMPETATURE) return R.drawable.temperature;
         return R.drawable.unknown;
 
     }

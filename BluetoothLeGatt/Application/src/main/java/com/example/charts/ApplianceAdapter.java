@@ -144,9 +144,10 @@ public class ApplianceAdapter extends ArrayAdapter<String> {
         else
         {
             rowView.findViewById(R.id.spinner).setVisibility(View.GONE);
-            rowView.findViewById(R.id.textview_currentmode).setVisibility(View.INVISIBLE);
+            if(ApplianceManager.IsSupportONOFF(mytype))
+                rowView.findViewById(R.id.textview_currentmode).setVisibility(View.INVISIBLE);
+            else rowView.findViewById(R.id.textview_currentmode).setVisibility(View.GONE);
             rowView.findViewById(R.id.button_send).setVisibility(View.GONE);
-
         }
         return rowView;
     }

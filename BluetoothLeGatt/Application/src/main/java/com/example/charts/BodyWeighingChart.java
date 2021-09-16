@@ -58,6 +58,7 @@ public class BodyWeighingChart extends MyChart
         float currenttime2 = currentTime.getHours()*3600 + currentTime.getMinutes()*60 + currentTime.getSeconds();
         Log.d("TOAN3",currenttime2+"");
         dataset_highest = new LineDataSet(line_entry,"Kg");
+        dataset_highest.setDrawCircles(false);
         dataset_highest.setLineWidth(4);
         dataset_highest.setColor(Color.BLUE);
         dataSets.add(dataset_highest);
@@ -65,6 +66,15 @@ public class BodyWeighingChart extends MyChart
 
         data = new LineData(dataSets);
         chart.getXAxis().setValueFormatter(new LineChartXAxisValueFormatter_BodyWeighingChart());
+
+        data.setDrawValues(false);
+        chart.getAxisRight().setEnabled(false);
+        chart.getDescription().setEnabled(false);
+        //chart.getAxisLeft().setAxisMinimum(-0.1f);
+        //chart.getAxisLeft().setAxisMaximum(1.1f);
+        chart.getLegend().setEnabled(false);
+        chart.setDrawMarkers(false);
+
         chart.setData(data);
 
 

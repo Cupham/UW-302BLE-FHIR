@@ -42,5 +42,29 @@ public class JSONDevices
         }
         return t;
     }
+    public JSONDevices MergeThermoDevices()
+    {
+        JSONDevices t = new JSONDevices();
+        JSONDevice merged_temperatures = new JSONDevice();
+        merged_temperatures.deviceType="mergedtemperature";
+        merged_temperatures.merged_ids = new ArrayList<>();
+        merged_temperatures.merged_names = new ArrayList<>();
+        merged_temperatures.merged_types = new ArrayList<>();
+
+        t.devices.add(merged_temperatures);
+        for(int i =0; i < devices.size(); i++)
+        {
+            JSONDevice current_device = devices.get(i);
+            ApplianceType type = ApplianceManager.GetApplianceTypeFromTypeString(current_device.deviceType, current_device.installationLocation );
+            if(type == ApplianceType.CHINICAL_THERMOMETER || type == ApplianceType.TEMPERATURE_SENSOR_INSIDE || type == ApplianceType.TEMPERATURE_SENSOR_OUTSIDE)
+            {
+                merged_temperatures.merged_ids.add(current_device.id);
+                merged_temperatures.merged_names.add(current_device.installationLocation);
+                merged_temperatures.merged_types.add(type);
+            }
+            else t.devices.add(current_device);
+        }
+        return t;
+    }
 
 }
