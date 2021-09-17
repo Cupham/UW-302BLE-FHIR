@@ -49,6 +49,9 @@ public class MyChart
             case MERGED_TEMPETATURE:
                 chart = new MergedTemperatureChart(context, view,myJSONdevice,URL,queue);
                 break;
+            case ILLUMINANCE_SENSOR:
+                chart = new IluminanceSensorChart(context, view,myJSONdevice,URL,queue);
+                break;
             default:
                 chart = new MyChart(context, view,myJSONdevice,URL,queue);
                 break;

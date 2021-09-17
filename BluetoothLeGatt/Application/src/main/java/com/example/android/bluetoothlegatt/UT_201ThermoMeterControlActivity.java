@@ -496,6 +496,8 @@ public class UT_201ThermoMeterControlActivity extends Activity {
 
         }
         else MysetText("RE: UN: " + charac.getValue().toString() + " " +charac.getValue().length);
+
+        OnClickGetSendData(null);
     }
     public  void MyOnRecieveRead(BluetoothGattCharacteristic characteristic)
     {

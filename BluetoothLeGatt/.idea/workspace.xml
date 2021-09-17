@@ -6,7 +6,6 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="TOAN" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
@@ -32,22 +31,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87832160-3e29-4598-a546-04861362f063" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/MergedTemperatureChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONTemperatureOutside.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/temperature.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable/bg_button_rounded_gray.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/IluminanceSensorChart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONIluminanceSensor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONTemperatureInside.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/src/main/res/drawable-hdpi/illuminated.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplianceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplianceAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BodyWeighingChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/BodyWeighingChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UA_651BloodPressureControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UA_651BloodPressureControlActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UT_201ThermoMeterControlActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/android/bluetoothlegatt/UT_201ThermoMeterControlActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/MergedTemperatureChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/MergedTemperatureChart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/MyChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/charts/MyChart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/ApplianceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/ApplianceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/ApplianceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/toan/ApplianceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONDevice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONDevices.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/java/com/example/uichart/ui/json/JSONDevices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/item_appliance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/item_appliance.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_devicescan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_devicescan.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_ua_651.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_ua_651.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_uc_352.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_uc_352.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/src/main/res/layout/activity_ut_201.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/main/res/layout/activity_ut_201.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,8 +95,8 @@
       <list>
         <option value="layoutResourceFile" />
         <option value="valueResourceFile" />
-        <option value="Class" />
         <option value="resourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -126,7 +128,7 @@
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/Application/src/main/res/drawable-mdpi" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Application/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Application/src/main/java/com/example/charts" />
     <property name="memory.settings.postsync.last.time.stamp" value="1627705837966" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
@@ -141,11 +143,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\STGAME\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\java\com\example\charts" />
       <recent name="F:\STGAME\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\layout" />
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\layout" />
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\drawable-mdpi" />
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\menu" />
-      <recent name="C:\Users\nmtoa\Desktop\BLET\BluetoothLeGatt\Application\src\main\res\menu" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nmtoa\Desktop\BLE2\UW-302BLE-FHIR\BluetoothLeGatt\Application\src\main\res\layout" />
@@ -157,6 +159,7 @@
       <recent name="com.example.android.bluetoothlegatt" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.uichart.ui.json" />
       <recent name="com.example.android.bluetoothlegatt" />
       <recent name="com.example.cu" />
       <recent name="com.example.toan" />
@@ -273,12 +276,31 @@
           <line>92</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/charts/IluminanceSensorChart.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplianceAdapter.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/Application/src/main/java/com/example/charts/ApplianceAdapter.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.example.uichart.ui.json.JSONDevice" memberName="deviceType" />
+      </pinned-members>
+    </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="devices.devices.size()" language="JAVA" />
-        <watch expression="devices_merged.devices.size()" language="JAVA" />
+        <watch expression="JSONdevice.deviceType" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

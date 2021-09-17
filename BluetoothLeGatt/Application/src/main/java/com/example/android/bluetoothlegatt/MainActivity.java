@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Log.d("TOAN1","Response is: "+ response );
                         Gson gson = new Gson();
                         devices = gson.fromJson(response, JSONDevices.class);
-                        JSONDevices devices_merged = devices.MergeThermoDevices();
+                        JSONDevices devices_merged = devices.MergeThermoDevices(true);
                         devices = devices_merged;
                         Log.d("TOAN1", devices.devices.size() + "");
                         ListView listView=(ListView)findViewById(R.id.list);

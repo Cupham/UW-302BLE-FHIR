@@ -42,7 +42,7 @@ public class JSONDevices
         }
         return t;
     }
-    public JSONDevices MergeThermoDevices()
+    public JSONDevices MergeThermoDevices(boolean is_trim)
     {
         JSONDevices t = new JSONDevices();
         JSONDevice merged_temperatures = new JSONDevice();
@@ -62,7 +62,14 @@ public class JSONDevices
                 merged_temperatures.merged_names.add(current_device.installationLocation);
                 merged_temperatures.merged_types.add(type);
             }
-            else t.devices.add(current_device);
+            else
+            {
+                if(is_trim && type == ApplianceType.UNKNOWN)
+                {
+
+                }
+                else t.devices.add(current_device);
+            }
         }
         return t;
     }

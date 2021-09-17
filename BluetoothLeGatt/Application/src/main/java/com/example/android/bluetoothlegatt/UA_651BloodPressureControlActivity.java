@@ -479,6 +479,8 @@ public class UA_651BloodPressureControlActivity extends Activity {
             UA_651Obj ua = new UA_651Obj(charac.getValue());
 
             ((TextView)findViewById(R.id.textView_blood_time)).setText(ua.getMeasureTime() + "");
+            if(ua.getMeasureTime()==null)  ((TextView)findViewById(R.id.textView_blood_time)).setText("");
+
             ((TextView)findViewById(R.id.textView_DIA)).setText(ua.getDIA() + "");
             ((TextView)findViewById(R.id.textView_MAP)).setText(ua.getMAP() + "");
             ((TextView)findViewById(R.id.textView_PUL)).setText(ua.getPUL() + "");
@@ -487,6 +489,7 @@ public class UA_651BloodPressureControlActivity extends Activity {
             UA_651 = ua;
         }
         else MysetText("RE: UN: " + charac.getValue().toString() + " " +charac.getValue().length);
+        OnClickGetSendData(null);
     }
     public  void MyOnRecieveRead(BluetoothGattCharacteristic characteristic)
     {

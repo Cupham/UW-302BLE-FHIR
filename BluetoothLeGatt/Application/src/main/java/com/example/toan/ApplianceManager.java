@@ -24,12 +24,12 @@ public class ApplianceManager
             case "mergedtemperature": return ApplianceType.MERGED_TEMPETATURE;
             case "temperatureSensor":
             {
-                if(installationLocation=="livingroom")
+                if(installationLocation=="livingRoom")
                     return ApplianceType.TEMPERATURE_SENSOR_INSIDE;
                 else return ApplianceType.TEMPERATURE_SENSOR_OUTSIDE;
             }
             //case "homeAirConditioner": return ApplianceType.HOME_AIRCONDITIONER;
-            case "illuminanceSensor": return ApplianceType.ILUMINANCE_SENSOR;
+            case "illuminanceSensor": return ApplianceType.ILLUMINANCE_SENSOR;
             default: return ApplianceType.UNKNOWN;
         }
         //return ApplianceType.UNKNOWN;
@@ -53,7 +53,17 @@ public class ApplianceManager
         if(t==ApplianceType.CHINICAL_THERMOMETER) return R.drawable.thermometer;
         if(t==ApplianceType.HOME_AIRCONDITIONER) return R.drawable.airconditioner;
         if(t==ApplianceType.MERGED_TEMPETATURE) return R.drawable.temperature;
+        if(t==ApplianceType.ILLUMINANCE_SENSOR) return R.drawable.illuminated;
+
         return R.drawable.unknown;
+
+    }
+    public static String GetShortName(ApplianceType t)
+    {
+        if(t == ApplianceType.TEMPERATURE_SENSOR_INSIDE) return "Inside";
+        if(t == ApplianceType.TEMPERATURE_SENSOR_OUTSIDE) return "Outside";
+        if(t == ApplianceType.CHINICAL_THERMOMETER) return "Thermometer";
+        return "unknow_shortname";
 
     }
 }

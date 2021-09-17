@@ -447,6 +447,9 @@ public class UC_352WeightScaleControlActivity extends Activity {
         UC_352Obj uc= new UC_352Obj(charac.getValue());
         MysetText(uc.toString() );
 
+
+
+
         ((TextView)findViewById(R.id.textView_value)).setText(uc.getWeight()+"");
         ((TextView)findViewById(R.id.textView_unit)).setText(uc.getUnit());
         ((TextView)findViewById(R.id.textView_time)).setText(uc.getMeasureTime().toString());

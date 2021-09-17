@@ -12,9 +12,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.charts.MyChart;
+import com.example.toan.ApplianceManager;
 import com.example.toan.ApplianceType;
 import com.example.uichart.ui.json.JSONBloodPressure;
 import com.example.uichart.ui.json.JSONDevice;
+import com.example.uichart.ui.json.JSONTemperatureInside;
 import com.example.uichart.ui.json.JSONTemperatureOutside;
 import com.example.uichart.ui.json.JSONThermoMeter;
 import com.github.mikephil.charting.charts.LineChart;
@@ -70,7 +72,7 @@ public class MergedTemperatureChart extends MyChart
         for(int i =0; i < myJSONdevice.merged_ids.size(); i++)
         {
             List<Entry> line = new ArrayList<Entry>();
-            LineDataSet linedataset = new LineDataSet(line, myJSONdevice.merged_ids.get(i));
+            LineDataSet linedataset = new LineDataSet(line, ApplianceManager.GetShortName(myJSONdevice.merged_types.get(i)) );
             linedataset.setLineWidth(4);
             linedataset.setColor(colors[i]);
             linedataset.setDrawCircles(false);
@@ -118,7 +120,11 @@ public class MergedTemperatureChart extends MyChart
                                 JSONTemperatureOutside json = gson.fromJson(response, JSONTemperatureOutside.class);
                                 chart.getData().getDataSets().get(finalI).addEntry(new Entry(currenttime2, json.value));
                             }
-
+                            else if(appliancetype == ApplianceType.TEMPERATURE_SENSOR_INSIDE)
+                            {
+                                JSONTemperatureInside json = gson.fromJson(response, JSONTemperatureInside.class);
+                                chart.getData().getDataSets().get(finalI).addEntry(new Entry(currenttime2, json.value));
+                            }
 
                             chart.getData().notifyDataChanged();
                             chart.notifyDataSetChanged();
