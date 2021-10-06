@@ -102,16 +102,20 @@ public class IluminanceSensorChart extends MyChart
                         }
                         catch (Exception e)
                         {
+                            Log.d("TOAN123","HERE");
                             return;
                         }
 
-                        Date currentTime = Calendar.getInstance().getTime();
-                        float currenttime2 = currentTime.getHours()*3600 + currentTime.getMinutes()*60 + currentTime.getSeconds();
-                        Log.d("TOAN31",currenttime2+"");
-                        chart.getData().getDataSets().get(0).addEntry(new Entry(currenttime2, json.illuminance));
-                        chart.getData().notifyDataChanged();
-                        chart.notifyDataSetChanged();
-                        chart.invalidate();
+                        if(json.value!=null)
+                        {
+                            Date currentTime = Calendar.getInstance().getTime();
+                            float currenttime2 = currentTime.getHours() * 3600 + currentTime.getMinutes() * 60 + currentTime.getSeconds();
+                            Log.d("TOAN31", currenttime2 + ", " + json.toString() + " " + json.value);
+                            chart.getData().getDataSets().get(0).addEntry(new Entry(currenttime2, json.value));
+                            chart.getData().notifyDataChanged();
+                            chart.notifyDataSetChanged();
+                            chart.invalidate();
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
